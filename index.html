@@ -6,95 +6,132 @@
     <title>Francisco Esparza</title>
     <link rel="stylesheet" href="static/styles.css">
     <style>
-        /* Estilos generales */
+        /* Estilos generales del cuerpo */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: auto;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
             color: #333;
-            max-width: 800px;
-            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Menú de navegación */
-        .vertical-menu {
+        nav {
+            width: 180px;
+            background: linear-gradient(180deg, #5a5a5a, #b5b5b5, #5a5a5a);
             position: fixed;
             top: 0;
             left: 0;
-            width: 200px;
             height: 100%;
-            background-color: #333;
+            display: flex;
+            justify-content: flex-start;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
             padding-top: 20px;
-            box-sizing: border-box;
         }
 
-        .vertical-menu ul {
+        nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            width: 100%;
         }
 
-        .vertical-menu li {
-            text-align: left;
+        nav ul li {
+            margin: 10px 0;
         }
 
-        .vertical-menu a {
-            display: block;
-            padding: 10px 15px;
+        nav ul li a {
             text-decoration: none;
             color: white;
-            font-size: 1.1em;
-            border-bottom: 1px solid #444;
+            font-weight: bold;
+            padding: 12px;
+            display: block;
+            background-color: transparent;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            text-align: left;
+            padding-left: 20px;
         }
 
-        .vertical-menu a:hover {
-            background-color: #575757;
+        nav ul li a:hover {
+            background-color: #555;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            transform: translateX(10px);
+            border-radius: 8px;
         }
 
-        /* Contenido principal */
-        .main-content {
-            margin-left: 220px; /* Espacio para el menú */
-            padding: 20px;
+        section {
+            margin-left: 200px;
+            padding: 40px;
+            flex-grow: 1;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
             max-width: 1000px;
-            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        .experience-section {
+            display: block;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .experience-section img {
+            max-width: 200px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+
+        .experience-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin: 0;
+            max-width: 800px;
+        }
+
+        .experience-section strong {
+            color: #007BFF;
+        }
+
+        .downloads-section {
+            margin-top: 30px;
+        }
+
+        .downloads-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .downloads-section li {
+            margin-bottom: 10px;
+        }
+
+        .downloads-section a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .downloads-section a:hover {
+            text-decoration: underline;
         }
 
         footer {
+            text-align: center;
+            padding: 10px;
             background-color: #333;
             color: white;
-            text-align: center;
-            padding: 10px 0;
             position: fixed;
-            width: 100%;
             bottom: 0;
+            width: 100%;
         }
 
-        /* Estilo para ajustar mejor la visualización en pantallas pequeñas */
         @media (max-width: 768px) {
             nav {
                 width: 150px;
