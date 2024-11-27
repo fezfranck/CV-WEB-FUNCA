@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educación - Francisco Esparza</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Ruta estática para el archivo CSS -->
+    <link rel="stylesheet" href="/static/styles.css">
     <style>
         /* Estilos adicionales para la sección de educación */
         .main-content {
@@ -122,8 +123,8 @@
 </head>
 <body>
     <!-- Menú de navegación vertical -->
- <nav class="vertical-menu">
-      <ul>
+    <nav class="vertical-menu">
+        <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="/templates/educacion.html">Educación</a></li>
             <li><a href="/templates/experiencias.html">Experiencias</a></li>
@@ -143,13 +144,13 @@
         <!-- Secciones de educación -->
         <section>
             <div class="education-section">
-                <img src="{{ url_for('static', filename='images/qrins.jpg') }}" alt="INSTAGRAM">
+                <img src="/static/images/qrins.jpg" alt="INSTAGRAM">
                 <p>INSTAGRAM</p>
             </div>
             <hr class="separator">
 
             <div class="education-section">
-                <img src="{{ url_for('static', filename='images/2.png') }}" alt="LINKEDIN">
+                <img src="/static/images/2.png" alt="LINKEDIN">
                 <p>LINKEDIN</p>
             </div>
             <hr class="separator">
@@ -159,7 +160,7 @@
             </div>
 
             <!-- Formulario de contacto -->
-            <form action="procesar_formulario.php" method="post">
+            <form action="/procesar_formulario.php" method="post">
                 <label for="nombre">Nombre y Apellido:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -180,6 +181,6 @@
     <footer>
         <p>&copy; 2024 Francisco Esparza. Todos los derechos reservados.</p>
     </footer>
-
 </body>
 </html>
+
