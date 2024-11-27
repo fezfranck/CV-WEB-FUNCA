@@ -94,40 +94,35 @@
             bottom: 0;
         }
 
-        /* Estilos para dispositivos móviles */
+        /* Estilo para ajustar mejor la visualización en pantallas pequeñas */
         @media (max-width: 768px) {
-            .vertical-menu {
-                position: relative;
-                width: 100%;
-                height: auto;
-                margin-bottom: 20px;
+            nav {
+                width: 150px;
             }
 
-            .vertical-menu a {
-                text-align: center;
-                padding: 15px;
-            }
-
-            .main-content {
-                margin-left: 0;
+            section {
+                margin-left: 170px;
                 padding: 20px;
-                width: 100%;
             }
 
-            header h1 {
-                font-size: 2em;
+            .experience-section {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .profile-img {
-                width: 120px;
+            .experience-section img {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                width: 130px;
             }
 
-            p {
-                font-size: 1.1em;
-            }
-
-            footer {
-                position: relative;
+            section {
+                margin-left: 140px;
+                padding: 15px;
             }
         }
     </style>
