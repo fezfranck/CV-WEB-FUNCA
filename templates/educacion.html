@@ -264,13 +264,20 @@
     </div>
 
     <!-- Scripts -->
-   <script>
-// Función para abrir el modal
-function openModal(img) {
+  <!-- Modal para mostrar las imágenes a pantalla completa -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+</div>
+
+<!-- Scripts -->
+<script>
+// Función para abrir el modal con una imagen específica
+function openModalImage(imageSrc) {
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("modal-img");
     modal.style.display = "block";
-    modalImg.src = img.src;  // Asigna la fuente de la imagen al modal
+    modalImg.src = imageSrc;  // Asigna la fuente de la imagen al modal
 }
 
 // Función para cerrar el modal
@@ -280,5 +287,6 @@ span.onclick = function() {
     modal.style.display = "none";  // Cierra el modal
 }
 </script>
+
 </body>
 </html>
