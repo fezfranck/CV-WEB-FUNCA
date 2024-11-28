@@ -182,7 +182,7 @@
             <div class="education-section">
                 <img src="/static/images/UACJ.png" alt="Escuela Hernandarias Laguna Paiva">
                 <p>Durante el año 2023 participe en el Programa Espacio de Movilidad Virtual en Educación Superior (eMOVIES) de la Organización Universitaria Interamericana (OUI) para el 1° semestre de 2023. Realizando la asignatura Economia Ecologica a cargo del Dr. Humberto Rubí Juárez en el Instituto de Ingeniería y tecnología 
-                    de la Universidad Autónoma de Ciudad Juárez de MEXICO.<bir>
+                    de la Universidad Autónoma de Ciudad Juárez de MEXICO.<br>
                 <a href="#" onclick="openModalImage('/static/images/constanciademovilidadUACJ.png')">Constancia de movilidad UACJ</a></p>
             </div>
             <hr class="separator">
@@ -256,37 +256,37 @@
             </div>
         </section>
     </div>
-
-    <!-- Modal para mostrar las imágenes a pantalla completa -->
+   <!-- Modal para mostrar las imágenes a pantalla completa -->
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-img">
     </div>
 
-    <!-- Scripts -->
-  <!-- Modal para mostrar las imágenes a pantalla completa -->
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img">
-</div>
+     <!-- Scripts -->
+    <script>
+        // Función para abrir el modal con una imagen específica
+        function openModalImage(imageSrc) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modal-img");
+            modal.style.display = "block";
+            modalImg.src = imageSrc;  // Asigna la fuente de la imagen al modal
+        }
 
-<!-- Scripts -->
-<script>
-// Función para abrir el modal con una imagen específica
-function openModalImage(imageSrc) {
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("modal-img");
-    modal.style.display = "block";
-    modalImg.src = imageSrc;  // Asigna la fuente de la imagen al modal
-}
+        // Función para cerrar el modal
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";  // Cierra el modal
+        }
 
-// Función para cerrar el modal
-var span = document.getElementsByClassName("close")[0];
-span.onclick = function() {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";  // Cierra el modal
-}
-</script>
+        // Cierra el modal al hacer clic fuera de la imagen/modal
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
