@@ -53,6 +53,50 @@ nav ul li a:hover {
     border-radius: 8px;
 }
 
+        /* Estilos generales */
+.experience-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.experience-section img {
+    max-width: 100%;  /* Hace que la imagen no se desborde y se ajuste al ancho del contenedor */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experience-section p {
+    font-size: 16px; /* Tamaño base de texto */
+    line-height: 1.6; /* Mejora la legibilidad del texto */
+    max-width: 800px; /* Limita el ancho del texto para que no se estire demasiado */
+    text-align: justify;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .experience-section p {
+        font-size: 14px;  /* Reducir el tamaño de la fuente para pantallas más pequeñas */
+        padding: 10px;    /* Reducir el padding para que el texto no quede tan apretado */
+    }
+
+    .experience-section img {
+        width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible */
+        height: auto;
+    }
+}
+
+/* Ajustes adicionales para dispositivos más pequeños */
+@media (max-width: 480px) {
+    .experience-section p {
+        font-size: 12px;  /* Tamaño de fuente aún más pequeño para pantallas muy pequeñas */
+    }
+}
+
 /* Ajustar para pantallas pequeñas */
 @media (max-width: 768px) {
     nav {
