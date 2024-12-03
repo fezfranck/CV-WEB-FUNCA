@@ -140,9 +140,12 @@
             margin-bottom: 20px;
         }
 
+        /* Hacer la imagen redonda y con tamaño original de 200px */
         .profile-header img {
-            max-width: 150px; /* Tamaño de la imagen */
-            border-radius: 8px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Hace la imagen redonda */
+            object-fit: cover;  /* Asegura que la imagen no se distorsione */
         }
 
         .profile-header h1 {
@@ -187,7 +190,8 @@
             }
 
             .profile-header img {
-                max-width: 120px;
+                width: 150px;
+                height: 150px; /* Ajustamos un poco el tamaño en pantallas pequeñas */
             }
         }
     </style>
@@ -226,4 +230,3 @@
     
 </body>
 </html>
-
