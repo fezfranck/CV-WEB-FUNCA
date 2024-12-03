@@ -3,8 +3,8 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f0f0f0, #d6d6d6);  /* Fondo degradado de gris claro a gris más oscuro */
-    color: #333;  /* Texto gris oscuro */
+    background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
+    color: #333;
     display: flex;
     min-height: 100vh;
     align-items: center;
@@ -13,15 +13,15 @@ body {
 
 /* Menú de navegación vertical */
 .vertical-menu {
-    width: 180px;  /* Reducido el ancho de la barra de navegación */
-    background: linear-gradient(180deg, #343434, #b5b5b5, #343434);  /* Degradado metálico */
+    width: 180px;
+    background: linear-gradient(180deg, #343434, #b5b5b5, #343434);
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;  /* Ocupa toda la altura de la página */
+    height: 100%;
     display: flex;
     justify-content: flex-start;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);  /* Sombra moderna a la derecha */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     padding-top: 20px;
 }
 
@@ -33,35 +33,32 @@ body {
 }
 
 .vertical-menu ul li {
-    margin: 10px 0;  /* Espaciado reducido entre los elementos */
+    margin: 10px 0;
 }
 
-/* Enlaces del menú con efectos dinámicos */
 .vertical-menu ul li a {
     text-decoration: none;
-    color: white;  /* Texto blanco */
+    color: white;
     font-weight: bold;
     padding: 12px;
     display: block;
-    background-color: transparent;  /* Fondo transparente inicialmente */
+    background-color: transparent;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    border-radius: 8px;  /* Bordes redondeados */
-    text-align: left;  /* Alineación a la izquierda para justificar el texto */
-    padding-left: 20px;  /* Espaciado para la justificación del texto */
+    border-radius: 8px;
+    text-align: left;
+    padding-left: 20px;
 }
 
-/* Efecto hover con movimiento, sombra y cambio de color */
 .vertical-menu ul li a:hover {
-    background-color: #555;  /* Color gris intermedio cuando se coloca el mouse */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);  /* Sombra al pasar el mouse */
-    transform: translateX(10px);  /* Mueve el texto ligeramente a la derecha */
-    border-radius: 8px;  /* Mantiene bordes redondeados */
+    background-color: #555;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(10px);
+    border-radius: 8px;
 }
 
-/* Contenido principal */
 .main-content {
-    margin-left: 200px;  /* Ajustado el margen para el menú más estrecho */
+    margin-left: 200px;
     padding: 40px;
     flex-grow: 1;
     display: flex;
@@ -70,12 +67,11 @@ body {
     align-items: center;
     text-align: justify;
     max-width: 900px;
-    background: white;  /* Fondo blanco para mayor contraste */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Sombra suave en el contenido */
-    border-radius: 12px;  /* Bordes redondeados */
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
 }
 
-/* Estilos del encabezado */
 header {
     text-align: center;
     padding: 30px;
@@ -84,18 +80,16 @@ header {
 .profile-img {
     width: 300px;
     height: 300px;
-    border-radius: 50%;  /* Imagen redonda */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Sombra moderna en la imagen */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos para el texto dentro del contenido */
 section {
     padding: 30px;
     text-align: justify;
     line-height: 1.8;
 }
 
-/* Estilos para el pie de página */
 footer {
     text-align: center;
     padding: 10px;
@@ -106,34 +100,82 @@ footer {
     width: 100%;
 }
 
-/* Estilo para ajustar mejor la visualización en pantallas pequeñas */
-        @media (max-width: 768px) {
-            nav {
-                width: 150px;
-            }
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
+    .vertical-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px; /* Reducir altura */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Mantener por encima del contenido */
+    }
 
-            section {
-                margin-left: 170px;
-                padding: 20px;
-            }
+    .vertical-menu ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
 
-            .experience-section {
-                flex-direction: column;
-                align-items: center;
-            }
+    .vertical-menu ul li {
+        margin: 0;
+    }
 
-            .experience-section img {
-                margin-bottom: 10px;
-            }
-        }
+    .vertical-menu ul li a {
+        padding: 10px 15px;
+        font-size: 0.9em; /* Texto más pequeño */
+        background-color: transparent;
+    }
 
-        @media (max-width: 480px) {
-            nav {
-                width: 130px;
-            }
+    .main-content {
+        margin-left: 0;
+        padding-top: 80px; /* Espacio debajo del menú fijo */
+    }
 
-            section {
-                margin-left: 140px;
-                padding: 15px;
-            }
-        }
+    .education-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education-section img {
+        margin-bottom: 10px;
+    }
+
+    .experience-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .experience-section img {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vertical-menu {
+        height: 50px; /* Reducir aún más la altura en pantallas muy pequeñas */
+    }
+
+    .vertical-menu ul li a {
+        font-size: 0.8em; /* Texto aún más pequeño */
+        padding: 8px 10px;
+    }
+
+    .main-content {
+        padding-top: 70px; /* Ajustar espacio debajo del menú */
+    }
+
+    section {
+        margin-left: 0;
+        padding: 15px;
+    }
+}
