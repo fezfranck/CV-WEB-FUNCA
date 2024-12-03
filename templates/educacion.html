@@ -10,7 +10,7 @@
 
         /* Contenido principal para la sección de educación */
         .main-content {
-            margin-left: 270px;  /* Deja espacio para el menú vertical */
+            margin-left: 270px;  /* Deja espacio para el menú vertical en pantallas grandes */
             padding: 40px;
             flex-grow: 1;
             display: flex;
@@ -80,17 +80,46 @@
             cursor: pointer; /* Cambia el cursor al pasar sobre las imágenes */
         }
 
-        /* Estilo responsivo para dispositivos móviles */
+        /* Media queries para pantallas pequeñas */
         @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
+            /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
+            .vertical-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 60px; /* Reducir altura del menú */
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000; /* Asegurar que el menú esté por encima del contenido */
             }
 
-            .vertical-menu {
-                position: relative;
+            .vertical-menu ul {
+                display: flex;
+                justify-content: space-around;
                 width: 100%;
-                margin-bottom: 20px;
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            .vertical-menu ul li {
+                margin: 0;
+            }
+
+            .vertical-menu ul li a {
+                padding: 10px 15px;
+                font-size: 0.9em; /* Texto más pequeño */
+                background-color: transparent;
+            }
+
+            /* Ajustar el contenido principal para que no se superponga con el menú */
+            .main-content {
+                margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
+                padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
             }
 
             .education-section {
@@ -100,6 +129,21 @@
 
             .education-section img {
                 margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vertical-menu {
+                height: 50px; /* Reducir aún más la altura del menú en pantallas muy pequeñas */
+            }
+
+            .vertical-menu ul li a {
+                font-size: 0.8em; /* Texto aún más pequeño */
+                padding: 8px 10px;
+            }
+
+            .main-content {
+                padding-top: 70px; /* Ajustar el espacio debajo del menú */
             }
         }
 
@@ -131,14 +175,14 @@
         }
 
         .close {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    cursor: pointer;
-}
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            cursor: pointer;
+        }
 
         .close:hover,
         .close:focus {
@@ -151,9 +195,9 @@
 </head>
 <body>
 
-    <!-- Menú de navegación vertical -->
+    <!-- Menú de navegación -->
     <nav class="vertical-menu">
-      <ul>
+        <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="/templates/educacion.html">Educación</a></li>
             <li><a href="/templates/experiencias.html">Experiencias</a></li>
@@ -169,7 +213,7 @@
             <h1>Educación</h1>
             <img class="portada-img" src="/static/images/portada.png" alt="Portada de Educación">
         </header>
-
+        
         <!-- Secciones de educación -->
         <section>
             <div class="education-section">
