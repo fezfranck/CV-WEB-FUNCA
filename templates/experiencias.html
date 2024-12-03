@@ -5,88 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencias - Francisco Esparza</title>
     <link rel="stylesheet" href="/static/styles.css">
-    <style>
-        /* Estilos generales del cuerpo */
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    style>
+        /* Estilos adicionales para la sección de educación */
 
-        nav {
-            width: 180px;
-            background: linear-gradient(180deg, #5a5a5a, #b5b5b5, #5a5a5a);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            display: flex;
-            justify-content: flex-start;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            padding-top: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-        }
-
-        nav ul li {
-            margin: 10px 0;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
-            display: block;
-            background-color: transparent;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border-radius: 8px;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            transform: translateX(10px);
-            border-radius: 8px;
-        }
-
-        section {
-            margin-left: 200px;
+        /* Contenido principal para la sección de educación */
+        .main-content {
+            margin-left: 270px;  /* Deja espacio para el menú vertical */
             padding: 40px;
             flex-grow: 1;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            max-width: 1000px;
-            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: justify;
+            max-width: 1000px;  /* Ancho máximo del contenido */
         }
 
-        .experience-section {
-            display: block;
-            margin-bottom: 20px;
+        /* Portada de la subpágina */
+        .portada-img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 40px;  /* Espacio entre la imagen y el contenido */
+        }
+
+        /* Sección de educación y sus elementos */
+        .education-section {
+            display: flex;
             align-items: flex-start;
+            margin-bottom: 20px;
         }
 
-        .experience-section img {
-            max-width: 400px;
+        .education-section img {
+            width: 150px;
+            height: auto;
             margin-right: 20px;
             border-radius: 8px;
         }
 
-        .experience-section p {
+        /* Estilos para el texto */
+        .education-section p {
             font-size: 1.1em;
             line-height: 1.6;
             text-align: justify;
@@ -95,71 +52,53 @@
             max-width: 800px;
         }
 
-        .experience-section strong {
-            color: #007BFF;
+        /* Línea separadora entre secciones */
+        .education-section + .education-section {
+            margin-top: 40px;
         }
 
-        .downloads-section {
+        .separator {
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        /* Galería de certificaciones */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
             margin-top: 30px;
         }
 
-        .downloads-section ul {
-            list-style: none;
-            padding: 0;
+        .gallery img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
         }
 
-        .downloads-section li {
-            margin-bottom: 10px;
-        }
-
-        .downloads-section a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-
-        .downloads-section a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
+        /* Estilo responsivo para dispositivos móviles */
         @media (max-width: 768px) {
-            nav {
-                width: 200px;
-            }
-
-            section {
-                margin-left: 170px;
+            .main-content {
+                margin-left: 0;
                 padding: 20px;
             }
 
-            .experience-section {
+            .vertical-menu {
+                position: relative;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .education-section {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .experience-section img {
+            .education-section img {
                 margin-bottom: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                width: 150px;
-            }
-
-            section {
-                margin-left: 140px;
-                padding: 15px;
             }
         }
     </style>
