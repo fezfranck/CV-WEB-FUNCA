@@ -5,188 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencias - Francisco Esparza</title>
     <link rel="stylesheet" href="/static/styles.css">
-    style>
-        /* Estilos generales */
-body {
-    font-family: Arial, sans-serif;  /* Fuente general */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+   <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f0f0, #d6d6d6);  /* Fondo degradado de gris claro a gris más oscuro */
+            color: #333;  /* Texto gris oscuro */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+        /* Menú de navegación con degradado metálico */
+        nav {
+            width: 180px;  /* Ancho reducido */
+            background: linear-gradient(180deg, #5a5a5a, #b5b5b5, #5a5a5a);  /* Degradado metálico */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;  /* Ocupa toda la altura */
+            display: flex;
+            justify-content: flex-start;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);  /* Sombra moderna */
+            padding-top: 20px;
+        }
 
-/* Menú de navegación */
-nav {
-    background-color: #f1f1f1;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-}
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
+        nav ul li {
+            margin: 10px 0;  /* Espaciado reducido */
+        }
 
-nav ul li {
-    margin: 0 15px;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: white;  /* Texto blanco */
+            font-weight: bold;
+            padding: 12px;
+            display: block;
+            background-color: transparent;  /* Fondo transparente inicialmente */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border-radius: 8px;
+            text-align: left;  /* Alineación a la izquierda */
+            padding-left: 20px;  /* Espaciado para justificar el texto */
+        }
 
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1em;
-    padding: 10px 15px;
-}
+        /* Efecto hover en los enlaces */
+        nav ul li a:hover {
+            background-color: #555;  /* Color gris intermedio */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);  /* Sombra */
+            transform: translateX(10px);  /* Mueve ligeramente a la derecha */
+            border-radius: 8px;
+        }
 
-/* Sección principal de contenido */
-.main-content {
-    margin-top: 60px;  /* Espacio para el menú fijo */
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        /* Ajuste del contenido principal */
+        section {
+            margin-left: 200px;  /* Margen para el menú más estrecho */
+            padding: 40px;
+            flex-grow: 1;
+            background: white;  /* Fondo blanco para contraste */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+            border-radius: 12px;  /* Bordes redondeados */
+            max-width: 1000px;  /* Ancho máximo para el contenido */
+            margin-top: 40px;  /* Separación del contenido hacia abajo */
+        }
 
-h1 {
-    font-size: 2.5em;
-}
+        /* Estilos básicos para la presentación de la información */
+        .experience-section {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start; /* Asegura que las imágenes y textos se alineen correctamente */
+        }
 
-/* Sección de experiencia */
-.experience-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-    max-width: 900px;
-    width: 100%;
-}
+        .experience-section img {
+            max-width: 200px;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
 
-.experience-section img {
-    max-width: 250px;  /* Limita el tamaño de las imágenes */
-    height: auto;
-    margin-right: 20px;
-    border-radius: 8px;
-}
+        /* Estilos uniformes para el texto */
+        .experience-section p {
+            font-size: 1.1em; /* Aumenta un poco el tamaño de la fuente para mejorar la legibilidad */
+            line-height: 1.6; /* Aumenta el espaciado entre líneas */
+            text-align: justify; /* Justifica el texto para darle un aspecto uniforme en los márgenes */
+            color: #333; /* Color de texto más suave para facilitar la lectura */
+            margin: 0; /* Asegura que no haya márgenes adicionales alrededor del texto */
+            max-width: 800px; /* Limita el ancho máximo del texto para mejorar la legibilidad */
+        }
 
-.experience-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    text-align: justify;
-    color: #333;
-    margin: 0;
-    max-width: 800px;
-}
+        .experience-section strong {
+            color: #007BFF; /* Resalta el texto fuerte (strong) con un color azul */
+        }
 
-/* Separadores */
-.separator {
-    border: none;
-    height: 1px;
-    background-color: #ccc;
-    margin: 20px 0;
-}
+        /* Menú de descarga */
+        .downloads-section {
+            margin-top: 30px;
+        }
 
-/* Estilos de la galería de archivos y artículos */
-.downloads-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
+        .downloads-section ul {
+            list-style: none;
+            padding: 0;
+        }
 
-.downloads-section ul {
-    list-style-type: none;
-    padding: 0;
-}
+        .downloads-section li {
+            margin-bottom: 10px;
+        }
 
-.downloads-section ul li {
-    margin: 10px 0;
-}
+        .downloads-section a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
 
-.downloads-section a {
-    text-decoration: none;
-    color: #0066cc;
-    font-size: 1.1em;
-}
+        .downloads-section a:hover {
+            text-decoration: underline;
+        }
 
-.downloads-section a:hover {
-    text-decoration: underline;
-}
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-/* Media queries para pantallas pequeñas */
-@media (max-width: 768px) {
-    /* Ajustes para el menú de navegación */
-    nav {
-        position: relative;
-        box-shadow: none;
-    }
+        /* Estilo para ajustar mejor la visualización en pantallas pequeñas */
+        @media (max-width: 768px) {
+            nav {
+                width: 150px;
+            }
 
-    nav ul {
-        flex-direction: column;
-    }
+            section {
+                margin-left: 170px;
+                padding: 20px;
+            }
 
-    /* Ajustes para la experiencia */
-    .experience-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+            .experience-section {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .experience-section img {
-        max-width: 100%;  /* Hacer que las imágenes ocupen todo el ancho disponible */
-        margin-bottom: 10px;
-    }
+            .experience-section img {
+                margin-bottom: 10px;
+            }
+        }
 
-    .experience-section p {
-        font-size: 1em;  /* Reducir tamaño de texto en pantallas pequeñas */
-        padding: 0 10px;
-        text-align: justify;
-    }
+        @media (max-width: 480px) {
+            nav {
+                width: 130px;
+            }
 
-    .main-content {
-        padding: 20px;
-        margin-top: 80px;  /* Ajustar para que no se superponga con el menú */
-    }
-
-    .downloads-section h2 {
-        font-size: 1.5em;
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul li a {
-        font-size: 0.8em;
-        padding: 8px 10px;
-    }
-
-    .experience-section p {
-        font-size: 0.9em;  /* Reducir aún más el tamaño de la fuente */
-    }
-
-    .main-content {
-        padding: 20px;
-    }
-
-    .downloads-section h2 {
-        font-size: 1.4em;
-    }
-}
-
+            section {
+                margin-left: 140px;
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
