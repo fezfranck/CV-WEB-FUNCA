@@ -75,13 +75,13 @@
         }
 
         .experience-section {
-            display: flex; /* Cambio aquí */
+            display: flex; /* Alinea los elementos en fila */
             margin-bottom: 20px;
-            align-items: flex-start; /* Alinea el contenido al inicio */
+            align-items: flex-start;
         }
 
         .experience-section img {
-            max-width: 400px; /* Ajusta el tamaño de la imagen según sea necesario */
+            max-width: 500px; /* Se aumentó el tamaño máximo de las imágenes */
             margin-right: 20px;
             border-radius: 8px;
         }
@@ -131,21 +131,21 @@
             bottom: 0;
             width: 100%;
         }
-         /* Media queries para pantallas pequeñas */
+
+        /* Responsividad para pantallas pequeñas */
         @media (max-width: 768px) {
-            /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
             nav {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 60px; /* Reducir altura del menú */
+                height: 60px; 
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
                 padding: 0;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1000; /* Asegurar que el menú esté por encima del contenido */
+                z-index: 1000;
             }
 
             nav ul {
@@ -163,14 +163,16 @@
 
             nav ul li a {
                 padding: 10px 15px;
-                font-size: 0.9em; /* Texto más pequeño */
+                font-size: 0.9em;
                 background-color: transparent;
             }
 
-            /* Ajustar el contenido principal para que no se superponga con el menú */
+            /* Ajustar el contenido principal */
             section {
-                margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
-                padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
+                margin-left: 0;  /* Sin margen izquierdo */
+                padding-top: 80px;  /* Espacio suficiente para el menú fijo */
+                padding-left: 20px; /* Agregar margen izquierdo para legibilidad */
+                padding-right: 20px; /* Agregar margen derecho para legibilidad */
             }
 
             .experience-section {
@@ -180,21 +182,25 @@
 
             .experience-section img {
                 margin-bottom: 10px;
+                max-width: 100%; /* Imagen ocupa el 100% del ancho */
             }
         }
 
+        /* Responsividad para pantallas aún más pequeñas */
         @media (max-width: 480px) {
             nav {
-                height: 50px; /* Reducir aún más la altura del menú en pantallas muy pequeñas */
+                height: 50px;
             }
 
             nav ul li a {
-                font-size: 0.8em; /* Texto aún más pequeño */
+                font-size: 0.8em;
                 padding: 8px 10px;
             }
 
             section {
-                padding-top: 70px; /* Ajustar el espacio debajo del menú */
+                padding-top: 70px;
+                padding-left: 15px; /* Menor margen en pantallas muy pequeñas */
+                padding-right: 15px;
             }
         }
     </style>
