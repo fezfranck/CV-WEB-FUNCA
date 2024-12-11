@@ -130,13 +130,6 @@
         button:hover {
             background-color: #0056b3;
         }
-
-        .thank-you-message {
-            display: none;
-            font-size: 1.5em;
-            color: green;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -163,13 +156,13 @@
         <section>
             <div class="education-section">
                 <img src="/static/images/Insta.png" alt="INSTAGRAM">
-                <a href="https://www.instagram.com/tu_usuario" class="social-link" target="_blank">Ir a Instagram</a>
+                <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
             </div>
             <hr class="separator">
 
             <div class="education-section">
                 <img src="/static/images/Linkedin.png" alt="LINKEDIN">
-                <a href="https://www.linkedin.com/in/tu_usuario" class="social-link" target="_blank">Ir a LinkedIn</a>
+                <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
             </div>
             <hr class="separator">
 
@@ -178,7 +171,10 @@
             </div>
 
             <!-- Formulario de contacto usando Formspree -->
-            <form id="contactForm" action="https://formspree.io/f/{tu_codigo_unico}" method="POST">
+            <form action="https://formspree.io/f/{tu_codigo_unico}" method="POST">
+                <!-- Este campo oculta redirige a una página de agradecimiento -->
+                <input type="hidden" name="_next" value="https://tu-sitio.github.io/gracias.html">
+
                 <label for="nombre">Nombre y Apellido:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -193,32 +189,11 @@
 
                 <button type="submit">Enviar Mensaje</button>
             </form>
-
-            <!-- Mensaje de agradecimiento que se mostrará al enviar -->
-            <div class="thank-you-message" id="thankYouMessage">
-                ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
-            </div>
         </section>
     </div>
 
     <footer>
         <p>&copy; 2024 Francisco Esparza. Todos los derechos reservados.</p>
     </footer>
-
-    <script>
-        // Función para mostrar mensaje de agradecimiento
-        function showThankYouMessage() {
-            const params = new URLSearchParams(window.location.search);
-            if (params.has('success')) {
-                // Ocultar formulario
-                document.getElementById('contactForm').style.display = 'none';
-                // Mostrar el mensaje de agradecimiento
-                document.getElementById('thankYouMessage').style.display = 'block';
-            }
-        }
-
-        // Ejecutar la función al cargar la página
-        window.onload = showThankYouMessage;
-    </script>
 </body>
 </html>
