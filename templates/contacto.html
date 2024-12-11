@@ -29,7 +29,7 @@
         /* Sección de educación y sus elementos */
         .education-section {
             display: flex;
-            align-items: flex-start;
+            align-items: center;  /* Alinea verticalmente los elementos */
             margin-bottom: 20px;
         }
 
@@ -49,6 +49,18 @@
             margin: 0;
             max-width: 800px;
             font-weight: bold;  /* Texto en negrita */
+        }
+
+        /* Estilos para el enlace */
+        .social-link {
+            margin-left: 10px;
+            font-size: 1.2em;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
         }
 
         /* Línea separadora entre secciones */
@@ -145,12 +157,14 @@
             <div class="education-section">
                 <img src="/static/images/qrins.jpg" alt="INSTAGRAM">
                 <p>INSTAGRAM</p>
+                <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
             </div>
             <hr class="separator">
 
             <div class="education-section">
                 <img src="/static/images/2.png" alt="LINKEDIN">
                 <p>LINKEDIN</p>
+                <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
             </div>
             <hr class="separator">
 
@@ -158,8 +172,11 @@
                 <p>FORMULARIO DE CONTACTO</p>
             </div>
 
-            <!-- Formulario de contacto -->
-            <form action="/procesar_formulario.php" method="post">
+            <!-- Formulario de contacto usando Formspree -->
+            <form action="https://formspree.io/f/mkgnapqz" method="POST">
+                <!-- Este campo oculta redirige a una página de agradecimiento -->
+                <input type="hidden" name="_next" value="https://tu-sitio.github.io/gracias.html">
+
                 <label for="nombre">Nombre y Apellido:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -182,4 +199,3 @@
     </footer>
 </body>
 </html>
-
