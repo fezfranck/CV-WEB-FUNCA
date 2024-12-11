@@ -8,7 +8,7 @@
     <style>
         /* Estilos adicionales para la sección de educación */
         .main-content {
-            margin-left: 270px;  /* Deja espacio para el menú vertical */
+            margin-left: 270px;  /* Deja espacio para el menú vertical en pantallas grandes */
             padding: 40px;
             flex-grow: 1;
             display: flex;
@@ -78,8 +78,9 @@
         /* Estilo responsivo para dispositivos móviles */
         @media (max-width: 768px) {
             .main-content {
-                margin-left: 0;
-                padding: 20px;
+                margin-left: 0;  /* Elimina el margen izquierdo solo en pantallas pequeñas */
+                padding: 10px;   /* Ajusta el relleno para pantallas pequeñas */
+                max-width: 100%; /* Asegura que el contenido ocupe todo el ancho */
             }
 
             .vertical-menu {
@@ -95,6 +96,13 @@
 
             .education-section img {
                 margin-bottom: 10px;
+                width: 100%;  /* Asegura que las imágenes no sean demasiado grandes en móviles */
+            }
+
+            .education-section p {
+                font-size: 1.2em;  /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+                line-height: 2.5;  /* Reduce el espaciado entre líneas */
+                text-align: center; /* Centra el texto en pantallas pequeñas */
             }
         }
 
