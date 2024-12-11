@@ -34,7 +34,7 @@
         }
 
         .education-section img {
-            width: 150px;
+            width: 350px;
             height: auto;
             margin-right: 20px;
             border-radius: 8px;
@@ -162,15 +162,13 @@
         <!-- Secciones de educación -->
         <section>
             <div class="education-section">
-                <img src="/static/images/qrins.jpg" alt="INSTAGRAM">
-                <p>INSTAGRAM</p>
+                <img src="/static/images/Insta.png" alt="INSTAGRAM">
                 <a href="https://www.instagram.com/tu_usuario" class="social-link" target="_blank">Ir a Instagram</a>
             </div>
             <hr class="separator">
 
             <div class="education-section">
-                <img src="/static/images/2.png" alt="LINKEDIN">
-                <p>LINKEDIN</p>
+                <img src="/static/images/Linkedin.png" alt="LINKEDIN">
                 <a href="https://www.linkedin.com/in/tu_usuario" class="social-link" target="_blank">Ir a LinkedIn</a>
             </div>
             <hr class="separator">
@@ -208,33 +206,19 @@
     </footer>
 
     <script>
-        // Escuchar el evento de envío del formulario
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita la recarga de la página
+        // Función para mostrar mensaje de agradecimiento
+        function showThankYouMessage() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('success')) {
+                // Ocultar formulario
+                document.getElementById('contactForm').style.display = 'none';
+                // Mostrar el mensaje de agradecimiento
+                document.getElementById('thankYouMessage').style.display = 'block';
+            }
+        }
 
-            // Recoge los datos del formulario
-            const formData = new FormData(this);
-
-            // Envía el formulario usando Fetch API
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Oculta el formulario
-                    document.getElementById('contactForm').style.display = 'none';
-                    // Muestra el mensaje de agradecimiento
-                    document.getElementById('thankYouMessage').style.display = 'block';
-                } else {
-                    alert('Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
-                }
-            }).catch(error => {
-                alert('Error al enviar el formulario. Por favor, inténtalo más tarde.');
-            });
-        });
+        // Ejecutar la función al cargar la página
+        window.onload = showThankYouMessage;
     </script>
 </body>
 </html>
