@@ -134,7 +134,7 @@
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
             }
- nav ul {
+            nav ul {
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
@@ -155,29 +155,37 @@
 
             /* Ajustar el contenido principal */
             section {
-                margin-left: 0;  /* Sin margen izquierdo */
+                margin-left: 0;  /* Elimina el margen izquierdo solo en pantallas pequeñas */
                 padding-top: 80px;  /* Espacio suficiente para el menú fijo */
                 padding-left: 20px; /* Agregar margen izquierdo para legibilidad */
                 padding-right: 20px; /* Agregar margen derecho para legibilidad */
             }
+
             .content-container {
-                margin-left: 170px;
+                margin-left: 0;  /* Elimina el margen izquierdo solo en pantallas pequeñas */
                 flex-direction: column;
                 height: auto;
             }
 
             .content-container img {
-                width: 100%;
-                height: auto;
+                width: 100%;  /* La imagen ocupa todo el ancho en pantallas pequeñas */
+                height: auto;  /* Ajusta la altura de la imagen automáticamente */
                 margin-bottom: 20px;
             }
+
+            .content-container .text-content p {
+                font-size: 1em; /* Ajuste del tamaño de fuente para pantallas más pequeñas */
+                line-height: 1.5;
+                text-align: center; /* Centra el texto en pantallas pequeñas */
+            }
         }
- /* Responsividad para pantallas aún más pequeñas */
+
+        /* Responsividad para pantallas aún más pequeñas */
         @media (max-width: 480px) {
             nav {
                 width: 50px;
             }
-  nav ul li a {
+            nav ul li a {
                 font-size: 0.8em;
                 padding: 8px 10px;
             }
@@ -222,4 +230,3 @@
 
 </body>
 </html>
-
