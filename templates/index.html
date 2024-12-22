@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francisco Esparza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Referencia al archivo CSS externo -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- Menú de navegación vertical -->
-    <nav>
+    <nav class="vertical-menu">
         <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="/templates/educacion.html">Educación</a></li>
@@ -20,19 +21,23 @@
     </nav>
 
     <!-- Contenido principal -->
-    <main>
-        <header class="profile-header">
-            <img src="static/mi_foto.jpeg" alt="Mi Foto" class="profile-img">
-            <h1>Francisco Abel Esparza</h1>
+    <div class="main-content">
+        <header>
+            <!-- Contenedor del título y la imagen -->
+            <div class="profile-header">
+                <img src="static/mi_foto.jpeg" alt="Mi Foto" class="profile-img">
+                <h1>Francisco Abel Esparza</h1>
+            </div>
             <p class="profile-description">
-                ¡Hola! Soy Fran, tengo 26 años, resido en Santa Fe, soy técnico en informática personal y profesional, y estudiante de la Licenciatura en Ciencia Política.
+                ¡Hola! Soy Fran, tengo 26 años, resido en la ciudad de Santa Fe, soy técnico en informática personal y profesional,
+                y estudiante avanzado de la Licenciatura en Ciencia Política, Diplomado en Gestión Legislativa y en Diseño Gráfico.
             </p>
         </header>
-    </main>
+    </div>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Francisco Esparza. Todos los derechos reservados.</p>
     </footer>
+    
 </body>
 </html>
