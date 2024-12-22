@@ -29,6 +29,7 @@
             justify-content: flex-start;
             padding-top: 40px;
             box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* Para asegurarse de que el menú esté encima del contenido */
         }
 
         nav ul {
@@ -62,7 +63,7 @@
         }
 
         section {
-            margin-left: 240px;
+            margin-left: 240px; /* Ajuste aquí para garantizar que no se superponga */
             padding: 60px;
             flex-grow: 1;
             background: #fff;
@@ -70,6 +71,7 @@
             border-radius: 16px;
             max-width: 1000px;
             margin-top: 40px;
+            z-index: 5; /* Para asegurarse de que el contenido quede detrás del menú si se usan capas */
         }
 
         footer {
@@ -118,7 +120,7 @@
             }
 
             section {
-                margin-left: 180px;
+                margin-left: 180px; /* Ajustado para pantallas más pequeñas */
                 padding: 30px;
             }
 
@@ -149,7 +151,7 @@
             }
 
             section {
-                margin-left: 140px;
+                margin-left: 140px; /* Ajustado para pantallas más pequeñas */
                 padding: 20px;
             }
 
