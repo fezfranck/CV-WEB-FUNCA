@@ -59,7 +59,7 @@ nav ul li a:hover {
 
 /* Sección principal */
 .main-content {
-    margin-left: 260px;  /* Ajustado para evitar superposición */
+    margin-left: 300px;  /* Ajustado para evitar superposición */
     padding: 60px;
     flex-grow: 1;
     background: #fff;
@@ -118,7 +118,7 @@ footer {
     }
 
     .main-content {
-        margin-left: 180px;  /* Ajustado para pantallas más pequeñas */
+        margin-left: 200px;  /* Ajustado para pantallas más pequeñas */
         padding: 30px;
     }
 
@@ -149,7 +149,7 @@ footer {
     }
 
     .main-content {
-        margin-left: 140px;  /* Ajustado para pantallas más pequeñas */
+        margin-left: 160px;  /* Ajustado para pantallas más pequeñas */
         padding: 20px;
     }
 
