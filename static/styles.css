@@ -1,78 +1,66 @@
 /* Estilos generales */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
     color: #333;
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Menú de navegación vertical */
-.vertical-menu {
+/* Menú de navegación */
+nav {
     width: 180px;
-    background: linear-gradient(180deg, #343434, #b5b5b5, #343434);
+    background: linear-gradient(180deg, #343434, #b5b5b5);
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     display: flex;
     justify-content: flex-start;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     padding-top: 20px;
 }
 
-.vertical-menu ul {
+nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     width: 100%;
 }
 
-.vertical-menu ul li {
+nav ul li {
     margin: 10px 0;
 }
 
-.vertical-menu ul li a {
+nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 12px;
+    padding: 12px 20px;
     display: block;
-    background-color: transparent;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: fixed;
+    transition: all 0.3s ease;
     border-radius: 8px;
-    text-align: left;
-    padding-left: 20px;
 }
 
-.vertical-menu ul li a:hover {
+nav ul li a:hover {
     background-color: #555;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     transform: translateX(10px);
-    border-radius: 8px;
 }
 
-.main-content {
+/* Contenido principal */
+main {
     margin-left: 200px;
     padding: 40px;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    max-width: 900px;
     background: #fafafa;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
+    max-width: 900px;
 }
 
-header {
+.profile-header {
     text-align: center;
     padding: 30px;
 }
@@ -84,12 +72,12 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-section {
-    padding: 30px;
-    text-align: justify;
+.profile-description {
+    font-size: 1.1em;
     line-height: 1.8;
 }
 
+/* Footer */
 footer {
     text-align: center;
     font-size: 0.8em;
@@ -101,82 +89,46 @@ footer {
     width: 100%;
 }
 
-/* Media queries para pantallas pequeñas */
+/* Media queries */
 @media (max-width: 768px) {
-    /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
-    .vertical-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
+    nav {
         width: 100%;
-        height: 60px; /* Reducir altura */
+        height: 60px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        padding: 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000; /* Mantener por encima del contenido */
     }
 
-    .vertical-menu ul {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
+    nav ul {
+        flex-direction: row;
     }
 
-    .vertical-menu ul li {
-        margin: 0;
-    }
-
-    .vertical-menu ul li a {
-        padding: 10px 15px;
-        font-size: 0.9em; /* Texto más pequeño */
-        background-color: transparent;
-    }
-
-    .main-content {
+    main {
         margin-left: 0;
-        padding-top: 80px; /* Espacio debajo del menú fijo */
+        padding-top: 80px;
     }
 
-    .education-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .education-section img {
-        margin-bottom: 10px;
-    }
-
-    .experience-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .experience-section img {
-        margin-bottom: 10px;
+    .profile-img {
+        width: 180px;
+        height: 180px;
     }
 }
 
 @media (max-width: 480px) {
-    .vertical-menu {
-        height: 50px; /* Reducir aún más la altura en pantallas muy pequeñas */
+    nav {
+        height: 50px;
     }
 
-    .vertical-menu ul li a {
-        font-size: 0.8em; /* Texto aún más pequeño */
-        padding: 8px 10px;
+    nav ul li a {
+        font-size: 0.8em;
     }
 
-    .main-content {
-        padding-top: 70px; /* Ajustar espacio debajo del menú */
+    main {
+        padding-top: 70px;
     }
 
-    section {
-        margin-left: 0;
-        padding: 15px;
+    .profile-img {
+        width: 140px;
+        height: 140px;
     }
 }
