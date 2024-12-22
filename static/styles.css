@@ -24,6 +24,7 @@ nav {
     box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilo de la lista en el menú */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -31,10 +32,12 @@ nav ul {
     width: 100%;
 }
 
+/* Estilo de los elementos del menú */
 nav ul li {
     margin: 20px 0;
 }
 
+/* Estilo de los enlaces del menú */
 nav ul li a {
     text-decoration: none;
     color: #fff;
@@ -56,7 +59,7 @@ nav ul li a:hover {
 
 /* Sección principal */
 .main-content {
-    margin-left: 240px;
+    margin-left: 260px;  /* Ajustado para evitar superposición */
     padding: 60px;
     flex-grow: 1;
     background: #fff;
@@ -115,7 +118,7 @@ footer {
     }
 
     .main-content {
-        margin-left: 180px;
+        margin-left: 180px;  /* Ajustado para pantallas más pequeñas */
         padding: 30px;
     }
 
@@ -146,7 +149,7 @@ footer {
     }
 
     .main-content {
-        margin-left: 140px;
+        margin-left: 140px;  /* Ajustado para pantallas más pequeñas */
         padding: 20px;
     }
 
