@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francisco Esparza</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales del cuerpo */
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
-            color: #333;
+            background: linear-gradient(135deg, #f7f7f7, #e9e9e9);
+            color: #2c2c2c;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
         nav {
-            width: 180px;
-            background: linear-gradient(180deg, #5a5a5a, #b5b5b5, #5a5a5a);
+            width: 220px;
+            background: linear-gradient(180deg, #4a4a4a, #333);
             position: fixed;
             top: 0;
             left: 0;
             height: 100%;
             display: flex;
             justify-content: flex-start;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            padding-top: 20px;
+            padding-top: 40px;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
@@ -39,115 +39,107 @@
         }
 
         nav ul li {
-            margin: 10px 0;
+            margin: 20px 0;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 12px;
+            color: #fff;
+            font-weight: 600;
+            padding: 15px;
             display: block;
-            background-color: transparent;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
-            border-radius: 8px;
             text-align: left;
-            padding-left: 20px;
+            padding-left: 30px;
+            border-radius: 10px;
         }
 
         nav ul li a:hover {
             background-color: #555;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            transform: translateX(10px);
-            border-radius: 8px;
+            transform: translateX(15px);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         section {
-            margin-left: 200px;
-            padding: 40px;
+            margin-left: 240px;
+            padding: 60px;
             flex-grow: 1;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
             max-width: 1000px;
             margin-top: 40px;
         }
 
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
+            padding: 15px;
+            background-color: #2c2c2c;
+            color: #fff;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
 
-        /* Ajustes para el título, la imagen y la descripción */
         .profile-header {
             display: flex;
             align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        /* Imagen redonda con mayor tamaño en pantallas grandes */
         .profile-header img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%; /* Hacer la imagen redonda */
-            object-fit: cover;  /* Asegura que la imagen no se distorsione */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Añadir un sombreado sutil */
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
-        /* Título más grande y centrado */
         .profile-header h1 {
-            font-size: 3em;
-            color: #333;
+            font-size: 3.2em;
+            color: #2c3e50;
             margin: 0;
-            font-weight: bold;
-            line-height: 1.2;
+            font-weight: 600;
         }
 
-        /* Estilo de la descripción */
         .profile-description {
-            font-size: 1.3em;
-            line-height: 1.7;
+            font-size: 1.2em;
+            line-height: 1.6;
             color: #555;
-            max-width: 800px;
+            max-width: 850px;
             text-align: justify;
         }
 
-        /* Media Queries para pantallas móviles */
         @media (max-width: 768px) {
             nav {
-                width: 150px;
+                width: 170px;
             }
 
             section {
-                margin-left: 170px;
-                padding: 20px;
+                margin-left: 180px;
+                padding: 30px;
             }
 
             .profile-header {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
+                gap: 20px;
             }
 
             .profile-header img {
                 width: 180px;
-                height: 180px; /* Reducir el tamaño de la imagen en pantallas pequeñas */
+                height: 180px;
             }
 
             .profile-header h1 {
-                font-size: 2em; /* Reducir tamaño del título en pantallas pequeñas */
+                font-size: 2.5em;
             }
 
             .profile-description {
-                font-size: 1.1em; /* Reducir el tamaño del texto de descripción */
-                text-align: center; /* Centrar la descripción en pantallas pequeñas */
+                font-size: 1.1em;
+                text-align: center;
             }
         }
 
@@ -158,16 +150,16 @@
 
             section {
                 margin-left: 140px;
-                padding: 15px;
+                padding: 20px;
             }
 
             .profile-header img {
-                width: 150px;
-                height: 150px; /* Aún más pequeño en pantallas muy pequeñas */
+                width: 140px;
+                height: 140px;
             }
 
             .profile-header h1 {
-                font-size: 1.8em; /* Tamaño del título para móviles más pequeños */
+                font-size: 1.8em;
             }
 
             .profile-description {
@@ -210,3 +202,4 @@
     
 </body>
 </html>
+
