@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Francisco Esparza</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
     <style>
         /* Estilos generales del cuerpo */
         body {
@@ -49,10 +49,10 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            background-color: #fff; /* Fondo blanco para las secciones de contacto */
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para resaltar la sección */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav ul li a:hover {
@@ -80,7 +80,6 @@
             font-weight: bold;
         }
 
-        /* Estilos para el enlace */
         .social-link {
             margin-left: 10px;
             font-size: 1.2em;
@@ -92,7 +91,6 @@
             text-decoration: underline;
         }
 
-        /* Línea separadora entre secciones */
         .contact-section + .contact-section {
             margin-top: 40px;
         }
@@ -104,17 +102,16 @@
             margin: 20px 0;
         }
 
-        /* Estilos del formulario de contacto */
         form {
-            background-color: #fff; /* Fondo blanco para el formulario */
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el formulario */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         form label {
             font-weight: bold;
-            font-style: italic; /* Texto en cursiva para las etiquetas del formulario */
+            font-style: italic;
             margin-bottom: 5px;
         }
 
@@ -125,7 +122,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 1em;
-            font-style: italic; /* Texto en cursiva para los campos de entrada */
+            font-style: italic;
         }
 
         button {
@@ -143,7 +140,6 @@
             background-color: #0056b3;
         }
 
-        /* Estilo responsivo para dispositivos móviles */
         @media (max-width: 768px) {
             nav {
                 position: fixed;
@@ -186,7 +182,6 @@
                 background-color: transparent;
             }
 
-            /* Ajustar el contenido principal */
             section {
                 margin-left: 0;
                 padding-top: 80px;
@@ -203,7 +198,6 @@
             }
         }
 
-        /* Responsividad para pantallas aún más pequeñas */
         @media (max-width: 480px) {
             nav {
                 height: 50px;
@@ -238,7 +232,6 @@
             }
         }
 
-        /* Para pantallas grandes */
         @media (min-width: 769px) {
             nav {
                 width: 180px;
@@ -267,35 +260,31 @@
     </style>
 </head>
 <body>
-    <!-- Menú de navegación -->
     <nav class="vertical-menu">
         <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/templates/educacion.html">Educación</a></li>
-            <li><a href="/templates/experiencias.html">Experiencias</a></li>
-            <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
-            <li><a href="/templates/contacto.html">Contacto</a></li>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../templates/educacion.html">Educación</a></li>
+            <li><a href="../templates/experiencias.html">Experiencias</a></li>
+            <li><a href="../templates/quiensoy.html">Quién Soy</a></li>
+            <li><a href="../templates/contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Contenido principal para la sección de contacto -->
     <div class="main-content">
-        <!-- Encabezado y portada de la sección de contacto -->
         <header>
             <h1>Contacto</h1>
             <p>Contáctame por cualquiera de mis redes sociales.</p>
         </header>
 
-        <!-- Secciones de contacto -->
         <section>
             <div class="contact-section">
-                <img src="/static/images/Insta.png" alt="INSTAGRAM">
+                <img src="../static/images/Insta.png" alt="INSTAGRAM">
                 <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
             </div>
             <hr class="separator">
 
             <div class="contact-section">
-                <img src="/static/images/Linkedin.png" alt="LINKEDIN">
+                <img src="../static/images/Linkedin.png" alt="LINKEDIN">
                 <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
             </div>
             <hr class="separator">
@@ -304,9 +293,8 @@
                 <p>FORMULARIO DE CONTACTO</p>
             </div>
 
-            <!-- Formulario de contacto usando Formspree -->
             <form action="https://formspree.io/f/{tu_codigo_unico}" method="POST">
-                <input type="hidden" name="_next" value="https://tu-sitio.github.io/gracias.html">
+                <input type="hidden" name="_next" value="../gracias.html">
 
                 <label for="nombre">Nombre y Apellido:</label>
                 <input type="text" id="nombre" name="nombre" required>
