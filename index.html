@@ -11,7 +11,8 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f7f7f7, #e9e9e9);
+            background: url('static/fondo.jpg') no-repeat center center fixed; /* Añadir imagen de fondo */
+            background-size: cover;
             color: #2c2c2c;
             display: flex;
             justify-content: center;
@@ -29,6 +30,7 @@
             height: 100%;
             padding-top: 40px;
             box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+            margin-left: 20px; /* Margen hacia la izquierda */
         }
 
         nav ul {
@@ -66,10 +68,11 @@
             text-align: center;
             padding: 40px;
             max-width: 800px;
-            background: white;
+            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
             border-radius: 16px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             margin-left: 240px; /* Ajuste de margen para el menú fijo */
+            margin-right: 40px; /* Espacio más amplio hacia la derecha */
         }
 
         .profile-header {
@@ -188,7 +191,7 @@
             .profile-description {
                 font-size: 1em;
             }
-        
+        }
     </style>
 </head>
 <body>
