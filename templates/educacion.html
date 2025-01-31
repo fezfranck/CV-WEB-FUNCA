@@ -6,7 +6,58 @@
     <title>Educación - Francisco Esparza</title>
     <link rel="stylesheet" href="/static/styles.css">
     <style>
-        /* Estilos adicionales para la sección de educación */
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('static/images/fondo.jpg') no-repeat center center fixed; /* Imagen de fondo */
+            background-size: cover;
+            color: #2c2c2c;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Menú de navegación vertical */
+        nav {
+            width: 220px;
+            background: linear-gradient(180deg, #4a4a4a, #333);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 40px;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+            margin-left: 20px; /* Margen hacia la izquierda */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            padding: 15px;
+            display: block;
+            transition: all 0.3s ease;
+            padding-left: 30px;
+            border-radius: 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            transform: translateX(15px);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+        }
 
         /* Contenido principal para la sección de educación */
         .main-content {
@@ -19,6 +70,11 @@
             align-items: center;
             text-align: justify;
             max-width: 1000px;  /* Ancho máximo del contenido */
+            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            margin-right: 40px; /* Espacio más amplio hacia la derecha */
         }
 
         /* Portada de la subpágina */
@@ -79,7 +135,8 @@
             border-radius: 8px;
             cursor: pointer; /* Cambia el cursor al pasar sobre las imágenes */
         }
-  /* Pie de página */
+
+        /* Pie de página */
         footer {
             background-color: #5a5a5a;
             color: #fff;
@@ -92,10 +149,11 @@
             margin: 0;
             font-size: 1em;
         }
+
         /* Media queries para pantallas pequeñas */
         @media (max-width: 768px) {
             /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
-            .vertical-menu {
+            nav {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -109,7 +167,7 @@
                 z-index: 1000; /* Asegurar que el menú esté por encima del contenido */
             }
 
-            .vertical-menu ul {
+            nav ul {
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
@@ -118,11 +176,11 @@
                 list-style-type: none;
             }
 
-            .vertical-menu ul li {
+            nav ul li {
                 margin: 0;
             }
 
-            .vertical-menu ul li a {
+            nav ul li a {
                 padding: 10px 15px;
                 font-size: 0.9em; /* Texto más pequeño */
                 background-color: transparent;
@@ -145,11 +203,11 @@
         }
 
         @media (max-width: 480px) {
-            .vertical-menu {
+            nav {
                 height: 50px; /* Reducir aún más la altura del menú en pantallas muy pequeñas */
             }
 
-            .vertical-menu ul li a {
+            nav ul li a {
                 font-size: 0.8em; /* Texto aún más pequeño */
                 padding: 8px 10px;
             }
@@ -179,7 +237,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);    
+            transform: translate(-50%, -50%);
         }
 
         .modal-content:hover {
@@ -201,11 +259,6 @@
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
-        }
-
-            footer p {
-                font-size: 0.8em;
-            }
         }
     </style>
 </head>
