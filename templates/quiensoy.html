@@ -120,14 +120,14 @@
         }
 
         /* Responsividad para pantallas pequeñas */
-        @media (max-width: 568px) {
+        @media (max-width: 768px) {
             /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
             nav {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 60px;
+                height: 40px;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -157,7 +157,7 @@
 
             /* Ajustar el contenido principal */
             .main-content {
-                margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
+                justify-content: center; 
                 padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
             }
 
@@ -177,19 +177,19 @@
             }
         }
 
-        @media (max-width: 280px) {
+        @media (max-width: 480px) {
             nav {
-                height: 50px;
+                height: 40px;
             }
 
             nav ul li a {
-                font-size: 0.8em;
+                font-size: 0.6em;
                 padding: 8px 10px;
             }
 
             .main-content {
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
 
             footer p {
