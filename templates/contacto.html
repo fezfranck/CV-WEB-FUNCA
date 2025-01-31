@@ -4,37 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Francisco Esparza</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales del cuerpo */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
-            color: #333;
+            background: url('static/images/fondo.jpg') no-repeat center center fixed; /* Imagen de fondo */
+            background-size: cover;
+            color: #2c2c2c;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        /* Sección principal */
-        .main-content {
-            margin-left: 270px; /* Deja espacio para el menú en pantallas grandes */
-            padding: 40px;
-            flex-grow: 1;
-            background: white;
-            border-radius: 12px;
-            max-width: 1000px;
-            margin-top: 40px;
+
+        /* Menú de navegación vertical */
+        nav {
+            width: 220px;
+            background: linear-gradient(180deg, #4a4a4a, #333);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 40px;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+            margin-left: 20px; /* Margen hacia la izquierda */
         }
 
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            padding: 15px;
+            display: block;
+            transition: all 0.3s ease;
+            padding-left: 30px;
+            border-radius: 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            transform: translateX(15px);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Contenido principal */
+        .main-content {
+            margin-left: 270px;  /* Deja espacio para el menú vertical en pantallas grandes */
+            padding: 40px;
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            max-width: 1000px;
+            margin-top: 40px;
+            margin-right: 40px; /* Espacio más amplio hacia la derecha */
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3.2em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Sección de contacto */
         .contact-section {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
+            background-color: #fff;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -128,8 +191,8 @@
 
         /* Responsividad para pantallas pequeñas */
         @media (max-width: 768px) {
-            /* Cambiar el menú a horizontal en pantallas pequeñas */
-            .vertical-menu {
+            /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
+            nav {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -140,9 +203,10 @@
                 align-items: center;
                 padding: 0;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
             }
 
-            .vertical-menu ul {
+            nav ul {
                 display: flex;
                 justify-content: space-around;
                 width: 100%;
@@ -151,21 +215,20 @@
                 list-style-type: none;
             }
 
-            .vertical-menu ul li {
+            nav ul li {
                 margin: 0;
             }
 
-            .vertical-menu ul li a {
+            nav ul li a {
                 padding: 10px 15px;
                 font-size: 0.9em;
+                background-color: transparent;
             }
 
             /* Ajustar el contenido principal */
             .main-content {
-                margin-left: 0;
-                padding-top: 80px;
-                padding-left: 20px;
-                padding-right: 20px;
+                margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
+                padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
             }
 
             .contact-section {
@@ -174,26 +237,22 @@
             }
 
             .contact-section img {
-                width: 100%;  /* Imagen ocupa el 100% del ancho en pantallas pequeñas */
-                height: auto;
+                width: 100%;  /* La imagen ocupa todo el ancho en pantallas pequeñas */
                 margin-bottom: 10px;
             }
 
-            form {
-                width: 100%;
-            }
-
-            input, textarea {
-                width: 100%;
+            .contact-section p {
+                font-size: 1.2em;
+                text-align: center; /* Centra el texto en pantallas pequeñas */
             }
         }
 
         @media (max-width: 480px) {
-            .vertical-menu {
+            nav {
                 height: 50px;
             }
 
-            .vertical-menu ul li a {
+            nav ul li a {
                 font-size: 0.8em;
                 padding: 8px 10px;
             }
@@ -210,33 +269,36 @@
     </style>
 </head>
 <body>
+
     <!-- Menú de navegación -->
     <nav class="vertical-menu">
         <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="../templates/educacion.html">Educación</a></li>
-            <li><a href="../templates/experiencias.html">Experiencias</a></li>
-            <li><a href="../templates/quiensoy.html">Quién Soy</a></li>
-            <li><a href="../templates/contacto.html">Contacto</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/templates/educacion.html">Educación</a></li>
+            <li><a href="/templates/experiencias.html">Experiencias</a></li>
+            <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+            <li><a href="/templates/contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
     <!-- Contenido principal -->
     <div class="main-content">
+        <!-- Encabezado -->
         <header>
             <h1>Contacto</h1>
             <p>Contáctame por cualquiera de mis redes sociales.</p>
         </header>
 
+        <!-- Secciones de contacto -->
         <section>
             <div class="contact-section">
-                <img src="../static/images/Insta.png" alt="INSTAGRAM">
+                <img src="/static/images/Insta.png" alt="INSTAGRAM">
                 <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
             </div>
             <hr class="separator">
 
             <div class="contact-section">
-                <img src="../static/images/Linkedin.png" alt="LINKEDIN">
+                <img src="/static/images/Linkedin.png" alt="LINKEDIN">
                 <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
             </div>
             <hr class="separator">
@@ -245,6 +307,7 @@
                 <p>FORMULARIO DE CONTACTO</p>
             </div>
 
+            <!-- Formulario de contacto -->
             <form action="https://formspree.io/f/{tu_codigo_unico}" method="POST">
                 <input type="hidden" name="_next" value="../gracias.html">
 
@@ -265,6 +328,7 @@
         </section>
     </div>
 
+    <!-- Pie de página -->
     <footer>
         <p>&copy; 2024 Francisco Esparza. Todos los derechos reservados.</p>
     </footer>
