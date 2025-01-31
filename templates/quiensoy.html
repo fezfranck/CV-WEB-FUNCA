@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quién Soy - Francisco Esparza</title>
+    <title>Contacto - Francisco Esparza</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales del cuerpo */
@@ -78,31 +78,109 @@
             margin-right: 40px; /* Espacio más amplio hacia la derecha */
         }
 
-        /* Contenedor de imagen y texto */
-        .content-container {
+        /* Encabezado */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3.2em;
+            color: #2c3e50;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Sección de contacto */
+        .contact-section {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             width: 100%; /* Asegurar que ocupe todo el ancho disponible */
         }
 
-        .content-container img {
-            width: 300px;
+        .contact-section img {
+            width: 350px;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin-right: 20px;
+            border-radius: 8px;
         }
 
-        .text-content {
-            flex-grow: 1;
-        }
-
-        .text-content p {
-            font-size: 1.1em;
+        .contact-section p {
+            font-size: 1.5em;
             line-height: 1.6;
             text-align: justify;
             color: #333;
             margin: 0;
+            max-width: 800px;
+            font-weight: bold;
+        }
+
+        .social-link {
+            margin-left: 10px;
+            font-size: 1.2em;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
+        }
+
+        .separator {
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        /* Estilos del formulario */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+        }
+
+        form label {
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            font-style: italic;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
 
         /* Pie de página */
@@ -161,18 +239,18 @@
                 padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
             }
 
-            .content-container {
+            .contact-section {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .content-container img {
+            .contact-section img {
                 width: 100%;  /* La imagen ocupa todo el ancho en pantallas pequeñas */
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
 
-            .text-content p {
-                font-size: 1em;
+            .contact-section p {
+                font-size: 1.2em;
                 text-align: center; /* Centra el texto en pantallas pequeñas */
             }
         }
@@ -215,27 +293,47 @@
     <div class="main-content">
         <!-- Encabezado -->
         <header>
-            <h1>Quién Soy</h1>
+            <h1>Contacto</h1>
+            <p>Contáctame por cualquiera de mis redes sociales.</p>
         </header>
 
-        <!-- Contenedor de imagen y texto -->
-        <div class="content-container">
-            <img src="/static/quiensoy.jpeg" alt="Francisco Esparza" class="profile-img">
-            <div class="text-content">
-                <p>FRANCISCO A. ESPARZA</p>
-                <p>¡Hola! mi nombre es Francisco. Tengo 26 años, resido en la Ciudad de Santa Fe, soy oriundo de la localidad de Laguna Paiva ubicada a 30 km al norte de la Ciudad de Santa Fe. Es allí donde realicé mis estudios secundarios obteniendo el título de técnico en informática personal y profesional. Actualmente soy estudiante avanzado de la Licenciatura en Ciencia Política de la Facultad de Humanidades y Ciencias de la UNL (Universidad Nacional del Litoral). 
-                Desde mis últimos años en la secundaria me dediqué a estudiar y trabajar para mejorar los ámbitos donde me desempeño como también crecer profesionalmente. Fui pasante en la Secretaría de Cultura de la Municipalidad de Laguna Paiva como también en un establecimiento educativo de nivel inicial. Forme parte de la Dirección Municipal de la Juventud en dicha ciudad a su vez forme parte del Concejo Joven de la localidad.
-                Durante dos años junto a un compañero conduje un programa radial en la localidad de Laguna Paiva.</p>
-                <p>En la ciudad capitalina desempeñé funciones en la órbita del Ministerio de Innovación y Cultura de la Provincia de Santa Fe, en un edificio emblemático e histórico como lo es el Molino Fabrica Cultural (ex molino Franchino). Como a su vez realice trabajos de asesoría para diversos profesionales tanto del ámbito comercial como en el ámbito político.
-                Transformar la realidad es un objetivo de vida por el cual estoy decidido a luchar, creo en el trabajo conjunto, en los liderazgos firmes y en la superación personal.
-                Muchas gracias por tu interés en conocerme, saludos!</p>
+        <!-- Secciones de contacto -->
+        <section>
+            <div class="contact-section">
+                <img src="/static/images/Insta.png" alt="INSTAGRAM">
+                <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
             </div>
-        </div>
-    </div>
+            <hr class="separator">
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 Francisco Esparza. Todos los derechos reservados.</p>
-    </footer>
+            <div class="contact-section">
+                <img src="/static/images/Linkedin.png" alt="LINKEDIN">
+                <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
+            </div>
+            <hr class="separator">
+
+            <div class="contact-section">
+                <p>FORMULARIO DE CONTACTO</p>
+            </div>
+
+            <!-- Formulario de contacto -->
+            <form action="https://formspree.io/f/{tu_codigo_unico}" method="POST">
+                <input type="hidden" name="_next" value="../gracias.html">
+
+                <label for="nombre">Nombre y Apellido:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="mensaje">Mensaje (hasta 140 caracteres):</label>
+                <textarea id="mensaje" name="mensaje" maxlength="140" required></textarea>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </div>
 </body>
 </html>
