@@ -18,6 +18,8 @@
             justify-content: center; /* Centrar horizontalmente */
             align-items: center; /* Centrar verticalmente */
             min-height: 100vh;
+            font-size: 1em; /* Ajustar tamaño de fuente base */
+            line-height: 1.5; /* Altura de línea para mejorar legibilidad */
         }
 
         /* Menú de navegación vertical */
@@ -91,6 +93,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin-right: 20px;
+            max-width: 100%; /* Hace que la imagen sea responsiva */
         }
 
         .text-content {
@@ -159,25 +162,21 @@
             .main-content {
                 margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
                 padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
+                margin: 20px; /* Reducir los márgenes */
+                padding: 20px;
             }
 
-            .contact-section {
+            .content-container {
                 flex-direction: column;
-                align-items: center;
             }
 
-            .contact-section img {
-                width: 100%;  /* La imagen ocupa todo el ancho en pantallas pequeñas */
-                margin-bottom: 10px;
-            }
-
-            .contact-section p {
-                font-size: 1.2em;
-                text-align: center; /* Centra el texto en pantallas pequeñas */
+            .text-content p {
+                font-size: 1em; /* Reducir tamaño de fuente para pantallas medianas */
             }
         }
 
         @media (max-width: 480px) {
+            /* Reducir el tamaño del menú y la fuente */
             nav {
                 height: 50px;
             }
@@ -187,13 +186,23 @@
                 padding: 8px 10px;
             }
 
+            /* Ajustar el contenido principal */
             .main-content {
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .main-content header h1 {
+                font-size: 1.5em; /* Reducir el tamaño del título */
+            }
+
+            .text-content p {
+                font-size: 0.9em; /* Reducir tamaño del texto en pantallas pequeñas */
+                line-height: 1.4; /* Mejorar legibilidad */
             }
 
             footer p {
-                font-size: 0.8em;
+                font-size: 0.8em; /* Ajustar el tamaño del pie de página */
             }
         }
     </style>
