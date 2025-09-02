@@ -11,7 +11,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('static/images/fondo.jpg') no-repeat center center fixed; /* Añadir imagen de fondo */
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) no-repeat center center fixed;
             background-size: cover;
             color: #2c2c2c;
             display: flex;
@@ -31,6 +31,7 @@
             padding-top: 40px;
             box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
             margin-left: 20px; /* Margen hacia la izquierda */
+            z-index: 1000;
         }
 
         nav ul {
@@ -67,10 +68,10 @@
             align-items: center;
             text-align: center;
             padding: 40px;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
             border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
             margin-left: 240px; /* Ajuste de margen para el menú fijo */
             margin-right: 40px; /* Espacio más amplio hacia la derecha */
         }
@@ -78,16 +79,22 @@
         .profile-header {
             display: flex;
             align-items: center;
-            gap: 30px;
-            margin-bottom: 20px;
+            gap: 40px;
+            margin-bottom: 30px;
         }
 
         .profile-header img {
-            width: 200px;
-            height: 200px;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 5px solid #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-header img:hover {
+            transform: scale(1.03);
         }
 
         .name-container {
@@ -95,30 +102,73 @@
         }
 
         .profile-header h1 {
-            font-size: 2.5em;
+            font-size: 3.2em;
             color: #2c3e50;
             margin: 0;
-            font-weight: 600;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
         }
 
         .profile-header h1 span {
             display: block;
-            font-size: 0.8em;
-            color: #2c3e50;
-            margin-top: 5px;
+            font-size: 0.7em;
+            color: #3498db;
+            margin-top: 10px;
+            font-weight: 600;
         }
 
         .profile-description {
-            font-size: 1.3em;
-            line-height: 1.6;
-            color: #555;
+            font-size: 1.4em;
+            line-height: 1.7;
+            color: #444;
             max-width: 800px;
-            margin-top: 20px;
+            margin-top: 25px;
             text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            color: #2980b9;
+            font-weight: 600;
         }
 
         /* Responsividad para pantallas más pequeñas */
+        @media (max-width: 1024px) {
+            .profile-header img {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .profile-header h1 {
+                font-size: 2.8em;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                margin-left: 200px;
+                margin-right: 20px;
+                padding: 30px;
+            }
+            
+            .profile-header {
+                gap: 30px;
+            }
+            
+            .profile-header img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .profile-header h1 {
+                font-size: 2.5em;
+            }
+        }
+
         @media (max-width: 768px) {
             /* Cambiar el menú a horizontal en pantallas pequeñas */
             nav {
@@ -157,7 +207,8 @@
             /* Ajustar el contenido principal */
             .main-content {
                 margin-left: 0;
-                padding-top: 80px; /* Espacio suficiente para el menú */
+                margin-top: 70px;
+                padding-top: 30px;
                 padding-left: 20px;
                 padding-right: 20px;
             }
@@ -165,7 +216,7 @@
             .profile-header {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
+                gap: 25px;
             }
 
             .name-container {
@@ -173,16 +224,16 @@
             }
 
             .profile-header img {
-                width: 180px;
-                height: 180px;
+                width: 220px;
+                height: 220px;
             }
 
             .profile-header h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
 
             .profile-description {
-                font-size: 1.1em;
+                font-size: 1.2em;
             }
         }
 
@@ -196,8 +247,13 @@
                 padding: 8px 10px;
             }
 
+            .profile-header img {
+                width: 200px;
+                height: 200px;
+            }
+
             .profile-header h1 {
-                font-size: 1.8em;
+                font-size: 2.2em;
             }
 
             .main-content {
@@ -206,7 +262,8 @@
             }
 
             .profile-description {
-                font-size: 1em;
+                font-size: 1.1em;
+                padding: 15px;
             }
         }
     </style>
@@ -229,14 +286,14 @@
         <header>
             <!-- Contenedor del título y la imagen -->
             <div class="profile-header">
-                <img src="static/mi_foto.jpeg" alt="Mi Foto" class="profile-img">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Francisco Abel Esparza" class="profile-img">
                 <div class="name-container">
                     <h1>Francisco <span>Abel Esparza</span></h1>
                 </div>
             </div>
             <p class="profile-description">
-                ¡Hola! Soy Fran tengo 27 años, resido en la ciudad de Santa Fe, soy técnico en informática personal y profesional,
-                y estudiante avanzado de la Licenciatura en Ciencia Política, Diplomado en Gestión Legislativa y en Diseño Gráfico.
+                ¡Hola! Soy <span class="highlight">Fran</span>, tengo 27 años, resido en la ciudad de <span class="highlight">Santa Fe</span>. Soy técnico en informática personal y profesional,
+                y estudiante avanzado de la <span class="highlight">Licenciatura en Ciencia Política</span>, <span class="highlight">Diplomado en Gestión Legislativa</span> y en <span class="highlight">Diseño Gráfico</span>.
             </p>
         </header>
     </div>
