@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import os
-import markdown  # Para convertir archivos de texto a HTML
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -32,21 +32,19 @@ def articulos():
     
     if os.path.exists(articulos_dir):
         for filename in os.listdir(articulos_dir):
-            if filename.endswith('.md') or filename.endswith('.txt'):
+            if filename.endswith('.txt'):
                 # Extraer información del archivo
                 filepath = os.path.join(articulos_dir, filename)
                 with open(filepath, 'r', encoding='utf-8') as file:
-                    # Leer las primeras líneas para obtener título y fecha
                     lines = file.readlines()
-                    titulo = lines[0].strip() if lines else "Sin título"
-                    fecha = lines[1].strip() if len(lines) > 1 else "Fecha no disponible"
                     
-                    # Leer contenido (sin título y fecha)
-                    contenido = ''.join(lines[2:]) if len(lines) > 2 else "Contenido no disponible"
-                    
-                    # Convertir markdown a HTML si es necesario
-                    if filename.endswith('.md'):
-                        contenido = markdown.markdown(contenido)
+                # Formato simple: primera línea = título, segunda = fecha, resto = contenido
+                titulo = lines[0].strip() if lines else "Sin título"
+                fecha = lines[1].strip() if len(lines) > 1 else datetime.now().strftime("%d/%m/%Y")
+                contenido = ''.join(lines[2:]) if len(lines) > 2 else "Contenido no disponible"
+                
+                # Reemplazar saltos de línea por <br> para formato básico
+                contenido = contenido.replace('\n', '<br>')
                 
                 articulos.append({
                     'titulo': titulo,
