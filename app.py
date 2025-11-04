@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 import os
-from datetime import datetime
 
 app = Flask(__name__)
 
@@ -32,19 +31,16 @@ def articulos():
     
     if os.path.exists(articulos_dir):
         for filename in os.listdir(articulos_dir):
-            if filename.endswith('.txt'):
+            if filename.endswith('.html'):
                 # Extraer información del archivo
                 filepath = os.path.join(articulos_dir, filename)
                 with open(filepath, 'r', encoding='utf-8') as file:
-                    lines = file.readlines()
-                    
-                # Formato simple: primera línea = título, segunda = fecha, resto = contenido
-                titulo = lines[0].strip() if lines else "Sin título"
-                fecha = lines[1].strip() if len(lines) > 1 else datetime.now().strftime("%d/%m/%Y")
-                contenido = ''.join(lines[2:]) if len(lines) > 2 else "Contenido no disponible"
+                    contenido = file.read()
                 
-                # Reemplazar saltos de línea por <br> para formato básico
-                contenido = contenido.replace('\n', '<br>')
+                # Extraer título y fecha del contenido (puedes usar metadatos)
+                # O puedes usar el nombre del archivo para el título
+                titulo = filename.replace('.html', '').replace('_', ' ').title()
+                fecha = "Fecha no disponible"  # Puedes agregar metadatos al archivo
                 
                 articulos.append({
                     'titulo': titulo,
@@ -54,7 +50,7 @@ def articulos():
                 })
     
     # Ordenar artículos por fecha (más reciente primero)
-    articulos.sort(key=lambda x: x['fecha'], reverse=True)
+    articulos.sort(key=lambda x: x['titulo'])  # O por fecha si la agregas
     
     return render_template('articulos.html', articulos=articulos)
 
