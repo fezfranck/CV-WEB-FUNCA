@@ -1,0 +1,16 @@
+[
+  {
+    "id": "analisis-infobae",
+    "titulo": "Análisis de Infobae",
+    "fecha": "03/11/2023",
+    "archivo": "static/articulos/analisis-infobae.html",
+    "resumen": "Análisis de los paradigmas de la comunicación digital en medios modernos"
+  },
+  {
+    "id": "politica-actual",
+    "titulo": "Reflexiones sobre la Política Actual", 
+    "fecha": "01/11/2023",
+    "archivo": "static/articulos/politica-actual.html",
+    "resumen": "Un análisis profundo de los cambios en el panorama político contemporáneo"
+  }
+]
