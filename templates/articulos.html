@@ -96,25 +96,18 @@
             text-align: left;
         }
 
-        .articulo {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+       .articulo {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: clamp(15px, 3vw, 25px);
+    margin-bottom: clamp(20px, 4vw, 30px);
+}
+        .articulo-titulo {
+    font-size: clamp(1.4rem, 4vw, 1.8em);
+}
 
         .articulo:hover {
             transform: translateY(-5px);
-        }
-
-        .articulo-titulo {
-            font-size: 1.8em;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
         }
 
         .articulo-fecha {
@@ -124,12 +117,9 @@
             font-style: italic;
         }
 
-        .articulo-contenido {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #444;
-            text-align: justify;
-        }
+     .articulo-contenido {
+    font-size: clamp(1rem, 2vw, 1.1em);
+}
 
         .articulo-contenido h1, 
         .articulo-contenido h2, 
