@@ -5,271 +5,396 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educación - Francisco Esparza</title>
     <link rel="stylesheet" href="../static/styles.css"> <!-- Ruta corregida -->
-    <style>
-        /* Estilos generales del cuerpo */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('../static/images/fondo.jpg') no-repeat center center fixed; /* Ruta corregida */
-            background-size: cover;
-            color: #2c2c2c;
-            display: flex;
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
-            min-height: 100vh;
-        }
+   <style>
+    /* Estilos generales del cuerpo */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #2c2c2c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-        /* Menú de navegación vertical */
+    /* Menú de navegación - Versión Mejorada */
+    nav {
+        width: 220px;
+        background: linear-gradient(180deg, #4a4a4a, #333);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding-top: 40px;
+        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px 15px 12px 30px;
+        display: block;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+    }
+
+    nav ul li a:hover {
+        background-color: #555;
+        transform: translateX(10px);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Menú hamburguesa para móviles */
+    .menu-toggle {
+        display: none;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1001;
+        background: #4a4a4a;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Contenido principal mejorado */
+    .main-content {
+        margin-left: 270px;
+        padding: clamp(20px, 4vw, 40px);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+        max-width: min(1000px, 90vw);
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        margin-top: clamp(20px, 4vw, 40px);
+        margin-right: clamp(20px, 4vw, 40px);
+        transition: all 0.3s ease;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: clamp(2.5rem, 5vw, 3.2em);
+        color: #2c3e50;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Portada de la subpágina */
+    .portada-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Sección de educación - Mejorado */
+    .education-section {
+        display: grid;
+        grid-template-columns: minmax(150px, 250px) 1fr;
+        gap: 20px;
+        align-items: start;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .education-section:hover {
+        transform: translateY(-2px);
+    }
+
+    .education-section img {
+        width: 100%;
+        border-radius: 8px;
+        justify-self: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .education-section img:hover {
+        transform: scale(1.03);
+    }
+
+    .education-section p {
+        font-size: clamp(1rem, 2vw, 1.1em);
+        line-height: 1.6;
+        color: #333;
+        text-align: justify;
+    }
+
+    .education-section a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .education-section a:hover {
+        color: #2980b9;
+        text-decoration: underline;
+    }
+
+    .separator {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+
+    /* Galería de certificaciones mejorada */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Título de la galería */
+    .gallery-title {
+        font-size: clamp(1.5rem, 3vw, 2em);
+        color: #2c3e50;
+        margin: 40px 0 20px 0;
+        text-align: center;
+        width: 100%;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+
+    /* Pie de página */
+    footer {
+        background-color: #5a5a5a;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        margin-top: auto;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    /* Estilos para el modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1002;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+        margin: auto;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content:hover {
+        cursor: zoom-out;
+    }
+
+    .close {
+        color: white;
+        font-size: 35px;
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        z-index: 1003;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Media queries mejoradas para el menú */
+    @media (max-width: 992px) {
         nav {
-            width: 220px;
-            background: linear-gradient(180deg, #4a4a4a, #333);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            padding-top: 40px;
-            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-            margin-left: 0px; /* Margen hacia la izquierda */
+            width: 200px;
+            transform: translateX(-100%);
         }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        
+        nav.active {
+            transform: translateX(0);
         }
-
-        nav ul li {
-            margin: 20px 0;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            padding: 15px;
+        
+        .menu-toggle {
             display: block;
-            transition: all 0.3s ease;
-            padding-left: 30px;
-            border-radius: 10px;
         }
-
-        nav ul li a:hover {
-            background-color: #555;
-            transform: translateX(15px);
-            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Contenido principal para la sección de educación */
+        
         .main-content {
-            margin-left: 270px;  /* Deja espacio para el menú vertical en pantallas grandes */
-            padding: 40px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centrar verticalmente */
-            align-items: center; /* Centrar horizontalmente */
-            text-align: justify;
-            max-width: 1000px;  /* Ancho máximo del contenido */
-            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
-            margin-right: 40px; /* Espacio más amplio hacia la derecha */
+            margin-left: 0 !important;
+            padding-top: 20px;
         }
-           header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    }
 
-        header h1 {
-            font-size: 3.2em;
-            color: #2c3e50;
-            margin: 0;
-            font-weight: 600;
-        }
-        /* Portada de la subpágina */
-        .portada-img {
+    @media (max-width: 768px) {
+        nav {
             width: 100%;
             height: auto;
-            margin-bottom: 40px;  /* Espacio entre la imagen y el contenido */
+            padding-top: 60px;
+            transform: translateY(-100%);
         }
-
-       /* Sección de educación - Mejorado */
-.education-section {
-    display: grid;
-    grid-template-columns: minmax(150px, 250px) 1fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 30px;
-}
-
-.education-section img {
-    width: 100%;
-    border-radius: 8px;
-    justify-self: center;
-}
-
-@media (max-width: 768px) {
-    .education-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .education-section img {
-        max-width: 200px;
-        margin-bottom: 15px;
-    }
-}
-
-        .separator {
-            border: none;
-            height: 1px;
-            background-color: #ccc;
-            margin: 20px 0;
+        
+        nav.active {
+            transform: translateY(0);
         }
-
-        /* Galería de certificaciones */
-        .gallery {
+        
+        nav ul {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-            margin-top: 30px;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        
+        nav ul li {
+            margin: 8px 0;
+        }
+        
+        nav ul li a {
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .menu-toggle {
+            top: 10px;
+            left: 10px;
+        }
+
+        .main-content {
+            margin-left: 0;
+            padding-top: 80px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .education-section {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        .education-section img {
+            max-width: 200px;
+            margin-bottom: 15px;
+        }
+
+        .education-section p {
+            text-align: center;
+        }
+
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
         }
 
         .gallery img {
-            width: 200px;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer; /* Cambia el cursor al pasar sobre las imágenes */
+            height: 120px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            padding-top: 50px;
+        }
+        
+        nav ul li a {
+            padding: 8px 10px;
+            font-size: 0.9rem;
         }
 
-        /* Pie de página */
-        footer {
-            background-color: #5a5a5a;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            margin-top: auto;
+        .main-content {
+            padding-top: 70px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 1em;
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
         }
 
-        /* Media queries para pantallas pequeñas */
-        @media (max-width: 768px) {
-            /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 60px; /* Reducir altura del menú */
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                padding: 0;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1000; /* Asegurar que el menú esté por encima del contenido */
-            }
-
-            nav ul {
-                display: flex;
-                justify-content: space-around;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-
-            nav ul li {
-                margin: 0;
-            }
-
-            nav ul li a {
-                padding: 10px 15px;
-                font-size: 0.9em; /* Texto más pequeño */
-                background-color: transparent;
-            }
-
-            /* Ajustar el contenido principal para que no se superponga con el menú */
-            .main-content {
-                margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
-                padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
-            }
-
-            .education-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .education-section img {
-                margin-bottom: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                height: 50px; /* Reducir aún más la altura del menú en pantallas muy pequeñas */
-            }
-
-            nav ul li a {
-                font-size: 0.8em; /* Texto aún más pequeño */
-                padding: 8px 10px;
-            }
-
-            .main-content {
-                padding-top: 70px; /* Ajustar el espacio debajo del menú */
-            }
-        }
-
-        /* Estilos para el modal */
-        .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed; /* Fijo en la pantalla */
-            z-index: 1; /* Aparece sobre otros elementos */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+        .gallery img {
+            height: 100px;
         }
 
         .modal-content {
-            max-width: 100%;
-            max-height: 100%;
-            margin: auto;
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .modal-content:hover {
-            cursor: zoom-out;
+            max-width: 95%;
+            max-height: 95%;
         }
 
         .close {
-            color: white;
             font-size: 30px;
-            font-weight: bold;
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            cursor: pointer;
+            top: 10px;
+            right: 20px;
         }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <!-- Botón del menú hamburguesa para móviles -->
