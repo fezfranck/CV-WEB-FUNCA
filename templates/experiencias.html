@@ -86,30 +86,39 @@
         }
 
         /* Secciones de experiencia */
-        .experience-section {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
+       /* Secciones de experiencia - Mejorado */
+.experience-section {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) 2fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 30px;
+}
 
-        .experience-section img {
-            max-width: 500px;
-            margin-right: 20px;
-            border-radius: 8px;
-        }
+.experience-section img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    justify-self: center;
+}
 
-        .experience-section p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            text-align: justify;
-            color: #333;
-            margin: 0;
-            max-width: 800px;
-        }
+.experience-section p {
+    font-size: clamp(1rem, 2vw, 1.1em);
+    line-height: 1.6;
+    text-align: justify;
+}
 
-        .experience-section strong {
-            color: #007BFF;
-        }
+@media (max-width: 768px) {
+    .experience-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .experience-section img {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+}
 
         /* Línea separadora */
         .separator {
