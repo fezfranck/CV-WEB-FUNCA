@@ -34,7 +34,7 @@
         height: 100%;
         padding-top: 40px;
         box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 999;
+        z-index: 1000;
         transition: all 0.3s ease;
     }
 
@@ -65,7 +65,7 @@
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    /* Menú hamburguesa - CRÍTICO: debe estar por encima del nav */
+    /* Menú hamburguesa para móviles */
     .menu-toggle {
         display: none;
         position: fixed;
@@ -79,7 +79,6 @@
         padding: 8px 12px;
         border-radius: 5px;
         cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     /* Contenido principal */
@@ -270,8 +269,6 @@
             height: auto;
             padding-top: 60px;
             transform: translateY(-100%);
-            max-height: 100vh;
-            overflow-y: auto;
         }
         
         nav.active {
@@ -467,4 +464,4 @@
         });
     </script>
 </body>
-</html
+</html>
