@@ -61,124 +61,111 @@
     <script>
         // Función para cargar artículos automáticamente
         async function cargarArticulos() {
+    try {
+        const container = document.getElementById('lista-articulos');
+        
+        console.log('🔍 Iniciando carga de artículos...');
+        
+        // 1. Cargar la lista de artículos
+        const jsonUrl = '/static/data/articulos.json';
+        console.log('📂 Cargando JSON desde:', jsonUrl);
+        
+        const response = await fetch(jsonUrl);
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
+        }
+        
+        const articulos = await response.json();
+        console.log('✅ JSON cargado correctamente:', articulos);
+        
+        // 2. Si no hay artículos, mostrar mensaje
+        if (articulos.length === 0) {
+            container.innerHTML = `
+                <div class="articulo-vacio">
+                    <h2>No hay artículos publicados</h2>
+                    <p>Próximamente se publicarán nuevos artículos.</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // 3. Ordenar artículos por fecha (más reciente primero)
+        articulos.sort((a, b) => {
+            const fechaA = new Date(a.fecha.split('/').reverse().join('-'));
+            const fechaB = new Date(b.fecha.split('/').reverse().join('-'));
+            return fechaB - fechaA;
+        });
+        
+        // 4. Limpiar contenedor
+        container.innerHTML = '';
+        
+        // 5. Cargar cada artículo
+        for (const articulo of articulos) {
             try {
-                const container = document.getElementById('lista-articulos');
+                console.log(`📖 Intentando cargar artículo: ${articulo.titulo}`);
+                console.log(`📁 Archivo: ${articulo.archivo}`);
                 
-                // 1. Cargar la lista de artículos
-                const response = await fetch('/static/data/articulos.json');
-                if (!response.ok) {
-                    throw new Error('No se pudo cargar la lista de artículos');
+                // Cargar contenido del artículo
+                const contenidoResponse = await fetch(articulo.archivo);
+                if (!contenidoResponse.ok) {
+                    throw new Error(`Error ${contenidoResponse.status}: No se pudo cargar el archivo`);
                 }
                 
-                const articulos = await response.json();
+                const contenido = await contenidoResponse.text();
+                console.log(`✅ Contenido cargado para: ${articulo.titulo}`);
                 
-                // 2. Si no hay artículos, mostrar mensaje
-                if (articulos.length === 0) {
-                    container.innerHTML = `
-                        <div class="articulo-vacio">
-                            <h2>No hay artículos publicados</h2>
-                            <p>Próximamente se publicarán nuevos artículos.</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                // 3. Ordenar artículos por fecha (más reciente primero)
-                articulos.sort((a, b) => {
-                    const fechaA = new Date(a.fecha.split('/').reverse().join('-'));
-                    const fechaB = new Date(b.fecha.split('/').reverse().join('-'));
-                    return fechaB - fechaA;
-                });
-                
-                // 4. Limpiar contenedor
-                container.innerHTML = '';
-                
-                // 5. Cargar cada artículo
-                for (const articulo of articulos) {
-                    try {
-                        // Cargar contenido del artículo
-                        const contenidoResponse = await fetch(articulo.archivo);
-                        if (!contenidoResponse.ok) {
-                            throw new Error(`No se pudo cargar: ${articulo.archivo}`);
-                        }
-                        const contenido = await contenidoResponse.text();
-                        
-                        // Crear elemento del artículo
-                        const articuloElement = document.createElement('div');
-                        articuloElement.className = 'articulo';
-                        articuloElement.innerHTML = `
-                            <h2 class="articulo-titulo">${articulo.titulo}</h2>
-                            <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
-                            <div class="articulo-contenido">
-                                ${contenido}
-                            </div>
-                            <div class="compartir-redes">
-                                <a href="#" class="btn-compartir btn-facebook" data-titulo="${articulo.titulo}">Compartir en Facebook</a>
-                                <a href="#" class="btn-compartir btn-twitter" data-titulo="${articulo.titulo}">Compartir en Twitter</a>
-                                <a href="#" class="btn-compartir btn-linkedin" data-titulo="${articulo.titulo}">Compartir en LinkedIn</a>
-                                <a href="#" class="btn-compartir btn-whatsapp" data-titulo="${articulo.titulo}">Compartir en WhatsApp</a>
-                            </div>
-                        `;
-                        
-                        container.appendChild(articuloElement);
-                        
-                    } catch (error) {
-                        console.error(`Error cargando artículo ${articulo.titulo}:`, error);
-                        // Mostrar artículo con mensaje de error
-                        const articuloError = document.createElement('div');
-                        articuloError.className = 'articulo';
-                        articuloError.innerHTML = `
-                            <h2 class="articulo-titulo">${articulo.titulo}</h2>
-                            <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
-                            <div class="articulo-contenido">
-                                <p>No se pudo cargar el contenido de este artículo.</p>
-                            </div>
-                        `;
-                        container.appendChild(articuloError);
-                    }
-                }
-                
-                // 6. Configurar botones de compartir
-                configurarBotonesCompartir();
-                
-            } catch (error) {
-                console.error('Error general cargando artículos:', error);
-                document.getElementById('lista-articulos').innerHTML = `
-                    <div class="error-carga">
-                        <h2>Error al cargar los artículos</h2>
-                        <p>No se pudieron cargar los artículos en este momento. Por favor, intenta más tarde.</p>
+                // Crear elemento del artículo
+                const articuloElement = document.createElement('div');
+                articuloElement.className = 'articulo';
+                articuloElement.innerHTML = `
+                    <h2 class="articulo-titulo">${articulo.titulo}</h2>
+                    <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
+                    <div class="articulo-contenido">
+                        ${contenido}
+                    </div>
+                    <div class="compartir-redes">
+                        <a href="#" class="btn-compartir btn-facebook" data-titulo="${articulo.titulo}">Compartir en Facebook</a>
+                        <a href="#" class="btn-compartir btn-twitter" data-titulo="${articulo.titulo}">Compartir en Twitter</a>
+                        <a href="#" class="btn-compartir btn-linkedin" data-titulo="${articulo.titulo}">Compartir en LinkedIn</a>
+                        <a href="#" class="btn-compartir btn-whatsapp" data-titulo="${articulo.titulo}">Compartir en WhatsApp</a>
                     </div>
                 `;
+                
+                container.appendChild(articuloElement);
+                
+            } catch (error) {
+                console.error(`❌ Error cargando artículo ${articulo.titulo}:`, error);
+                
+                // Mostrar artículo con mensaje de error detallado
+                const articuloError = document.createElement('div');
+                articuloError.className = 'articulo';
+                articuloError.innerHTML = `
+                    <h2 class="articulo-titulo">${articulo.titulo}</h2>
+                    <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
+                    <div class="articulo-contenido">
+                        <p style="color: #e74c3c; font-weight: bold;">Error cargando el artículo</p>
+                        <p><strong>Archivo:</strong> ${articulo.archivo}</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p>Verifica que el archivo exista en la ruta correcta.</p>
+                    </div>
+                `;
+                container.appendChild(articuloError);
             }
         }
-
-        // Configurar botones para compartir en redes sociales
-        function configurarBotonesCompartir() {
-            const botones = document.querySelectorAll('.btn-compartir');
-            const urlActual = window.location.href;
-            
-            botones.forEach(boton => {
-                const titulo = boton.getAttribute('data-titulo');
-                let urlCompartir = '';
-                
-                if (boton.classList.contains('btn-facebook')) {
-                    urlCompartir = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlActual)}`;
-                } else if (boton.classList.contains('btn-twitter')) {
-                    urlCompartir = `https://twitter.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${encodeURIComponent(urlActual)}`;
-                } else if (boton.classList.contains('btn-linkedin')) {
-                    urlCompartir = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(urlActual)}`;
-                } else if (boton.classList.contains('btn-whatsapp')) {
-                    urlCompartir = `https://api.whatsapp.com/send?text=${encodeURIComponent(titulo + ' - ' + urlActual)}`;
-                }
-                
-                boton.href = urlCompartir;
-                boton.target = '_blank';
-            });
-        }
-
-        // Cargar artículos cuando la página esté lista
-        document.addEventListener('DOMContentLoaded', cargarArticulos);
-    </script>
-
-</body>
-</html>
+        
+        console.log('🎉 Todos los artículos procesados');
+        
+        // 6. Configurar botones de compartir
+        configurarBotonesCompartir();
+        
+    } catch (error) {
+        console.error('💥 Error general cargando artículos:', error);
+        document.getElementById('lista-articulos').innerHTML = `
+            <div class="error-carga">
+                <h2>Error al cargar los artículos</h2>
+                <p><strong>Error:</strong> ${error.message}</p>
+                <p>Verifica la consola del navegador (F12) para más detalles.</p>
+            </div>
+        `;
+    }
+}
