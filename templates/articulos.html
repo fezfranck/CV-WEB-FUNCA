@@ -506,8 +506,40 @@
 
         // Cargar artículos cuando la página esté lista
         document.addEventListener('DOMContentLoaded', cargarArticulos);
-    </script>
-
+        
+    // Menú hamburguesa - Añadir este script en TODOS los archivos HTML
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                // Cambiar ícono
+                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Cerrar menú al hacer clic en un enlace (en móviles)
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                        menuToggle.textContent = '☰';
+                    }
+                });
+            });
+            
+            // Cerrar menú al redimensionar la ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
 }
