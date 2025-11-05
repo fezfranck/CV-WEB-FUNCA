@@ -95,34 +95,32 @@
             margin-bottom: 40px;  /* Espacio entre la imagen y el contenido */
         }
 
-        /* Sección de educación y sus elementos */
-        .education-section {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
+       /* Sección de educación - Mejorado */
+.education-section {
+    display: grid;
+    grid-template-columns: minmax(150px, 250px) 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 30px;
+}
 
-        .education-section img {
-            width: 250px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 8px;
-        }
+.education-section img {
+    width: 100%;
+    border-radius: 8px;
+    justify-self: center;
+}
 
-        /* Estilos para el texto */
-        .education-section p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            text-align: justify;
-            color: #333;
-            margin: 0;
-            max-width: 800px;
-        }
-
-        /* Línea separadora entre secciones */
-        .education-section + .education-section {
-            margin-top: 40px;
-        }
+@media (max-width: 768px) {
+    .education-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .education-section img {
+        max-width: 200px;
+        margin-bottom: 15px;
+    }
+}
 
         .separator {
             border: none;
