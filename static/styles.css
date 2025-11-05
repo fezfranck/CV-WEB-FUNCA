@@ -25,7 +25,7 @@ nav {
     height: 100%;
     padding-top: 40px;
     box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 999;
     transition: all 0.3s ease;
 }
 
@@ -70,6 +70,7 @@ nav ul li a:hover {
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== CONTENIDO PRINCIPAL ===== */
@@ -489,6 +490,8 @@ footer {
         height: auto;
         padding-top: 60px;
         transform: translateY(-100%);
+        max-height: 100vh;
+        overflow-y: auto;
     }
     
     nav.active {
