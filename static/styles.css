@@ -93,13 +93,13 @@ nav ul li a:hover {
 @media (max-width: 768px) {
     nav {
         width: 100%;
-        height: auto;
+        height: 100vh;
         padding-top: 60px;
-        transform: translateY(-100%);
+        transform: translateX(-100%);
     }
     
     nav.active {
-        transform: translateY(0);
+        transform: translateX(0);
     }
     
     nav ul {
