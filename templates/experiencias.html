@@ -6,216 +6,316 @@
     <title>Experiencias - Francisco Esparza</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
       <style>
-        /* Estilos generales del cuerpo */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('../static/images/fondo.jpg') no-repeat center center fixed; /* Ruta corregida */
-            background-size: cover;
-            color: #2c2c2c;
-            display: flex;
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
-            min-height: 100vh;
-        }
-        /* Menú de navegación vertical */
-        nav {
-            width: 220px;
-            background: linear-gradient(180deg, #4a4a4a, #333);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            padding-top: 40px;
-            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-            margin-left: 0; /* Margen hacia la izquierda */
-        }
+    /* Estilos generales del cuerpo */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #2c2c2c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+    /* Menú de navegación - Versión Mejorada */
+    nav {
+        width: 220px;
+        background: linear-gradient(180deg, #4a4a4a, #333);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding-top: 40px;
+        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
 
-        nav ul li {
-            margin: 20px 0;
-        }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            padding: 15px;
-            display: block;
-            transition: all 0.3s ease;
-            padding-left: 30px;
-            border-radius: 10px;
-        }
+    nav ul li {
+        margin: 15px 0;
+    }
 
-        nav ul li a:hover {
-            background-color: #555;
-            transform: translateX(15px);
-            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
-        }
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px 15px 12px 30px;
+        display: block;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+    }
 
-        /* Contenido principal */
-        .main-content {
-            margin-left: 270px;  /* Deja espacio para el menú vertical en pantallas grandes */
-            padding: 40px;
-            flex-grow: 1;
-            background: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
-            max-width: 1000px;
-            margin-top: 40px;
-            margin-right: 40px; /* Espacio más amplio hacia la derecha */
-        }
+    nav ul li a:hover {
+        background-color: #555;
+        transform: translateX(10px);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
 
-        /* Título centrado */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    /* Menú hamburguesa para móviles */
+    .menu-toggle {
+        display: none;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1001;
+        background: #4a4a4a;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        header h1 {
-            font-size: 3.2em;
-            color: #2c3e50;
-            margin: 0;
-            font-weight: 600;
-        }
+    /* Contenido principal mejorado */
+    .main-content {
+        margin-left: 270px;
+        padding: clamp(20px, 4vw, 40px);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        max-width: min(1000px, 90vw);
+        margin-top: clamp(20px, 4vw, 40px);
+        margin-right: clamp(20px, 4vw, 40px);
+        transition: all 0.3s ease;
+    }
 
-        /* Secciones de experiencia */
-       /* Secciones de experiencia - Mejorado */
-.experience-section {
-    display: grid;
-    grid-template-columns: minmax(200px, 1fr) 2fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 30px;
-}
-
-.experience-section img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
-    justify-self: center;
-}
-
-.experience-section p {
-    font-size: clamp(1rem, 2vw, 1.1em);
-    line-height: 1.6;
-    text-align: justify;
-}
-
-@media (max-width: 768px) {
-    .experience-section {
-        grid-template-columns: 1fr;
+    /* Título centrado */
+    header {
         text-align: center;
+        margin-bottom: 40px;
     }
-    
-    .experience-section img {
-        max-width: 100%;
-        margin-bottom: 15px;
-    }
-}
 
-        /* Línea separadora */
-        .separator {
-            border: none;
-            height: 1px;
-            background-color: #ccc;
-            margin: 20px 0;
+    header h1 {
+        font-size: clamp(2.5rem, 5vw, 3.2em);
+        color: #2c3e50;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Secciones de experiencia - Mejorado */
+    .experience-section {
+        display: grid;
+        grid-template-columns: minmax(200px, 1fr) 2fr;
+        gap: 20px;
+        align-items: start;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .experience-section:hover {
+        transform: translateY(-2px);
+    }
+
+    .experience-section img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 8px;
+        justify-self: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .experience-section img:hover {
+        transform: scale(1.02);
+    }
+
+    .experience-section p {
+        font-size: clamp(1rem, 2vw, 1.1em);
+        line-height: 1.6;
+        text-align: justify;
+        color: #333;
+    }
+
+    .experience-section strong {
+        color: #007BFF;
+        font-weight: 600;
+    }
+
+    /* Línea separadora */
+    .separator {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+
+    /* Sección de descargas */
+    .downloads-section {
+        margin-top: 40px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .downloads-section h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: clamp(1.4rem, 3vw, 1.8em);
+    }
+
+    .downloads-section ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .downloads-section li {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-left: 4px solid #3498db;
+        background: rgba(52, 152, 219, 0.05);
+        border-radius: 0 8px 8px 0;
+        transition: all 0.3s ease;
+    }
+
+    .downloads-section li:hover {
+        background: rgba(52, 152, 219, 0.1);
+        transform: translateX(5px);
+    }
+
+    .downloads-section a {
+        color: #2c3e50;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .downloads-section a:hover {
+        color: #3498db;
+        text-decoration: underline;
+    }
+
+    /* Pie de página */
+    footer {
+        background-color: #5a5a5a;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        margin-top: auto;
+    }
+
+    footer p {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    /* Media queries mejoradas para el menú */
+    @media (max-width: 992px) {
+        nav {
+            width: 200px;
+            transform: translateX(-100%);
+        }
+        
+        nav.active {
+            transform: translateX(0);
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .main-content {
+            margin-left: 0 !important;
+            padding-top: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            width: 100%;
+            height: auto;
+            padding-top: 60px;
+            transform: translateY(-100%);
+        }
+        
+        nav.active {
+            transform: translateY(0);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        
+        nav ul li {
+            margin: 8px 0;
+        }
+        
+        nav ul li a {
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .menu-toggle {
+            top: 10px;
+            left: 10px;
         }
 
-        /* Pie de página */
-        footer {
-            background-color: #5a5a5a;
-            color: #fff;
+        .main-content {
+            margin-left: 0;
+            padding-top: 80px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .experience-section {
+            grid-template-columns: 1fr;
             text-align: center;
-            padding: 10px;
-            margin-top: auto;
+        }
+        
+        .experience-section img {
+            max-width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .experience-section p {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            padding-top: 50px;
+        }
+        
+        nav ul li a {
+            padding: 8px 10px;
+            font-size: 0.9rem;
+        }
+
+        .main-content {
+            padding-top: 70px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .downloads-section {
+            padding: 15px;
+        }
+
+        .downloads-section h2 {
+            font-size: 1.4em;
         }
 
         footer p {
-            margin: 0;
-            font-size: 1em;
+            font-size: 0.8em;
         }
-
-        /* Responsividad para pantallas pequeñas */
-        @media (max-width: 768px) {
-            /* Cambiar menú de navegación a la parte superior y hacerlo horizontal */
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 60px;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                padding: 0;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1000; /* Asegurar que el menú esté por encima del contenido */
-            }
-
-            nav ul {
-                display: flex;
-                justify-content: space-around;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-            }
-
-            nav ul li {
-                margin: 0;
-            }
-
-            nav ul li a {
-                padding: 10px 15px;
-                font-size: 0.9em;
-                background-color: transparent;
-            }
-
-            /* Ajustar el contenido principal */
-            .main-content {
-                margin-left: 0;  /* Eliminar margen izquierdo en pantallas pequeñas */
-                padding-top: 80px;  /* Espacio suficiente debajo del menú fijo */
-            }
-
-            .experience-section {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .experience-section img {
-                margin-bottom: 10px;
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                height: 50px;
-            }
-
-            nav ul li a {
-                font-size: 0.8em;
-                padding: 8px 10px;
-            }
-
-            .main-content {
-                padding-top: 70px;
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-            footer p {
-                font-size: 0.8em;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <!-- Botón del menú hamburguesa para móviles -->
