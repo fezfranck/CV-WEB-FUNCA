@@ -1,9 +1,13 @@
-/* Estilos generales del cuerpo */
-body {
-    font-family: 'Poppins', sans-serif;
+/* ===== ESTILOS GENERALES ===== */
+* {
     margin: 0;
     padding: 0;
-    background: url('static/images/fondo.jpg') no-repeat center center fixed; /* Añadir imagen de fondo */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('static/images/fondo.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #2c2c2c;
     display: flex;
@@ -11,8 +15,7 @@ body {
     min-height: 100vh;
 }
 
-/* Menú de navegación vertical */
-/* Menú de navegación - Versión Mejorada */
+/* ===== MENÚ DE NAVEGACIÓN ===== */
 nav {
     width: 220px;
     background: linear-gradient(180deg, #4a4a4a, #333);
@@ -69,74 +72,7 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* Media queries mejoradas para el menú */
-@media (max-width: 992px) {
-    nav {
-        width: 200px;
-        transform: translateX(-100%);
-    }
-    
-    nav.active {
-        transform: translateX(0);
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    .main-content {
-        margin-left: 0 !important;
-        padding-top: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        width: 100%;
-        height: 100vh;
-        padding-top: 60px;
-        transform: translateX(-100%);
-    }
-    
-    nav.active {
-        transform: translateX(0);
-    }
-    
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        padding: 0 10px;
-    }
-    
-    nav ul li {
-        margin: 8px 0;
-    }
-    
-    nav ul li a {
-        padding: 10px 15px;
-        text-align: center;
-        font-size: 1rem;
-    }
-    
-    .menu-toggle {
-        top: 10px;
-        left: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        padding-top: 50px;
-    }
-    
-    nav ul li a {
-        padding: 8px 10px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Sección principal */
-/* Contenido principal - Versión Mejorada */
+/* ===== CONTENIDO PRINCIPAL ===== */
 .main-content {
     margin-left: 270px;
     padding: clamp(20px, 4vw, 40px);
@@ -149,7 +85,7 @@ nav ul li a:hover {
     transition: all 0.3s ease;
 }
 
-/* Títulos responsivos */
+/* ===== ENCABEZADOS ===== */
 header h1 {
     font-size: clamp(2rem, 5vw, 3.2em);
     color: #2c3e50;
@@ -162,7 +98,7 @@ header h1 {
     font-size: clamp(2.2rem, 6vw, 3.5em) !important;
 }
 
-/* Encabezado de perfil */
+/* ===== ENCABEZADO DE PERFIL ===== */
 .profile-header {
     display: flex;
     align-items: center;
@@ -176,11 +112,11 @@ header h1 {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease; /* Efecto de transición */
+    transition: transform 0.3s ease;
 }
 
 .profile-header img:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+    transform: scale(1.05);
 }
 
 .profile-header h1 {
@@ -198,7 +134,7 @@ header h1 {
     text-align: justify;
 }
 
-/* Pie de página */
+/* ===== PIE DE PÁGINA ===== */
 footer {
     text-align: center;
     padding: 15px;
@@ -207,105 +143,13 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 1000; /* Asegurar que el pie de página esté por encima del contenido */
+    z-index: 1000;
 }
 
-/* Media queries para pantallas más pequeñas */
-@media (max-width: 768px) {
-    nav {
-        width: 100%;
-        height: 60px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-left: 0; /* Eliminar margen izquierdo */
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    nav ul li {
-        margin: 0;
-    }
-
-    nav ul li a {
-        padding: 10px 15px;
-        font-size: 0.9em;
-        padding-left: 0;
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding-top: 80px; /* Espacio suficiente para el menú */
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .profile-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .profile-header img {
-        width: 180px;
-        height: 180px;
-    }
-
-    .profile-header h1 {
-        font-size: 2.5em;
-    }
-
-    .profile-description {
-        font-size: 1.1em;
-        text-align: center;
-    }
+/* ===== ARTÍCULOS ===== */
+.articulos-container {
+    width: 100%;
 }
-
-@media (max-width: 480px) {
-    nav {
-        height: 50px;
-    }
-
-    nav ul li a {
-        font-size: 0.8em;
-        padding: 8px 10px;
-    }
-
-    .profile-header img {
-        width: 140px;
-        height: 140px;
-    }
-
-    .profile-header h1 {
-        font-size: 1.8em;
-    }
-
-    .main-content {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .profile-description {
-        font-size: 1em;
-    }
-
-    footer {
-        padding: 10px;
-        font-size: 0.9em;
-
-        /* ===== BARRAS DE DESPLAZAMIENTO PARA ARTÍCULOS LARGOS ===== */
 
 .articulo {
     background: rgba(255, 255, 255, 0.9);
@@ -314,14 +158,11 @@ footer {
     margin-bottom: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    
-    /* Configuración de scroll */
-    max-height: 600px; /* Altura máxima antes del scroll */
-    overflow-y: auto; /* Scroll vertical cuando sea necesario */
-    overflow-x: hidden; /* Evita scroll horizontal */
-    
-    /* Mejora el rendimiento del scroll en dispositivos táctiles */
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .articulo:hover {
@@ -329,7 +170,11 @@ footer {
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Personalizar la barra de scroll para Webkit (Chrome, Safari, Edge) */
+.articulo:focus-within {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+/* Barra de scroll personalizada */
 .articulo::-webkit-scrollbar {
     width: 8px;
 }
@@ -350,18 +195,12 @@ footer {
     background: linear-gradient(to bottom, #2980b9, #21618c);
 }
 
-/* Personalizar barra de scroll para Firefox */
 .articulo {
     scrollbar-width: thin;
     scrollbar-color: #3498db #f8f9fa;
 }
 
-/* Contenedor de artículos */
-.articulos-container {
-    width: 100%;
-}
-
-/* Título del artículo */
+/* Títulos y contenido de artículos */
 .articulo-titulo {
     font-size: 1.8em;
     color: #2c3e50;
@@ -371,7 +210,6 @@ footer {
     font-weight: 600;
 }
 
-/* Fecha del artículo */
 .articulo-fecha {
     font-size: 0.9em;
     color: #7f8c8d;
@@ -379,7 +217,6 @@ footer {
     font-style: italic;
 }
 
-/* Contenido del artículo */
 .articulo-contenido {
     font-size: 1.1em;
     line-height: 1.7;
@@ -387,7 +224,6 @@ footer {
     text-align: justify;
 }
 
-/* Estilos para el contenido dentro de los artículos */
 .articulo-contenido h1,
 .articulo-contenido h2, 
 .articulo-contenido h3,
@@ -429,17 +265,25 @@ footer {
 
 .articulo-contenido blockquote {
     border-left: 4px solid #3498db;
-    padding-left: 20px;
+    padding: 15px 20px;
     margin: 20px 0;
     font-style: italic;
     color: #555;
     background: rgba(52, 152, 219, 0.05);
-    padding: 15px 20px;
     border-radius: 0 8px 8px 0;
 }
 
-/* ===== ESTILOS PARA IMÁGENES EN ARTÍCULOS ===== */
+.articulo-contenido strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
 
+.articulo-contenido em {
+    color: #34495e;
+    font-style: italic;
+}
+
+/* ===== IMÁGENES EN ARTÍCULOS ===== */
 .articulo-contenido img {
     max-width: 100%;
     height: auto;
@@ -503,7 +347,6 @@ footer {
 }
 
 /* ===== BOTONES COMPARTIR ===== */
-
 .compartir-redes {
     margin-top: 25px;
     display: flex;
@@ -532,6 +375,11 @@ footer {
     background-color: #2980b9;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-compartir:focus {
+    outline: 3px solid rgba(52, 152, 219, 0.5);
+    outline-offset: 2px;
 }
 
 .btn-facebook {
@@ -567,7 +415,6 @@ footer {
 }
 
 /* ===== ESTADOS DE CARGA Y ERROR ===== */
-
 .cargando {
     text-align: center;
     padding: 50px 40px;
@@ -612,11 +459,93 @@ footer {
     border-left: 4px solid #e74c3c;
 }
 
-/* ===== RESPONSIVE PARA ARTÍCULOS ===== */
+/* ===== MEDIA QUERIES - RESPONSIVIDAD ===== */
 
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    nav {
+        width: 200px;
+        transform: translateX(-100%);
+    }
+    
+    nav.active {
+        transform: translateX(0);
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        padding-top: 20px;
+    }
+}
+
+/* Dispositivos móviles */
 @media (max-width: 768px) {
+    nav {
+        width: 100%;
+        height: auto;
+        padding-top: 60px;
+        transform: translateY(-100%);
+    }
+    
+    nav.active {
+        transform: translateY(0);
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    
+    nav ul li {
+        margin: 8px 0;
+    }
+    
+    nav ul li a {
+        padding: 10px 15px;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .menu-toggle {
+        top: 10px;
+        left: 10px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .profile-header img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profile-header h1 {
+        font-size: 2.5em;
+    }
+
+    .profile-description {
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    /* Artículos en móviles */
     .articulo {
-        max-height: 500px; /* Menos altura en móviles */
+        max-height: 500px;
         padding: 20px;
         margin-bottom: 20px;
     }
@@ -649,7 +578,42 @@ footer {
     }
 }
 
+/* Móviles pequeños */
 @media (max-width: 480px) {
+    nav {
+        padding-top: 50px;
+    }
+    
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .profile-header img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-header h1 {
+        font-size: 1.8em;
+    }
+
+    .main-content {
+        padding-top: 70px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .profile-description {
+        font-size: 1em;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    /* Artículos en móviles pequeños */
     .articulo {
         max-height: 400px;
         padding: 15px;
@@ -667,35 +631,5 @@ footer {
     .articulo-contenido ul,
     .articulo-contenido ol {
         margin-left: 20px;
-    }
-}
-
-/* ===== MEJORAS DE ACCESIBILIDAD ===== */
-
-/* Enfocar elementos para navegación con teclado */
-.articulo:focus-within {
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
-}
-
-.btn-compartir:focus {
-    outline: 3px solid rgba(52, 152, 219, 0.5);
-    outline-offset: 2px;
-}
-
-/* Mejorar contraste para accesibilidad */
-.articulo-contenido strong {
-    color: #2c3e50;
-    font-weight: 600;
-}
-
-.articulo-contenido em {
-    color: #34495e;
-    font-style: italic;
-}
-
-/* Smooth scrolling para una experiencia mejorada */
-.articulo {
-    scroll-behavior: smooth;
-}
     }
 }
