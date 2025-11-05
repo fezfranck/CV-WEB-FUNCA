@@ -6,15 +6,11 @@
     <title>Contacto - Francisco Esparza</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-    /* Estilos generales */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
+    /* Estilos generales del cuerpo */
     body {
         font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
         background: url('../static/images/fondo.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #2c2c2c;
@@ -24,7 +20,7 @@
         min-height: 100vh;
     }
 
-    /* Menú de navegación */
+    /* Menú de navegación - Versión Mejorada */
     nav {
         width: 220px;
         background: linear-gradient(180deg, #4a4a4a, #333);
@@ -242,7 +238,7 @@
         box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
     }
 
-    /* Media queries - Responsividad */
+    /* Media queries mejoradas para el menú */
     @media (max-width: 992px) {
         nav {
             width: 200px;
@@ -368,7 +364,7 @@
     </style>
 </head>
 <body>
-    <!-- Botón del menú hamburguesa -->
+    <!-- Botón del menú hamburguesa para móviles -->
     <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
     <!-- Menú de navegación -->
@@ -430,38 +426,39 @@
         </section>
     </div>
 
-    <!-- Script del menú hamburguesa -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav');
+    // Menú hamburguesa - Añadir este script en TODOS los archivos HTML
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                // Cambiar ícono
+                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+            });
             
-            if (menuToggle && nav) {
-                menuToggle.addEventListener('click', function() {
-                    nav.classList.toggle('active');
-                    this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-                });
-                
-                // Cerrar menú al hacer clic en un enlace (móviles)
-                const navLinks = document.querySelectorAll('nav a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        if (window.innerWidth <= 768) {
-                            nav.classList.remove('active');
-                            menuToggle.textContent = '☰';
-                        }
-                    });
-                });
-                
-                // Cerrar menú al redimensionar
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth > 768) {
+            // Cerrar menú al hacer clic en un enlace (en móviles)
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
                         nav.classList.remove('active');
                         menuToggle.textContent = '☰';
                     }
                 });
-            }
-        });
-    </script>
+            });
+            
+            // Cerrar menú al redimensionar la ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
