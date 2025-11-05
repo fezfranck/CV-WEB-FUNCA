@@ -47,6 +47,33 @@ def articulos():
                     'fecha': fecha,
                     'contenido': contenido,
                     'archivo': filename
+                    @app.route('/articulos')
+def articulos():
+    articulos_dir = 'static/articulos'
+    articulos = []
+    
+    if os.path.exists(articulos_dir):
+        for filename in os.listdir(articulos_dir):
+            if filename.endswith('.txt'):
+                filepath = os.path.join(articulos_dir, filename)
+                with open(filepath, 'r', encoding='utf-8') as file:
+                    lines = file.readlines()
+                    
+                titulo = lines[0].strip() if lines else "Sin título"
+                fecha = lines[1].strip() if len(lines) > 1 else "Fecha no disponible"
+                contenido = ''.join(lines[2:]) if len(lines) > 2 else "Contenido no disponible"
+                
+                # Convertir saltos de línea a <br>
+                contenido = contenido.replace('\n', '<br>')
+                
+                articulos.append({
+                    'titulo': titulo,
+                    'fecha': fecha,
+                    'contenido': contenido,
+                    'archivo': filename
+                })
+    
+    return render_template('articulos.html', articulos=articulos)
                 })
     
     # Ordenar artículos por fecha (más reciente primero)
