@@ -7,24 +7,24 @@
     "resumen": "Análisis de los paradigmas de la comunicación digital en medios modernos"
   },
   {
-    "id": "Reseña academica",
-    "titulo": "El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916” Suriano Juan.", 
+    "id": "resena-academica",
+    "titulo": "El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916 - Suriano Juan",
     "fecha": "05/05/2021",
     "archivo": "/static/articulos/politica-actual.html",
-    "resumen": "El texto “El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916” forma parte de un compilado de trabajos de Juan Suriano el cual se titula “La cuestión social en argentina 1870 – 1943” y fue editado en el año 2000 por la editorial la Colmena. Como bien lo expresa su autor en uno de sus primeros párrafos, el objetivo principal del texto se focaliza en explicitar la forma en que afrontó el surgimiento de conflictos sociales entre trabajadores y patrones el Estado Argentino, los cuáles fueron las acciones que se tomaron y como con el transcurso del tiempo fueron cambiando en búsqueda de la solución a la problemática. "
+    "resumen": "El texto 'El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916' forma parte de un compilado de trabajos de Juan Suriano el cual se titula 'La cuestión social en argentina 1870 – 1943' y fue editado en el año 2000 por la editorial la Colmena. Como bien lo expresa su autor en uno de sus primeros párrafos, el objetivo principal del texto se focaliza en explicitar la forma en que afrontó el surgimiento de conflictos sociales entre trabajadores y patrones el Estado Argentino, los cuáles fueron las acciones que se tomaron y como con el transcurso del tiempo fueron cambiando en búsqueda de la solución a la problemática."
   },
   {
-    "id": "Ensayo los gobiernos radicales políticos y fracturas internas",
-    "titulo": "Los gobiernos radicales políticos y fracturas internas (1916-1928)", 
+    "id": "ensayo-gobiernos-radicales",
+    "titulo": "Los gobiernos radicales políticos y fracturas internas (1916-1928)",
     "fecha": "03/08/2021",
-    "archivo": "/static/Los gobiernos radicales políticos y fracturas internas (1916-1928).html",
-    "resumen": "Ensayo academico Los gobiernos radicales políticos y fracturas internas (1916-1928)"
+    "archivo": "/static/articulos/gobiernos-radicales.html",
+    "resumen": "Ensayo académico Los gobiernos radicales políticos y fracturas internas (1916-1928)"
   },
   {
-    "id": "Ensayo transformaciones económicas en Argentina",
-    "titulo": "Transformaciones económicas en Argentina (1913-1922)", 
+    "id": "ensayo-transformaciones-economicas",
+    "titulo": "Transformaciones económicas en Argentina (1913-1922)",
     "fecha": "02/08/2021",
-    "archivo": "/static/TransformacioneseconmicasenArgentina_19131922.html",
-    "resumen": "Ensayo academico Transformaciones económicas en Argentina (1913-1922"
+    "archivo": "/static/articulos/transformaciones-economicas.html",
+    "resumen": "Ensayo académico Transformaciones económicas en Argentina (1913-1922)"
   }
 ]
