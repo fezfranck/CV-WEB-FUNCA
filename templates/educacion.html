@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educación - Francisco Esparza</title>
-    <link rel="stylesheet" href="../static/styles.css"> <!-- Ruta corregida -->
-   <style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
     /* Estilos generales del cuerpo */
     body {
         font-family: 'Poppins', sans-serif;
@@ -14,9 +14,6 @@
         background: url('../static/images/fondo.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #2c2c2c;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         min-height: 100vh;
     }
 
@@ -77,22 +74,24 @@
         cursor: pointer;
     }
 
-    /* Contenido principal mejorado */
-    .main-content {
-        margin-left: 270px;
-        padding: clamp(20px, 4vw, 40px);
-        flex-grow: 1;
+    /* Contenedor principal para centrado */
+    .page-wrapper {
+        margin-left: 220px;
+        min-height: 100vh;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: justify;
-        max-width: min(1000px, 90vw);
+        padding: 40px 20px;
+    }
+
+    /* Contenido principal mejorado */
+    .main-content {
+        padding: 40px;
         background: rgba(255, 255, 255, 0.9);
-        border-radius: 16px;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        margin-top: clamp(20px, 4vw, 40px);
-        margin-right: clamp(20px, 4vw, 40px);
+        border-radius: 16px;
+        max-width: 1000px;
+        width: 100%;
         transition: all 0.3s ease;
     }
 
@@ -103,19 +102,10 @@
     }
 
     header h1 {
-        font-size: clamp(2.5rem, 5vw, 3.2em);
+        font-size: clamp(2rem, 5vw, 3.2em);
         color: #2c3e50;
         margin: 0;
         font-weight: 600;
-    }
-
-    /* Portada de la subpágina */
-    .portada-img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 40px;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
     /* Sección de educación - Mejorado */
@@ -166,11 +156,21 @@
     .separator {
         border: none;
         height: 1px;
-        background-color: #ccc;
+        background: linear-gradient(to right, transparent, #ccc, transparent);
         margin: 20px 0;
     }
 
     /* Galería de certificaciones mejorada */
+    h2 {
+        font-size: clamp(1.5rem, 3vw, 2em);
+        color: #2c3e50;
+        margin: 40px 0 20px 0;
+        text-align: center;
+        width: 100%;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+
     .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -195,32 +195,7 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    /* Título de la galería */
-    .gallery-title {
-        font-size: clamp(1.5rem, 3vw, 2em);
-        color: #2c3e50;
-        margin: 40px 0 20px 0;
-        text-align: center;
-        width: 100%;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-    }
-
-    /* Pie de página */
-    footer {
-        background-color: #5a5a5a;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        margin-top: auto;
-    }
-
-    footer p {
-        margin: 0;
-        font-size: 1em;
-    }
-
-    /* Estilos para el modal */
+    /* Estilos del modal */
     .modal {
         display: none;
         position: fixed;
@@ -273,10 +248,9 @@
         to { opacity: 1; }
     }
 
-    /* Media queries mejoradas para el menú */
+    /* Media queries mejoradas para responsividad */
     @media (max-width: 992px) {
         nav {
-            width: 200px;
             transform: translateX(-100%);
         }
         
@@ -288,50 +262,36 @@
             display: block;
         }
         
+        .page-wrapper {
+            margin-left: 0;
+            padding: 20px 15px;
+        }
+
         .main-content {
-            margin-left: 0 !important;
-            padding-top: 20px;
+            padding: 30px 20px;
         }
     }
 
     @media (max-width: 768px) {
         nav {
-            width: 100%;
-            height: auto;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
             padding-top: 60px;
-            transform: translateY(-100%);
+            transform: translateX(-100%);
         }
         
         nav.active {
-            transform: translateY(0);
+            transform: translateX(0);
         }
         
-        nav ul {
-            display: flex;
-            flex-direction: column;
-            padding: 0 10px;
-        }
-        
-        nav ul li {
-            margin: 8px 0;
-        }
-        
-        nav ul li a {
-            padding: 10px 15px;
-            text-align: center;
-            font-size: 1rem;
-        }
-        
-        .menu-toggle {
-            top: 10px;
-            left: 10px;
+        .page-wrapper {
+            padding: 80px 15px 20px;
+            align-items: flex-start;
         }
 
         .main-content {
-            margin-left: 0;
-            padding-top: 80px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 25px 15px;
         }
 
         .education-section {
@@ -341,7 +301,7 @@
         
         .education-section img {
             max-width: 200px;
-            margin-bottom: 15px;
+            margin: 0 auto 15px;
         }
 
         .education-section p {
@@ -359,19 +319,12 @@
     }
 
     @media (max-width: 480px) {
-        nav {
-            padding-top: 50px;
-        }
-        
-        nav ul li a {
-            padding: 8px 10px;
-            font-size: 0.9rem;
+        .page-wrapper {
+            padding: 70px 10px 15px;
         }
 
         .main-content {
-            padding-top: 70px;
-            padding-left: 15px;
-            padding-right: 15px;
+            padding: 20px 15px;
         }
 
         .gallery {
@@ -394,7 +347,7 @@
             right: 20px;
         }
     }
-</style>
+    </style>
 </head>
 <body>
     <!-- Botón del menú hamburguesa para móviles -->
@@ -412,124 +365,127 @@
         </ul>
     </nav>
     
-    <!-- Contenido principal para la sección de educación -->
-    <div class="main-content">
-        <!-- Encabezado y portada de la sección de educación -->
-        <header>
-            <h1>Educación</h1>
-        </header>
-        
-        <!-- Secciones de educación -->
-        <section>
-            <div class="education-section">
-                <img src="/static/images/universidad_nacional_del_litoral.png" alt="Universidad Nacional del Litoral">
-                <p>Actualmente me encuentro estudiando en la Universidad Nacional del Litoral, en la Facultad de Humanidades y Ciencias.<br>
-                Título: Licenciado en Ciencia Política.</p>
-            </div>
-            <hr class="separator">
+    <!-- Contenedor wrapper para centrado -->
+    <div class="page-wrapper">
+        <!-- Contenido principal para la sección de educación -->
+        <div class="main-content">
+            <!-- Encabezado y portada de la sección de educación -->
+            <header>
+                <h1>Educación</h1>
+            </header>
             
-            <div class="education-section">
-                <img src="/static/images/UACJ.png" alt="Escuela Hernandarias Laguna Paiva">
-                <p>Durante el año 2023 participe en el Programa Espacio de Movilidad Virtual en Educación Superior (eMOVIES) de la Organización Universitaria Interamericana (OUI) para el 1° semestre de 2023. Realizando la asignatura Economia Ecologica a cargo del Dr. Humberto Rubí Juárez en el Instituto de Ingeniería y tecnología 
-                    de la Universidad Autónoma de Ciudad Juárez de MEXICO.<br>
-                <a href="#" onclick="openModalImage('/static/images/constanciademovilidadUACJ.png')">Constancia de movilidad UACJ</a></p>
-            </div>
-            <hr class="separator">
-
-            <div class="education-section">
-                <img src="/static/images/hernandarias_laguna_paiva.jpg" alt="Escuela Hernandarias Laguna Paiva">
-                <p>Realicé mis estudios secundarios en la institución educativa Hernandarias de Saavedra N° 458 de enseñanza técnica, de la localidad de Laguna Paiva.<br>
-                Título: Técnico en informática personal y profesional.</p>
-            </div>
-            <hr class="separator">
-
-            <div class="education-section">
-                <img src="/static/images/edutin_academy.png" alt="Edutin Academy">
-                <p>Me perfeccioné en Edutin Academy, un sitio de formación virtual de Delaware – Estados Unidos.<br>
-                Certificado: Diplomado en diseño gráfico.</p>
-            </div>
-            <hr class="separator">
-
-            <div class="education-section">
-                <img src="/static/images/senado_nacional.jpeg" alt="Senado Nacional">
-                <p>Me capacité en gestión legislativa en el Honorable Senado Nacional mediante un convenio realizado junto a la Universidad Nacional de La Plata.<br>
-                Certificado: Diplomado en gestión legislativa.</p>
-            </div>
-
-            <!-- Galería de certificaciones -->
-            <h2>Certificaciones</h2>
-            <div class="gallery">
-                <img src="/static/images/certificacion_42.jpg" alt="Certificación 42" class="thumbnail" onclick="openModalImage('/static/images/certificacion_42.jpg')">
-                <img src="/static/images/certificacion_1.png" alt="Certificación 1" class="thumbnail" onclick="openModalImage('/static/images/certificacion_1.png')">
-                <img src="/static/images/certificacion_2.png" alt="Certificación 2" class="thumbnail" onclick="openModalImage('/static/images/certificacion_2.png')">
-                <img src="/static/images/certificacion_3.png" alt="Certificación 3" class="thumbnail" onclick="openModalImage('/static/images/certificacion_3.png')">
-                <img src="/static/images/certificacion_4.jpg" alt="Certificación 4" class="thumbnail" onclick="openModalImage('/static/images/certificacion_4.jpg')">
-                <img src="/static/images/certificacion_5.png" alt="Certificación 5" class="thumbnail" onclick="openModalImage('/static/images/certificacion_5.png')">
-                <img src="/static/images/certificacion_6.png" alt="Certificación 6" class="thumbnail" onclick="openModalImage('/static/images/certificacion_6.png')">
-                <img src="/static/images/certificacion_7.jpg" alt="Certificación 7" class="thumbnail" onclick="openModalImage('/static/images/certificacion_7.jpg')">
-                <img src="/static/images/certificacion_8.jpg" alt="Certificación 8" class="thumbnail" onclick="openModalImage('/static/images/certificacion_8.jpg')">
-                <img src="/static/images/certificacion_9.png" alt="Certificación 9" class="thumbnail" onclick="openModalImage('/static/images/certificacion_9.png')">
-                <img src="/static/images/certificacion_10.png" alt="Certificación 10" class="thumbnail" onclick="openModalImage('/static/images/certificacion_10.png')">
-                <img src="/static/images/certificacion_11.jpg" alt="Certificación 11" class="thumbnail" onclick="openModalImage('/static/images/certificacion_11.jpg')">
-                <img src="/static/images/certificacion_12.png" alt="Certificación 12" class="thumbnail" onclick="openModalImage('/static/images/certificacion_12.png')">
-                <img src="/static/images/certificacion_13.png" alt="Certificación 13" class="thumbnail" onclick="openModalImage('/static/images/certificacion_13.png')">
-                <img src="/static/images/certificacion_14.png" alt="Certificación 14" class="thumbnail" onclick="openModalImage('/static/images/certificacion_14.png')">
-                <img src="/static/images/certificacion_15.png" alt="Certificación 15" class="thumbnail" onclick="openModalImage('/static/images/certificacion_15.png')">
-                <img src="/static/images/certificacion_16.png" alt="Certificación 16" class="thumbnail" onclick="openModalImage('/static/images/certificacion_16.png')">
-                <img src="/static/images/certificacion_17.png" alt="Certificación 17" class="thumbnail" onclick="openModalImage('/static/images/certificacion_17.png')">
-                <img src="/static/images/certificacion_18.jpg" alt="Certificación 18" class="thumbnail" onclick="openModalImage('/static/images/certificacion_18.jpg')">
-                <img src="/static/images/certificacion_19.png" alt="Certificación 19" class="thumbnail" onclick="openModalImage('/static/images/certificacion_19.png')">
-                <img src="/static/images/certificacion_20.png" alt="Certificación 20" class="thumbnail" onclick="openModalImage('/static/images/certificacion_20.png')">
-                <img src="/static/images/certificacion_21.png" alt="Certificación 21" class="thumbnail" onclick="openModalImage('/static/images/certificacion_21.png')">
-                <img src="/static/images/certificacion_22.png" alt="Certificación 22" class="thumbnail" onclick="openModalImage('/static/images/certificacion_22.png')">
-                <img src="/static/images/certificacion_23.png" alt="Certificación 23" class="thumbnail" onclick="openModalImage('/static/images/certificacion_23.png')">
-                <img src="/static/images/certificacion_24.png" alt="Certificación 24" class="thumbnail" onclick="openModalImage('/static/images/certificacion_24.png')">
-                <img src="/static/images/certificacion_25.png" alt="Certificación 25" class="thumbnail" onclick="openModalImage('/static/images/certificacion_25.png')">
-                <img src="/static/images/certificacion_26.png" alt="Certificación 26" class="thumbnail" onclick="openModalImage('/static/images/certificacion_26.png')">
-                <img src="/static/images/certificacion_27.png" alt="Certificación 27" class="thumbnail" onclick="openModalImage('/static/images/certificacion_27.png')">
-                <img src="/static/images/certificacion_28.png" alt="Certificación 28" class="thumbnail" onclick="openModalImage('/static/images/certificacion_28.png')">
-                <img src="/static/images/certificacion_29.png" alt="Certificación 29" class="thumbnail" onclick="openModalImage('/static/images/certificacion_29.png')">
-                <img src="/static/images/certificacion_30.png" alt="Certificación 30" class="thumbnail" onclick="openModalImage('/static/images/certificacion_30.png')">
-                <img src="/static/images/certificacion_31.png" alt="Certificación 31" class="thumbnail" onclick="openModalImage('/static/images/certificacion_31.png')">
-                <img src="/static/images/certificacion_32.png" alt="Certificación 32" class="thumbnail" onclick="openModalImage('/static/images/certificacion_32.png')">
-                <img src="/static/images/certificacion_33.png" alt="Certificación 33" class="thumbnail" onclick="openModalImage('/static/images/certificacion_33.png')">
-                <img src="/static/images/certificacion_34.png" alt="Certificación 34" class="thumbnail" onclick="openModalImage('/static/images/certificacion_34.png')">
-                <img src="/static/images/certificacion_35.png" alt="Certificación 35" class="thumbnail" onclick="openModalImage('/static/images/certificacion_35.png')">
-                <img src="/static/images/certificacion_36.png" alt="Certificación 36" class="thumbnail" onclick="openModalImage('/static/images/certificacion_36.png')">
-                <img src="/static/images/certificacion_37.png" alt="Certificación 37" class="thumbnail" onclick="openModalImage('/static/images/certificacion_37.png')">
-                <img src="/static/images/certificacion_38.jpg" alt="Certificación 38" class="thumbnail" onclick="openModalImage('/static/images/certificacion_38.jpg')">
-                <img src="/static/images/certificacion_39.jpg" alt="Certificación 39" class="thumbnail" onclick="openModalImage('/static/images/certificacion_39.jpg')">
-                <img src="/static/images/certificacion_40.jpg" alt="Certificación 40" class="thumbnail" onclick="openModalImage('/static/images/certificacion_40.jpg')">
-                <img src="/static/images/certificacion_41.jpg" alt="Certificación 41" class="thumbnail" onclick="openModalImage('/static/images/certificacion_41.jpg')">
-                <img src="/static/images/certificacion_43.png" alt="Certificación 43" class="thumbnail" onclick="openModalImage('/static/images/certificacion_43.png')">
-                <img src="/static/images/certificacion_44.png" alt="Certificación 44" class="thumbnail" onclick="openModalImage('/static/images/certificacion_44.png')">
-                <img src="/static/images/certificacion_45.png" alt="Certificación 45" class="thumbnail" onclick="openModalImage('/static/images/certificacion_45.png')">
-                 <img src="/static/images/certificacion_46.png" alt="Certificación 46" class="thumbnail" onclick="openModalImage('/static/images/certificacion_46.png')">
+            <!-- Secciones de educación -->
+            <section>
+                <div class="education-section">
+                    <img src="/static/images/universidad_nacional_del_litoral.png" alt="Universidad Nacional del Litoral">
+                    <p>Actualmente me encuentro estudiando en la Universidad Nacional del Litoral, en la Facultad de Humanidades y Ciencias.<br>
+                    Título: Licenciado en Ciencia Política.</p>
+                </div>
+                <hr class="separator">
                 
-            </div>
-        </section>
+                <div class="education-section">
+                    <img src="/static/images/UACJ.png" alt="Universidad Autónoma de Ciudad Juárez">
+                    <p>Durante el año 2023 participe en el Programa Espacio de Movilidad Virtual en Educación Superior (eMOVIES) de la Organización Universitaria Interamericana (OUI) para el 1° semestre de 2023. Realizando la asignatura Economia Ecologica a cargo del Dr. Humberto Rubí Juárez en el Instituto de Ingeniería y tecnología 
+                        de la Universidad Autónoma de Ciudad Juárez de MEXICO.<br>
+                    <a href="#" onclick="openModalImage('/static/images/constanciademovilidadUACJ.png')">Constancia de movilidad UACJ</a></p>
+                </div>
+                <hr class="separator">
+
+                <div class="education-section">
+                    <img src="/static/images/hernandarias_laguna_paiva.jpg" alt="Escuela Hernandarias Laguna Paiva">
+                    <p>Realicé mis estudios secundarios en la institución educativa Hernandarias de Saavedra N° 458 de enseñanza técnica, de la localidad de Laguna Paiva.<br>
+                    Título: Técnico en informática personal y profesional.</p>
+                </div>
+                <hr class="separator">
+
+                <div class="education-section">
+                    <img src="/static/images/edutin_academy.png" alt="Edutin Academy">
+                    <p>Me perfeccioné en Edutin Academy, un sitio de formación virtual de Delaware – Estados Unidos.<br>
+                    Certificado: Diplomado en diseño gráfico.</p>
+                </div>
+                <hr class="separator">
+
+                <div class="education-section">
+                    <img src="/static/images/senado_nacional.jpeg" alt="Senado Nacional">
+                    <p>Me capacité en gestión legislativa en el Honorable Senado Nacional mediante un convenio realizado junto a la Universidad Nacional de La Plata.<br>
+                    Certificado: Diplomado en gestión legislativa.</p>
+                </div>
+
+                <!-- Galería de certificaciones -->
+                <h2>Certificaciones</h2>
+                <div class="gallery">
+                    <img src="/static/images/certificacion_42.jpg" alt="Certificación 42" class="thumbnail" onclick="openModalImage('/static/images/certificacion_42.jpg')">
+                    <img src="/static/images/certificacion_1.png" alt="Certificación 1" class="thumbnail" onclick="openModalImage('/static/images/certificacion_1.png')">
+                    <img src="/static/images/certificacion_2.png" alt="Certificación 2" class="thumbnail" onclick="openModalImage('/static/images/certificacion_2.png')">
+                    <img src="/static/images/certificacion_3.png" alt="Certificación 3" class="thumbnail" onclick="openModalImage('/static/images/certificacion_3.png')">
+                    <img src="/static/images/certificacion_4.jpg" alt="Certificación 4" class="thumbnail" onclick="openModalImage('/static/images/certificacion_4.jpg')">
+                    <img src="/static/images/certificacion_5.png" alt="Certificación 5" class="thumbnail" onclick="openModalImage('/static/images/certificacion_5.png')">
+                    <img src="/static/images/certificacion_6.png" alt="Certificación 6" class="thumbnail" onclick="openModalImage('/static/images/certificacion_6.png')">
+                    <img src="/static/images/certificacion_7.jpg" alt="Certificación 7" class="thumbnail" onclick="openModalImage('/static/images/certificacion_7.jpg')">
+                    <img src="/static/images/certificacion_8.jpg" alt="Certificación 8" class="thumbnail" onclick="openModalImage('/static/images/certificacion_8.jpg')">
+                    <img src="/static/images/certificacion_9.png" alt="Certificación 9" class="thumbnail" onclick="openModalImage('/static/images/certificacion_9.png')">
+                    <img src="/static/images/certificacion_10.png" alt="Certificación 10" class="thumbnail" onclick="openModalImage('/static/images/certificacion_10.png')">
+                    <img src="/static/images/certificacion_11.jpg" alt="Certificación 11" class="thumbnail" onclick="openModalImage('/static/images/certificacion_11.jpg')">
+                    <img src="/static/images/certificacion_12.png" alt="Certificación 12" class="thumbnail" onclick="openModalImage('/static/images/certificacion_12.png')">
+                    <img src="/static/images/certificacion_13.png" alt="Certificación 13" class="thumbnail" onclick="openModalImage('/static/images/certificacion_13.png')">
+                    <img src="/static/images/certificacion_14.png" alt="Certificación 14" class="thumbnail" onclick="openModalImage('/static/images/certificacion_14.png')">
+                    <img src="/static/images/certificacion_15.png" alt="Certificación 15" class="thumbnail" onclick="openModalImage('/static/images/certificacion_15.png')">
+                    <img src="/static/images/certificacion_16.png" alt="Certificación 16" class="thumbnail" onclick="openModalImage('/static/images/certificacion_16.png')">
+                    <img src="/static/images/certificacion_17.png" alt="Certificación 17" class="thumbnail" onclick="openModalImage('/static/images/certificacion_17.png')">
+                    <img src="/static/images/certificacion_18.jpg" alt="Certificación 18" class="thumbnail" onclick="openModalImage('/static/images/certificacion_18.jpg')">
+                    <img src="/static/images/certificacion_19.png" alt="Certificación 19" class="thumbnail" onclick="openModalImage('/static/images/certificacion_19.png')">
+                    <img src="/static/images/certificacion_20.png" alt="Certificación 20" class="thumbnail" onclick="openModalImage('/static/images/certificacion_20.png')">
+                    <img src="/static/images/certificacion_21.png" alt="Certificación 21" class="thumbnail" onclick="openModalImage('/static/images/certificacion_21.png')">
+                    <img src="/static/images/certificacion_22.png" alt="Certificación 22" class="thumbnail" onclick="openModalImage('/static/images/certificacion_22.png')">
+                    <img src="/static/images/certificacion_23.png" alt="Certificación 23" class="thumbnail" onclick="openModalImage('/static/images/certificacion_23.png')">
+                    <img src="/static/images/certificacion_24.png" alt="Certificación 24" class="thumbnail" onclick="openModalImage('/static/images/certificacion_24.png')">
+                    <img src="/static/images/certificacion_25.png" alt="Certificación 25" class="thumbnail" onclick="openModalImage('/static/images/certificacion_25.png')">
+                    <img src="/static/images/certificacion_26.png" alt="Certificación 26" class="thumbnail" onclick="openModalImage('/static/images/certificacion_26.png')">
+                    <img src="/static/images/certificacion_27.png" alt="Certificación 27" class="thumbnail" onclick="openModalImage('/static/images/certificacion_27.png')">
+                    <img src="/static/images/certificacion_28.png" alt="Certificación 28" class="thumbnail" onclick="openModalImage('/static/images/certificacion_28.png')">
+                    <img src="/static/images/certificacion_29.png" alt="Certificación 29" class="thumbnail" onclick="openModalImage('/static/images/certificacion_29.png')">
+                    <img src="/static/images/certificacion_30.png" alt="Certificación 30" class="thumbnail" onclick="openModalImage('/static/images/certificacion_30.png')">
+                    <img src="/static/images/certificacion_31.png" alt="Certificación 31" class="thumbnail" onclick="openModalImage('/static/images/certificacion_31.png')">
+                    <img src="/static/images/certificacion_32.png" alt="Certificación 32" class="thumbnail" onclick="openModalImage('/static/images/certificacion_32.png')">
+                    <img src="/static/images/certificacion_33.png" alt="Certificación 33" class="thumbnail" onclick="openModalImage('/static/images/certificacion_33.png')">
+                    <img src="/static/images/certificacion_34.png" alt="Certificación 34" class="thumbnail" onclick="openModalImage('/static/images/certificacion_34.png')">
+                    <img src="/static/images/certificacion_35.png" alt="Certificación 35" class="thumbnail" onclick="openModalImage('/static/images/certificacion_35.png')">
+                    <img src="/static/images/certificacion_36.png" alt="Certificación 36" class="thumbnail" onclick="openModalImage('/static/images/certificacion_36.png')">
+                    <img src="/static/images/certificacion_37.png" alt="Certificación 37" class="thumbnail" onclick="openModalImage('/static/images/certificacion_37.png')">
+                    <img src="/static/images/certificacion_38.jpg" alt="Certificación 38" class="thumbnail" onclick="openModalImage('/static/images/certificacion_38.jpg')">
+                    <img src="/static/images/certificacion_39.jpg" alt="Certificación 39" class="thumbnail" onclick="openModalImage('/static/images/certificacion_39.jpg')">
+                    <img src="/static/images/certificacion_40.jpg" alt="Certificación 40" class="thumbnail" onclick="openModalImage('/static/images/certificacion_40.jpg')">
+                    <img src="/static/images/certificacion_41.jpg" alt="Certificación 41" class="thumbnail" onclick="openModalImage('/static/images/certificacion_41.jpg')">
+                    <img src="/static/images/certificacion_43.png" alt="Certificación 43" class="thumbnail" onclick="openModalImage('/static/images/certificacion_43.png')">
+                    <img src="/static/images/certificacion_44.png" alt="Certificación 44" class="thumbnail" onclick="openModalImage('/static/images/certificacion_44.png')">
+                    <img src="/static/images/certificacion_45.png" alt="Certificación 45" class="thumbnail" onclick="openModalImage('/static/images/certificacion_45.png')">
+                    <img src="/static/images/certificacion_46.png" alt="Certificación 46" class="thumbnail" onclick="openModalImage('/static/images/certificacion_46.png')">
+                </div>
+            </section>
+        </div>
     </div>
-   <!-- Modal para mostrar las imágenes a pantalla completa -->
+
+    <!-- Modal para mostrar las imágenes a pantalla completa -->
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-img">
     </div>
 
-     <!-- Scripts -->
+    <!-- Scripts -->
     <script>
         // Función para abrir el modal con una imagen específica
         function openModalImage(imageSrc) {
             var modal = document.getElementById("myModal");
             var modalImg = document.getElementById("modal-img");
             modal.style.display = "block";
-            modalImg.src = imageSrc;  // Asigna la fuente de la imagen al modal
+            modalImg.src = imageSrc;
         }
 
         // Función para cerrar el modal
         var span = document.getElementsByClassName("close")[0];
         span.onclick = function() {
             var modal = document.getElementById("myModal");
-            modal.style.display = "none";  // Cierra el modal
+            modal.style.display = "none";
         }
 
         // Cierra el modal al hacer clic fuera de la imagen/modal
@@ -539,40 +495,38 @@
                 modal.style.display = "none";
             }
         }
-    </script>
-    <script>
-    // Menú hamburguesa - Añadir este script en TODOS los archivos HTML
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                // Cambiar ícono
-                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-            });
+
+        // Menú hamburguesa
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
             
-            // Cerrar menú al hacer clic en un enlace (en móviles)
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+                });
+                
+                const navLinks = document.querySelectorAll('nav a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 992) {
+                            nav.classList.remove('active');
+                            menuToggle.textContent = '☰';
+                        }
+                    });
+                });
+                
+                document.addEventListener('click', function(e) {
+                    if (nav.classList.contains('active') && 
+                        !nav.contains(e.target) && 
+                        !menuToggle.contains(e.target)) {
                         nav.classList.remove('active');
                         menuToggle.textContent = '☰';
                     }
                 });
-            });
-            
-            // Cerrar menú al redimensionar la ventana
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    nav.classList.remove('active');
-                    menuToggle.textContent = '☰';
-                }
-            });
-        }
-    });
-</script>
+            }
+        });
+    </script>
 </body>
 </html>
