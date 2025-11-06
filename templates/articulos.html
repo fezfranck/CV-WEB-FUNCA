@@ -116,16 +116,17 @@
         text-align: left;
     }
 
-    .articulo {
+    .articulo-card {
         background: rgba(255, 255, 255, 0.8);
         border-radius: 12px;
         padding: clamp(15px, 3vw, 25px);
         margin-bottom: clamp(20px, 4vw, 30px);
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
     }
 
-    .articulo:hover {
+    .articulo-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
@@ -146,33 +147,29 @@
         font-style: italic;
     }
 
-    .articulo-contenido {
-        font-size: clamp(1rem, 2vw, 1.1em);
-        line-height: 1.7;
-        color: #444;
-        text-align: justify;
+    .btn-leer-mas {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        margin-top: 10px;
     }
 
-    .articulo-contenido h1, 
-    .articulo-contenido h2, 
-    .articulo-contenido h3 {
-        color: #2c3e50;
-        margin-top: 20px;
-        font-weight: 600;
-    }
-    
-    .articulo-contenido p {
-        margin-bottom: 15px;
-    }
-    
-    .articulo-contenido ul, 
-    .articulo-contenido ol {
-        margin-left: 20px;
-        margin-bottom: 15px;
+    .btn-leer-mas:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .compartir-redes {
-        margin-top: 20px;
+        margin-top: 15px;
         display: flex;
         justify-content: flex-start;
         gap: 10px;
@@ -181,12 +178,12 @@
 
     .btn-compartir {
         display: inline-block;
-        padding: 10px 15px;
+        padding: 8px 12px;
         background-color: #3498db;
         color: white;
         border-radius: 5px;
         text-decoration: none;
-        font-size: 0.9em;
+        font-size: 0.85em;
         transition: all 0.3s ease;
         border: none;
         cursor: pointer;
@@ -231,6 +228,165 @@
         background-color: #20bd5c;
     }
 
+    /* ESTILOS DEL MODAL */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.7);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 20px;
+        padding: 0;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .modal-header {
+        padding: 20px 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 12px 12px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-header h2 {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+
+    .modal-close {
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: rotate(90deg);
+    }
+
+    .modal-body {
+        padding: 30px;
+        overflow-y: auto;
+        max-height: calc(90vh - 200px);
+    }
+
+    .modal-body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .articulo-contenido {
+        font-size: 1.1em;
+        line-height: 1.7;
+        color: #444;
+        text-align: justify;
+    }
+
+    .articulo-contenido h1, 
+    .articulo-contenido h2, 
+    .articulo-contenido h3 {
+        color: #2c3e50;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+    
+    .articulo-contenido p {
+        margin-bottom: 15px;
+    }
+    
+    .articulo-contenido ul, 
+    .articulo-contenido ol {
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    .modal-footer {
+        padding: 20px 30px;
+        border-top: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .modal-fecha {
+        color: #7f8c8d;
+        font-style: italic;
+        font-size: 0.9em;
+    }
+
+    .modal-compartir {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
     /* Estilos adicionales para carga */
     .cargando {
         text-align: center;
@@ -257,14 +413,6 @@
         border-radius: 12px;
     }
 
-    .error-detalle {
-        background: #ffeaea;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 10px 0;
-        border-left: 4px solid #e74c3c;
-    }
-
     /* Media queries mejoradas para el menú */
     @media (max-width: 992px) {
         nav {
@@ -286,107 +434,52 @@
         }
     }
 
-    @media (max-width: 1024px) {
-        .page-title {
-            font-size: 2.8em;
-        }
-    }
-
-    @media (max-width: 900px) {
-        .main-content {
-            margin-left: 200px;
-            margin-right: 20px;
-            padding: 30px;
-        }
-        
-        .page-title {
-            font-size: 2.5em;
-        }
-    }
-
     @media (max-width: 768px) {
-        nav {
-            width: 100%;
-            height: auto;
-            padding-top: 60px;
-            transform: translateY(-100%);
+        .modal-content {
+            width: 95%;
+            margin: 10px;
+            max-height: 95vh;
         }
-        
-        nav.active {
-            transform: translateY(0);
+
+        .modal-header {
+            padding: 15px 20px;
         }
-        
-        nav ul {
-            display: flex;
+
+        .modal-header h2 {
+            font-size: 1.2em;
+        }
+
+        .modal-body {
+            padding: 20px;
+            max-height: calc(95vh - 180px);
+        }
+
+        .modal-footer {
             flex-direction: column;
-            padding: 0 10px;
+            align-items: flex-start;
         }
-        
-        nav ul li {
-            margin: 8px 0;
+
+        .modal-compartir {
+            width: 100%;
         }
-        
-        nav ul li a {
-            padding: 10px 15px;
+
+        .btn-compartir {
+            flex: 1;
             text-align: center;
-            font-size: 1rem;
-        }
-        
-        .menu-toggle {
-            top: 10px;
-            left: 10px;
-        }
-
-        .main-content {
-            margin-left: 0;
-            margin-top: 70px;
-            padding-top: 30px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .page-title {
-            font-size: 2.5em;
-        }
-
-        .page-subtitle {
-            font-size: 1.3em;
-        }
-
-        .articulo-titulo {
-            font-size: 1.6em;
-        }
-
-        .compartir-redes {
-            flex-wrap: wrap;
         }
     }
 
     @media (max-width: 480px) {
-        nav {
-            padding-top: 50px;
-        }
-        
-        nav ul li a {
-            padding: 8px 10px;
-            font-size: 0.9rem;
+        .modal-content {
+            width: 98%;
         }
 
-        .page-title {
-            font-size: 2.2em;
+        .modal-header h2 {
+            font-size: 1.1em;
         }
 
-        .main-content {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-        .articulo {
+        .modal-body {
             padding: 15px;
-        }
-
-        .articulo-titulo {
-            font-size: 1.4em;
         }
 
         .articulo-contenido {
@@ -398,7 +491,6 @@
         }
 
         .btn-compartir {
-            text-align: center;
             width: 100%;
         }
     }
@@ -411,7 +503,7 @@
     <!-- Menú de navegación -->
     <nav class="vertical-menu">
         <ul>
-              <li><a href="/">Inicio</a></li>
+            <li><a href="/">Inicio</a></li>
             <li><a href="/templates/educacion.html">Educación</a></li>
             <li><a href="/templates/experiencias.html">Experiencias</a></li>
             <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
@@ -434,7 +526,27 @@
         </div>
     </div>
 
+    <!-- Modal para mostrar artículos -->
+    <div id="modal-articulo" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-titulo"></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-contenido" class="articulo-contenido"></div>
+            </div>
+            <div class="modal-footer">
+                <span class="modal-fecha" id="modal-fecha"></span>
+                <div class="modal-compartir" id="modal-compartir"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Variables globales
+        let articulosData = [];
+
         // Función para cargar artículos automáticamente
         async function cargarArticulos() {
             try {
@@ -451,11 +563,11 @@
                     throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
                 }
                 
-                const articulos = await response.json();
-                console.log('✅ JSON cargado correctamente:', articulos);
+                articulosData = await response.json();
+                console.log('✅ JSON cargado correctamente:', articulosData);
                 
                 // 2. Si no hay artículos, mostrar mensaje
-                if (articulos.length === 0) {
+                if (articulosData.length === 0) {
                     container.innerHTML = `
                         <div class="articulo-vacio">
                             <h2>No hay artículos publicados</h2>
@@ -466,7 +578,7 @@
                 }
                 
                 // 3. Ordenar artículos por fecha (más reciente primero)
-                articulos.sort((a, b) => {
+                articulosData.sort((a, b) => {
                     const fechaA = new Date(a.fecha.split('/').reverse().join('-'));
                     const fechaB = new Date(b.fecha.split('/').reverse().join('-'));
                     return fechaB - fechaA;
@@ -475,66 +587,29 @@
                 // 4. Limpiar contenedor
                 container.innerHTML = '';
                 
-                // 5. Cargar cada artículo
-                for (const articulo of articulos) {
-                    try {
-                        console.log(`📖 Intentando cargar artículo: ${articulo.titulo}`);
-                        console.log(`📁 Archivo: ${articulo.archivo}`);
-                        
-                        // Cargar contenido del artículo
-                        const contenidoResponse = await fetch(articulo.archivo);
-                        if (!contenidoResponse.ok) {
-                            throw new Error(`Error ${contenidoResponse.status}: No se pudo cargar el archivo`);
-                        }
-                        
-                        const contenido = await contenidoResponse.text();
-                        console.log(`✅ Contenido cargado para: ${articulo.titulo}`);
-                        
-                        // Crear elemento del artículo
-                        const articuloElement = document.createElement('div');
-                        articuloElement.className = 'articulo';
-                        articuloElement.innerHTML = `
-                            <h2 class="articulo-titulo">${articulo.titulo}</h2>
-                            <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
-                            <div class="articulo-contenido">
-                                ${contenido}
-                            </div>
-                            <div class="compartir-redes">
-                                <a href="#" class="btn-compartir btn-facebook" data-titulo="${articulo.titulo}">Compartir en Facebook</a>
-                                <a href="#" class="btn-compartir btn-twitter" data-titulo="${articulo.titulo}">Compartir en Twitter</a>
-                                <a href="#" class="btn-compartir btn-linkedin" data-titulo="${articulo.titulo}">Compartir en LinkedIn</a>
-                                <a href="#" class="btn-compartir btn-whatsapp" data-titulo="${articulo.titulo}">Compartir en WhatsApp</a>
-                            </div>
-                        `;
-                        
-                        container.appendChild(articuloElement);
-                        
-                    } catch (error) {
-                        console.error(`❌ Error cargando artículo ${articulo.titulo}:`, error);
-                        
-                        // Mostrar artículo con mensaje de error detallado
-                        const articuloError = document.createElement('div');
-                        articuloError.className = 'articulo';
-                        articuloError.innerHTML = `
-                            <h2 class="articulo-titulo">${articulo.titulo}</h2>
-                            <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
-                            <div class="articulo-contenido">
-                                <div class="error-detalle">
-                                    <p style="color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;">Error cargando el artículo</p>
-                                    <p style="margin: 5px 0;"><strong>Archivo:</strong> ${articulo.archivo}</p>
-                                    <p style="margin: 5px 0;"><strong>Error:</strong> ${error.message}</p>
-                                    <p style="margin: 10px 0 0 0; font-size: 0.9em;">Verifica que el archivo exista en la ruta correcta.</p>
-                                </div>
-                            </div>
-                        `;
-                        container.appendChild(articuloError);
-                    }
-                }
+                // 5. Crear tarjetas de artículos
+                articulosData.forEach((articulo, index) => {
+                    const articuloCard = document.createElement('div');
+                    articuloCard.className = 'articulo-card';
+                    articuloCard.innerHTML = `
+                        <h2 class="articulo-titulo">${articulo.titulo}</h2>
+                        <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
+                        <button class="btn-leer-mas" data-index="${index}">Leer artículo completo</button>
+                        <div class="compartir-redes">
+                            <a href="#" class="btn-compartir btn-facebook" data-index="${index}">Facebook</a>
+                            <a href="#" class="btn-compartir btn-twitter" data-index="${index}">Twitter</a>
+                            <a href="#" class="btn-compartir btn-linkedin" data-index="${index}">LinkedIn</a>
+                            <a href="#" class="btn-compartir btn-whatsapp" data-index="${index}">WhatsApp</a>
+                        </div>
+                    `;
+                    
+                    container.appendChild(articuloCard);
+                });
                 
-                console.log('🎉 Todos los artículos procesados');
+                console.log('🎉 Todas las tarjetas creadas');
                 
-                // 6. Configurar botones de compartir
-                configurarBotonesCompartir();
+                // 6. Configurar eventos
+                configurarEventos();
                 
             } catch (error) {
                 console.error('💥 Error general cargando artículos:', error);
@@ -548,67 +623,161 @@
             }
         }
 
-        // Configurar botones para compartir en redes sociales
-        function configurarBotonesCompartir() {
-            const botones = document.querySelectorAll('.btn-compartir');
-            const urlActual = window.location.href;
+        // Configurar eventos de botones
+        function configurarEventos() {
+            // Botones "Leer más"
+            document.querySelectorAll('.btn-leer-mas').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    abrirModal(index);
+                });
+            });
+
+            // Botones de compartir
+            document.querySelectorAll('.btn-compartir').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const index = parseInt(this.getAttribute('data-index'));
+                    compartirArticulo(this, index);
+                });
+            });
+
+            // Cerrar modal
+            const modal = document.getElementById('modal-articulo');
+            const closeBtn = document.querySelector('.modal-close');
             
-            botones.forEach(boton => {
-                const titulo = boton.getAttribute('data-titulo');
-                let urlCompartir = '';
+            closeBtn.addEventListener('click', cerrarModal);
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    cerrarModal();
+                }
+            });
+
+            // Cerrar con ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    cerrarModal();
+                }
+            });
+        }
+
+        // Abrir modal con el contenido del artículo
+        async function abrirModal(index) {
+            const articulo = articulosData[index];
+            const modal = document.getElementById('modal-articulo');
+            
+            document.getElementById('modal-titulo').textContent = articulo.titulo;
+            document.getElementById('modal-fecha').textContent = `Publicado el: ${articulo.fecha}`;
+            
+            try {
+                console.log(`📖 Cargando artículo: ${articulo.titulo}`);
                 
-                if (boton.classList.contains('btn-facebook')) {
-                    urlCompartir = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlActual)}`;
-                } else if (boton.classList.contains('btn-twitter')) {
-                    urlCompartir = `https://twitter.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${encodeURIComponent(urlActual)}`;
-                } else if (boton.classList.contains('btn-linkedin')) {
-                    urlCompartir = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(urlActual)}`;
-                } else if (boton.classList.contains('btn-whatsapp')) {
-                    urlCompartir = `https://api.whatsapp.com/send?text=${encodeURIComponent(titulo + ' - ' + urlActual)}`;
+                const response = await fetch(articulo.archivo);
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: No se pudo cargar el archivo`);
                 }
                 
-                boton.href = urlCompartir;
-                boton.target = '_blank';
-            });
+                const contenido = await response.text();
+                document.getElementById('modal-contenido').innerHTML = contenido;
+                
+                // Configurar botones de compartir en el modal
+                const compartirContainer = document.getElementById('modal-compartir');
+                compartirContainer.innerHTML = `
+                    <a href="#" class="btn-compartir btn-facebook" data-modal-index="${index}">Facebook</a>
+                    <a href="#" class="btn-compartir btn-twitter" data-modal-index="${index}">Twitter</a>
+                    <a href="#" class="btn-compartir btn-linkedin" data-modal-index="${index}">LinkedIn</a>
+                    <a href="#" class="btn-compartir btn-whatsapp" data-modal-index="${index}">WhatsApp</a>
+                `;
+                
+                // Configurar eventos de compartir en modal
+                compartirContainer.querySelectorAll('.btn-compartir').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const idx = parseInt(this.getAttribute('data-modal-index'));
+                        compartirArticulo(this, idx);
+                    });
+                });
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+            } catch (error) {
+                console.error('❌ Error cargando artículo:', error);
+                document.getElementById('modal-contenido').innerHTML = `
+                    <div class="error-carga">
+                        <p style="color: #e74c3c; font-weight: bold;">Error cargando el artículo</p>
+                        <p><strong>Archivo:</strong> ${articulo.archivo}</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                    </div>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Cerrar modal
+        function cerrarModal() {
+            const modal = document.getElementById('modal-articulo');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Compartir artículo en redes sociales
+        function compartirArticulo(boton, index) {
+            const articulo = articulosData[index];
+            const baseUrl = window.location.origin + window.location.pathname;
+            const urlArticulo = `${baseUrl}#articulo-${articulo.id}`;
+            const titulo = articulo.titulo;
+            
+            let urlCompartir = '';
+            
+            if (boton.classList.contains('btn-facebook')) {
+                urlCompartir = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlArticulo)}`;
+            } else if (boton.classList.contains('btn-twitter')) {
+                urlCompartir = `https://twitter.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${encodeURIComponent(urlArticulo)}`;
+            } else if (boton.classList.contains('btn-linkedin')) {
+                urlCompartir = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(urlArticulo)}`;
+            } else if (boton.classList.contains('btn-whatsapp')) {
+                urlCompartir = `https://api.whatsapp.com/send?text=${encodeURIComponent(titulo + ' - ' + urlArticulo)}`;
+            }
+            
+            window.open(urlCompartir, '_blank', 'width=600,height=400');
         }
 
         // Cargar artículos cuando la página esté lista
         document.addEventListener('DOMContentLoaded', cargarArticulos);
-</script>
-          <script>
-    // Menú hamburguesa - Añadir este script en TODOS los archivos HTML
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                // Cambiar ícono
-                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-            });
+
+        // Menú hamburguesa
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
             
-            // Cerrar menú al hacer clic en un enlace (en móviles)
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+                });
+                
+                const navLinks = document.querySelectorAll('nav a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 768) {
+                            nav.classList.remove('active');
+                            menuToggle.textContent = '☰';
+                        }
+                    });
+                });
+                
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
                         nav.classList.remove('active');
                         menuToggle.textContent = '☰';
                     }
                 });
-            });
-            
-            // Cerrar menú al redimensionar la ventana
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    nav.classList.remove('active');
-                    menuToggle.textContent = '☰';
-                }
-            });
-        }
-    });
-</script>
+            }
+        });
+    </script>
 </body>
 </html>
-}
