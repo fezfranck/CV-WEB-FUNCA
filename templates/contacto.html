@@ -14,9 +14,6 @@
         background: url('../static/images/fondo.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #2c2c2c;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         min-height: 100vh;
     }
 
@@ -77,16 +74,24 @@
         cursor: pointer;
     }
 
+    /* Contenedor principal para centrado */
+    .page-wrapper {
+        margin-left: 220px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
     /* Contenido principal mejorado */
     .main-content {
-        margin-left: 270px;
-        padding: clamp(20px, 4vw, 40px);
+        padding: 40px;
         background: rgba(255, 255, 255, 0.9);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         border-radius: 16px;
-        max-width: min(1000px, 90vw);
-        margin-top: clamp(20px, 4vw, 40px);
-        margin-right: clamp(20px, 4vw, 40px);
+        max-width: 1000px;
+        width: 100%;
         transition: all 0.3s ease;
     }
 
@@ -94,18 +99,18 @@
     header {
         text-align: center;
         margin-bottom: 40px;
-         width: 100%;
+        width: 100%;
     }
 
     header h1 {
-        font-size: clamp(2.5rem, 5vw, 3.2em);
+        font-size: clamp(2rem, 5vw, 3.2em);
         color: #2c3e50;
         margin: 0;
         font-weight: 600;
     }
 
     header p {
-        font-size: clamp(1.1rem, 2vw, 1.2em);
+        font-size: clamp(1rem, 2vw, 1.2em);
         color: #555;
         margin-top: 10px;
     }
@@ -145,14 +150,13 @@
     .contact-section p {
         font-size: clamp(1.2rem, 2vw, 1.5em);
         line-height: 1.6;
-        text-align: justify;
+        text-align: center;
         color: #333;
         margin: 0;
         font-weight: bold;
     }
 
     .social-link {
-        margin-left: 10px;
         font-size: clamp(1rem, 2vw, 1.2em);
         color: #007BFF;
         text-decoration: none;
@@ -161,6 +165,7 @@
         padding: 8px 15px;
         border-radius: 6px;
         background: rgba(0, 123, 255, 0.1);
+        display: inline-block;
     }
 
     .social-link:hover {
@@ -209,6 +214,7 @@
         font-style: italic;
         transition: all 0.3s ease;
         background: #f8f9fa;
+        box-sizing: border-box;
     }
 
     input:focus, textarea:focus {
@@ -218,7 +224,7 @@
         box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
     }
 
-    buttonform {
+    button[type="submit"] {
         width: 100%;
         padding: 15px;
         background: linear-gradient(135deg, #007BFF, #0056b3);
@@ -233,19 +239,10 @@
         letter-spacing: 0.5px;
     }
 
-    buttonform:hover {
+    button[type="submit"]:hover {
         background: linear-gradient(135deg, #0056b3, #004085);
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
-    }
-
-    /* Contador de caracteres para el textarea */
-    .char-counter {
-        text-align: right;
-        font-size: 0.8em;
-        color: #7f8c8d;
-        margin-top: -15px;
-        margin-bottom: 20px;
     }
 
     /* Pie de página */
@@ -262,10 +259,10 @@
         margin: 0;
         font-size: 1em;
     }
-/* Media queries mejoradas para el menú responsividad */
+
+    /* Media queries mejoradas para responsividad */
     @media (max-width: 992px) {
         nav {
-            width: 200px;
             transform: translateX(-100%);
         }
         
@@ -277,99 +274,82 @@
             display: block;
         }
         
+        .page-wrapper {
+            margin-left: 0;
+            padding: 20px 15px;
+        }
+
         .main-content {
-            margin-left: 0 !important;
-            padding-top: 20px;
+            padding: 30px 20px;
         }
     }
 
     @media (max-width: 768px) {
         nav {
             width: 80%;
-            height: auto;
+            max-width: 300px;
+            height: 100%;
             padding-top: 60px;
-            transform: translateY(-100%);
+            transform: translateX(-100%);
         }
         
         nav.active {
-            transform: translateY(0);
+            transform: translateX(0);
         }
         
-        nav ul {
-            display: flex;
-            flex-direction: column;
-            padding: 0 10px;
-        }
-        
-        nav ul li {
-            margin: 8px 0;
-        }
-        
-        nav ul li a {
-            padding: 10px 15px;
-            text-align: center;
-            font-size: 1rem;
-        }
-        
-        .menu-toggle {
-            top: 10px;
-            left: 10px;
+        .page-wrapper {
+            padding: 80px 15px 20px;
+            align-items: flex-start;
         }
 
         .main-content {
-            margin-left: 0;
-            padding-top: 80px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 25px 15px;
         }
 
         .contact-section {
             grid-template-columns: 1fr;
             text-align: center;
             gap: 15px;
-        }
-
-        .contact-section img {
-            max-width: 300px;
-            margin-bottom: 10px;
-        }
-
-        .contact-section p {
-            font-size: 1.2em;
-            text-align: center;
-        }
-
-        form {
-            padding: 20px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        nav {
-            padding-top: 50px;
-        }
-        
-        nav ul li a {
-            padding: 8px 10px;
-            font-size: 0.9rem;
-        }
-
-        .main-content {
-            padding-top: 70px;
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-        .contact-section {
             padding: 15px;
         }
 
         .contact-section img {
-            max-width: 250px;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        form {
+            padding: 20px 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .page-wrapper {
+            padding: 70px 10px 15px;
+        }
+
+        .main-content {
+            padding: 20px 15px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        header p {
+            font-size: 0.95rem;
+        }
+
+        .contact-section {
+            padding: 12px;
+        }
+
+        .contact-section img {
+            max-width: 220px;
         }
 
         .contact-section p {
-            font-size: 1.1em;
+            font-size: 1.1rem;
         }
 
         form {
@@ -378,22 +358,19 @@
 
         input, textarea {
             padding: 10px 12px;
+            font-size: 0.95em;
         }
 
-        buttonform {
+        button[type="submit"] {
             padding: 12px;
             font-size: 1em;
         }
 
-        footer {
-            padding: 10px;
-        }
-
         footer p {
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
     }
-</style>
+    </style>
 </head>
 <body>
     <!-- Botón del menú hamburguesa para móviles -->
@@ -411,54 +388,63 @@
         </ul>
     </nav>
 
-    <!-- Contenido principal -->
-    <div class="main-content">
-        <!-- Encabezado -->
-        <header>
-            <h1>Contacto</h1>
-            <p>Contáctame por cualquiera de mis redes sociales.</p>
-        </header>
+    <!-- Contenedor wrapper para centrado -->
+    <div class="page-wrapper">
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- Encabezado -->
+            <header>
+                <h1>Contacto</h1>
+                <p>Contáctame por cualquiera de mis redes sociales.</p>
+            </header>
 
-        <!-- Secciones de contacto -->
-        <section>
-            <div class="contact-section">
-                <img src="/static/images/Insta.png" alt="INSTAGRAM">
-                <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
-            </div>
-            <hr class="separator">
+            <!-- Secciones de contacto -->
+            <section>
+                <div class="contact-section">
+                    <img src="/static/images/Insta.png" alt="INSTAGRAM">
+                    <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
+                </div>
+                <hr class="separator">
 
-            <div class="contact-section">
-                <img src="/static/images/Linkedin.png" alt="LINKEDIN">
-                <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
-            </div>
-            <hr class="separator">
+                <div class="contact-section">
+                    <img src="/static/images/Linkedin.png" alt="LINKEDIN">
+                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
+                </div>
+                <hr class="separator">
 
-            <div class="contact-section">
-                <p>FORMULARIO DE CONTACTO</p>
-            </div>
+                <div class="contact-section">
+                    <p>FORMULARIO DE CONTACTO</p>
+                </div>
 
-            <!-- Formulario de contacto -->
-            <form action="https://formspree.io/f/mkgnapqz" method="POST">
-                <input type="hidden" name="_next" value="../gracias.html">
+                <!-- Formulario de contacto -->
+                <form action="https://formspree.io/f/mkgnapqz" method="POST">
+                    <input type="hidden" name="_next" value="../gracias.html">
 
-                <label for="nombre">Nombre y Apellido:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                    <label for="nombre">Nombre y Apellido:</label>
+                    <input type="text" id="nombre" name="nombre" required>
 
-                <label for="correo">Correo Electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
 
-                <label for="mensaje">Mensaje (hasta 140 caracteres):</label>
-                <textarea id="mensaje" name="mensaje" maxlength="140" required></textarea>
+                    <label for="mensaje">Mensaje (hasta 140 caracteres):</label>
+                    <textarea id="mensaje" name="mensaje" maxlength="140" required></textarea>
 
-                <buttonform type="submit">Enviar Mensaje</buttonform>
-            </form>
-        </section>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </section>
+
+            <!-- Pie de página -->
+            <footer>
+                <p>&copy; 2025 Francisco Esparza. Todos los derechos reservados.</p>
+            </footer>
+        </div>
     </div>
+
     <script>
-    // Menú hamburguesa - Añadir este script en TODOS los archivos HTML
+    // Menú hamburguesa
     document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
@@ -466,7 +452,6 @@
         if (menuToggle && nav) {
             menuToggle.addEventListener('click', function() {
                 nav.classList.toggle('active');
-                // Cambiar ícono
                 this.textContent = nav.classList.contains('active') ? '✕' : '☰';
             });
             
@@ -474,22 +459,24 @@
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
+                    if (window.innerWidth <= 992) {
                         nav.classList.remove('active');
                         menuToggle.textContent = '☰';
                     }
                 });
             });
             
-            // Cerrar menú al redimensionar la ventana
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
+            // Cerrar menú al hacer clic fuera de él
+            document.addEventListener('click', function(e) {
+                if (nav.classList.contains('active') && 
+                    !nav.contains(e.target) && 
+                    !menuToggle.contains(e.target)) {
                     nav.classList.remove('active');
                     menuToggle.textContent = '☰';
                 }
             });
         }
     });
-</script>
+    </script>
 </body>
 </html>
