@@ -14,9 +14,6 @@
         background: url('../static/images/fondo.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #2c2c2c;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         min-height: 100vh;
     }
 
@@ -76,7 +73,8 @@
         border-radius: 5px;
         cursor: pointer;
     }
-      /* Contenedor principal para centrado */
+
+    /* Contenedor principal para centrado */
     .page-wrapper {
         margin-left: 220px;
         min-height: 100vh;
@@ -85,6 +83,7 @@
         align-items: center;
         padding: 40px 20px;
     }
+
     /* Contenido principal mejorado */
     .main-content {
         display: flex;
@@ -103,7 +102,8 @@
         position: relative;
         overflow: hidden;
     }
-       /* Efecto de partículas decorativas */
+
+    /* Efecto de partículas decorativas */
     .main-content::before {
         content: '';
         position: absolute;
@@ -121,6 +121,8 @@
         margin-bottom: 10px;
         font-weight: 700;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
     }
 
     .page-subtitle {
@@ -128,11 +130,15 @@
         color: #3498db;
         margin-bottom: 40px;
         font-weight: 600;
+        position: relative;
+        z-index: 1;
     }
 
     .articulos-container {
         width: 100%;
         text-align: left;
+        position: relative;
+        z-index: 1;
     }
 
     .articulo-card {
@@ -432,10 +438,9 @@
         border-radius: 12px;
     }
 
-    /* Media queries mejoradas para el menú */
+    /* Media queries mejoradas para responsividad */
     @media (max-width: 992px) {
         nav {
-            width: 200px;
             transform: translateX(-100%);
         }
         
@@ -447,46 +452,36 @@
             display: block;
         }
         
+        .page-wrapper {
+            margin-left: 0;
+            padding: 20px 15px;
+        }
+
         .main-content {
-            margin-left: 0 !important;
-            padding-top: 20px;
+            padding: 30px 20px;
         }
     }
 
     @media (max-width: 768px) {
         nav {
-            width: 100%;
-            height: auto;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
             padding-top: 60px;
-            transform: translateY(-100%);
+            transform: translateX(-100%);
         }
         
         nav.active {
-            transform: translateY(0);
+            transform: translateX(0);
         }
         
-        nav ul {
-            display: flex;
-            flex-direction: column;
-            padding: 0 10px;
-        }
-        
-        nav ul li {
-            margin: 8px 0;
-        }
-        
-        nav ul li a {
-            padding: 10px 15px;
-            text-align: center;
-            font-size: 1rem;
+        .page-wrapper {
+            padding: 80px 15px 20px;
+            align-items: flex-start;
         }
 
         .main-content {
-            margin-left: 0;
-            margin-right: 0;
-            margin-top: 70px;
-            padding: 20px;
-            width: calc(100% - 40px);
+            padding: 25px 15px;
         }
 
         .articulo-card {
@@ -560,10 +555,12 @@
     }
 
     @media (max-width: 480px) {
+        .page-wrapper {
+            padding: 70px 10px 15px;
+        }
+
         .main-content {
-            padding: 15px;
-            width: calc(100% - 30px);
-            margin-top: 60px;
+            padding: 20px 15px;
         }
 
         .page-title {
@@ -696,16 +693,19 @@
         </ul>
     </nav>
 
-    <!-- Contenido principal -->
-    <div class="main-content">
-        <header>
-            <h1 class="page-title">Artículos</h1>
-            <p class="page-subtitle">Opinión - Actualidad</p>
-        </header>
-        
-        <div class="articulos-container" id="lista-articulos">
-            <div class="cargando">
-                <p>Cargando artículos...</p>
+    <!-- Contenedor wrapper para centrado -->
+    <div class="page-wrapper">
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <header>
+                <h1 class="page-title">Artículos</h1>
+                <p class="page-subtitle">Opinión - Actualidad</p>
+            </header>
+            
+            <div class="articulos-container" id="lista-articulos">
+                <div class="cargando">
+                    <p>Cargando artículos...</p>
+                </div>
             </div>
         </div>
     </div>
