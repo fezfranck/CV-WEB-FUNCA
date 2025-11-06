@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencias - Francisco Esparza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
     /* Estilos generales del cuerpo */
     body {
@@ -87,87 +88,201 @@
     /* Contenido principal mejorado */
     .main-content {
         padding: 40px;
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-radius: 16px;
-        max-width: 1000px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        max-width: 1200px;
         width: 100%;
+        position: relative;
+        overflow: hidden;
         transition: all 0.3s ease;
+    }
+
+    /* Efecto de partículas decorativas */
+    .main-content::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+        z-index: 0;
     }
 
     /* Título centrado */
     header {
         text-align: center;
         margin-bottom: 40px;
+        position: relative;
+        z-index: 1;
+        width: 100%;
     }
 
     header h1 {
-        font-size: clamp(2rem, 5vw, 3.2em);
+        font-size: clamp(2rem, 6vw, 3.5em);
         color: #2c3e50;
-        margin: 0;
-        font-weight: 600;
+        margin: 0 0 15px 0;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+    }
+
+    header h1::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #2980b9);
+        border-radius: 2px;
+    }
+
+    .subtitle {
+        font-size: clamp(0.9rem, 2vw, 1.2em);
+        color: #7f8c8d;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
     /* Secciones de experiencia - Mejorado */
     .experience-section {
         display: grid;
         grid-template-columns: minmax(200px, 1fr) 2fr;
-        gap: 20px;
+        gap: 30px;
         align-items: start;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
         transition: all 0.3s ease;
     }
 
+    .experience-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(to bottom, #3498db, #2980b9);
+    }
+
     .experience-section:hover {
-        transform: translateY(-2px);
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
     }
 
     .experience-section img {
         width: 100%;
         max-width: 500px;
-        border-radius: 8px;
+        border-radius: 12px;
         justify-self: center;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s ease;
     }
 
     .experience-section img:hover {
-        transform: scale(1.02);
+        transform: scale(1.03);
     }
 
-    .experience-section p {
-        font-size: clamp(1rem, 2vw, 1.1em);
-        line-height: 1.6;
-        text-align: justify;
-        color: #333;
+    .experience-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .experience-section strong {
-        color: #007BFF;
+    .experience-title {
+        font-size: clamp(1.2rem, 3vw, 1.6em);
+        color: #2c3e50;
+        font-weight: 700;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .experience-title i {
+        color: #3498db;
+        font-size: 0.9em;
+    }
+
+    .experience-description {
+        font-size: clamp(0.95rem, 2vw, 1.1em);
+        line-height: 1.7;
+        color: #444;
+    }
+
+    .highlight {
+        color: #2980b9;
         font-weight: 600;
+        position: relative;
     }
 
-    /* Línea separadora */
-    .separator {
-        border: none;
-        height: 1px;
-        background: linear-gradient(to right, transparent, #ccc, transparent);
-        margin: 20px 0;
+    .duration-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(52, 152, 219, 0.1);
+        border: 1px solid rgba(52, 152, 219, 0.2);
+        border-radius: 50px;
+        padding: 8px 16px;
+        font-size: 0.9em;
+        color: #2980b9;
+        font-weight: 500;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .duration-badge:hover {
+        background: rgba(52, 152, 219, 0.2);
+        transform: translateX(5px);
+    }
+
+    .duration-badge i {
+        font-size: 1.1em;
     }
 
     /* Sección de descargas */
     .downloads-section {
-        margin-top: 40px;
-        padding: 20px;
+        margin-top: 50px;
+        padding: 30px;
         background: rgba(255, 255, 255, 0.8);
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .downloads-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(to bottom, #3498db, #2980b9);
     }
 
     .downloads-section h2 {
         color: #2c3e50;
-        margin-bottom: 20px;
+        margin: 0 0 25px 0;
         font-size: clamp(1.4rem, 3vw, 1.8em);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .downloads-section h2 i {
+        color: #3498db;
     }
 
     .downloads-section ul {
@@ -178,16 +293,17 @@
 
     .downloads-section li {
         margin-bottom: 15px;
-        padding: 10px;
-        border-left: 4px solid #3498db;
+        padding: 15px 20px;
         background: rgba(52, 152, 219, 0.05);
-        border-radius: 0 8px 8px 0;
+        border-radius: 12px;
+        border-left: 4px solid #3498db;
         transition: all 0.3s ease;
     }
 
     .downloads-section li:hover {
         background: rgba(52, 152, 219, 0.1);
         transform: translateX(5px);
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
     }
 
     .downloads-section a {
@@ -195,11 +311,18 @@
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .downloads-section a i {
+        color: #3498db;
+        font-size: 1.2em;
     }
 
     .downloads-section a:hover {
         color: #3498db;
-        text-decoration: underline;
     }
 
     /* Media queries mejoradas para responsividad */
@@ -251,6 +374,7 @@
         .experience-section {
             grid-template-columns: 1fr;
             text-align: center;
+            padding: 20px;
         }
         
         .experience-section img {
@@ -258,8 +382,16 @@
             margin: 0 auto 15px;
         }
 
-        .experience-section p {
-            text-align: center;
+        .experience-title {
+            justify-content: center;
+        }
+
+        .duration-badge {
+            align-self: center;
+        }
+
+        .downloads-section {
+            padding: 20px;
         }
     }
 
@@ -270,6 +402,10 @@
 
         .main-content {
             padding: 20px 15px;
+        }
+
+        .experience-section {
+            padding: 15px;
         }
 
         .downloads-section {
@@ -305,59 +441,138 @@
             <!-- Encabezado -->
             <header>
                 <h1>Experiencias</h1>
+                <p class="subtitle">Mi trayectoria profesional 💼</p>
             </header>
 
             <!-- Secciones de experiencia -->
             <section>
                 <div class="experience-section">
                     <img src="/static/images/senado_nacional01.jpg" alt="Senado Nacional">
-                    <p>Mi experiencia en el Honorable Senado de la Nación Argentina me permitió aprender sobre las funciones en el área legislativa. A través de esta experiencia, participé en la redacción y análisis de proyectos de ley, además de asistir a comisiones parlamentarias en un entorno de constante interacción con funcionarios y legisladores.<br>
-                     <strong>Duración:</strong> 2021 - 2023</p>
+                    <div class="experience-content">
+                        <h3 class="experience-title">
+                            <i class="fas fa-landmark"></i>
+                            Honorable Senado de la Nación
+                        </h3>
+                        <p class="experience-description">
+                            ¡Una experiencia transformadora en el corazón del poder legislativo! ⚖️ Aquí aprendí sobre las <span class="highlight">funciones parlamentarias</span> de primera mano. Participé en la redacción y análisis de proyectos de ley, asistí a comisiones y trabajé codo a codo con funcionarios y legisladores. ¡Una inmersión total en la política legislativa argentina!
+                        </p>
+                        <div class="duration-badge">
+                            <i class="fas fa-calendar-alt"></i>
+                            2021 - 2023
+                        </div>
+                    </div>
                 </div>
-                <hr class="separator">
 
                 <div class="experience-section">
-                    <img src="/static/images/congresoabogacia.jpeg" alt="Gestión Cultural">
-                    <p>Durante el año 2023, participé en la XX Conferencia Nacional de la Abogacía, organizada por la Federación Argentina de Colegios de Abogadas y Abogados. Mi participación fue junto al Dr. Juan Manuel Fernández, con quien presentamos nuestro trabajo de investigación, que consiste en un proyecto de ley que propone la creación de un nuevo régimen para deudores particulares.<br>
-                    <strong>Duración:</strong> 2023</p>
+                    <img src="/static/images/congresoabogacia.jpeg" alt="Conferencia Nacional de Abogacía">
+                    <div class="experience-content">
+                        <h3 class="experience-title">
+                            <i class="fas fa-users"></i>
+                            XX Conferencia Nacional de la Abogacía
+                        </h3>
+                        <p class="experience-description">
+                            ¡Presentando investigación a nivel nacional! 📊 Junto al <span class="highlight">Dr. Juan Manuel Fernández</span>, expusimos nuestro trabajo ante la Federación Argentina de Colegios de Abogados. Propusimos un nuevo régimen para deudores particulares, ¡aportando soluciones innovadoras a problemáticas actuales!
+                        </p>
+                        <div class="duration-badge">
+                            <i class="fas fa-calendar-check"></i>
+                            2023
+                        </div>
+                    </div>
                 </div>
-                <hr class="separator">
 
                 <div class="experience-section">
-                    <img src="/static/images/MolinoFC.jpg" alt="Voluntariado Social">
-                    <p>He tenido la oportunidad en el año 2019 de trabajar en el Molino Fábrica Cultural, un lugar emblemático de la ciudad. Gracias al programa provincial de Residencias Culturales desarrollado por el Ministerio de Innovación y Cultura de la Provincia de Santa Fe. Me encargué de coordinar actividades públicas, atender al público y trabajar en equipo para llevar adelante diversos eventos culturales. Bajo la conducción de la Ministra María de los Ángeles González, pude aprender mucho sobre la gestión y organización de proyectos culturales.<br>
-                   <strong>Duración:</strong> 2019 - 2021</p>
+                    <img src="/static/images/MolinoFC.jpg" alt="Molino Fábrica Cultural">
+                    <div class="experience-content">
+                        <h3 class="experience-title">
+                            <i class="fas fa-theater-masks"></i>
+                            Molino Fábrica Cultural
+                        </h3>
+                        <p class="experience-description">
+                            ¡Gestionando cultura en un espacio emblemático! 🎭 A través del programa <span class="highlight">Residencias Culturales</span> del Ministerio de Innovación y Cultura de Santa Fe, coordiné actividades públicas, atendí visitantes y organicé eventos culturales. Bajo la conducción de la Ministra María de los Ángeles González, ¡aprendí sobre gestión cultural y trabajo en equipo!
+                        </p>
+                        <div class="duration-badge">
+                            <i class="fas fa-calendar-alt"></i>
+                            2019 - 2021
+                        </div>
+                    </div>
                 </div>
-                <hr class="separator">
 
                 <div class="experience-section">
-                    <img src="/static/images/UNLcongresos.jpg" alt="Gestión Cultural">
-                    <p>Desde mi ingreso en 2018 hasta la actualidad, he participado en diversas instancias académicas de la Universidad Nacional del Litoral, tales como las Jornadas de Ciencia Política del Litoral, el I Congreso Internacional de Comunicación Política, el I Congreso de Derecho Internacional y las Jornadas de Debate de Políticas Públicas de Género. En las Jornadas de Ciencia Política del Litoral, participé como expositor, donde presenté dos trabajos de investigación.<br>
-                    <strong>Duración:</strong> 2018 - 2023</p>
+                    <img src="/static/images/UNLcongresos.jpg" alt="Congresos UNL">
+                    <div class="experience-content">
+                        <h3 class="experience-title">
+                            <i class="fas fa-university"></i>
+                            Participación en Congresos Académicos
+                        </h3>
+                        <p class="experience-description">
+                            ¡Activo en el ámbito académico desde 2018! 📚 He participado en las <span class="highlight">Jornadas de Ciencia Política del Litoral</span>, el Congreso Internacional de Comunicación Política, el Congreso de Derecho Internacional y las Jornadas de Debate de Políticas Públicas de Género. ¡Como expositor presenté dos trabajos de investigación, compartiendo conocimiento con la comunidad académica!
+                        </p>
+                        <div class="duration-badge">
+                            <i class="fas fa-calendar-alt"></i>
+                            2018 - 2023
+                        </div>
+                    </div>
                 </div>
-                <hr class="separator">
 
                 <div class="experience-section">
-                    <img src="/static/images/Pasantia01.webp" alt="Gestión Cultural">
-                    <p>En mi último año de secundario, realicé una pasantía en la Secretaría de Cultura de Laguna Paiva, donde participé en la creación de una base de datos de artistas locales, contribuyendo a la organización y promoción del talento de la comunidad.<br>
-                    <strong>Duración:</strong> 2016</p>
+                    <img src="/static/images/Pasantia01.webp" alt="Secretaría de Cultura">
+                    <div class="experience-content">
+                        <h3 class="experience-title">
+                            <i class="fas fa-palette"></i>
+                            Secretaría de Cultura - Laguna Paiva
+                        </h3>
+                        <p class="experience-description">
+                            ¡Mi primera experiencia profesional fue cerca de casa! 🏡 En mi último año de secundaria, contribuí a crear una <span class="highlight">base de datos de artistas locales</span>, ayudando a organizar y promover el talento de mi comunidad. ¡Un proyecto que conectó cultura y tecnología!
+                        </p>
+                        <div class="duration-badge">
+                            <i class="fas fa-calendar-check"></i>
+                            2016
+                        </div>
+                    </div>
                 </div>
-                <hr class="separator">
 
                 <div class="experience-section">
-                    <img src="/static/images/Pasantia02.jpg" alt="Gestión Cultural">
-                    <p>En mi último año de secundario, también realicé una pasantía como instructor informático en el jardín N° 96 Ing. León Lasalle, brindando apoyo en el uso de herramientas tecnológicas a niños de 5 años, facilitando su aprendizaje y desarrollo digital.<br>
-                    <strong>Duración:</strong> 2016</p>
+                    <img src="/static/images/Pasantia02.jpg" alt="Instructor Informático">
+                    <div class="experience-content">
+                        <h3 class="experience-title">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Instructor Informático - Jardín N° 96
+                        </h3>
+                        <p class="experience-description">
+                            ¡Enseñando tecnología a los más pequeños! 👶💻 También en mi último año de secundario, fui instructor informático en el jardín Ing. León Lasalle. Brindé apoyo en herramientas tecnológicas a niños de 5 años, ¡facilitando su desarrollo digital desde temprana edad!
+                        </p>
+                        <div class="duration-badge">
+                            <i class="fas fa-calendar-check"></i>
+                            2016
+                        </div>
+                    </div>
                 </div>
-                <hr class="separator">
              
                 <!-- Artículos Académicos y Proyectos de Congresos -->
                 <div class="downloads-section">
-                    <h2>Artículos Académicos y Proyectos de Congresos</h2>
+                    <h2>
+                        <i class="fas fa-file-pdf"></i>
+                        Artículos Académicos y Proyectos
+                    </h2>
                     <ul>
-                        <li><a href="/static/files/XX Conferencia Nacional de la Abogacia de la FACA.pdf" download>Trabajo de investigación: "XX Conferencia Nacional de la Abogacia de la FACA."</a></li>
-                        <li><a href="/static/files/Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei, 6ta Jornada de Ciencia Politica Santiago Cignetti y Francisco Esparza.pdf" download>Trabajo de investigación: "Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei, por Santiago Cignetti y Francisco Esparza."</a></li>
-                        <li><a href="/static/files/Violencias en plural la respuesta de la oposición frente al intento de magnicidio de.pdf" download>Trabajo de investigación: "Violencias en plural: la respuesta de la oposición frente al intento de magnicidio de Cristina Fernandez. 6ta Jornada de Ciencia Politica Martina Trossero y Francisco Esparza."</a></li>
+                        <li>
+                            <a href="/static/files/XX Conferencia Nacional de la Abogacia de la FACA.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <span>Trabajo de investigación: "XX Conferencia Nacional de la Abogacía de la FACA"</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/static/files/Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei, 6ta Jornada de Ciencia Politica Santiago Cignetti y Francisco Esparza.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <span>Trabajo de investigación: "Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei" por Santiago Cignetti y Francisco Esparza</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/static/files/Violencias en plural la respuesta de la oposición frente al intento de magnicidio de.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <span>Trabajo de investigación: "Violencias en plural: la respuesta de la oposición frente al intento de magnicidio de Cristina Fernández" por Martina Trossero y Francisco Esparza</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </section>
