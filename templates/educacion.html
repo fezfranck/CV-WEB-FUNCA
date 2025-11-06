@@ -12,7 +12,7 @@
         font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #2c2c2c;
         min-height: 100vh;
@@ -254,6 +254,7 @@
         display: inline-flex;
         align-items: center;
         gap: 5px;
+        cursor: pointer;
     }
 
     .education-section a:hover {
@@ -356,8 +357,8 @@
         cursor: pointer;
         transition: all 0.3s ease;
         z-index: 1003;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -454,8 +455,8 @@
             font-size: 35px;
             top: 10px;
             right: 20px;
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
         }
     }
 
@@ -490,8 +491,8 @@
             font-size: 30px;
             top: 10px;
             right: 15px;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
         }
     }
     </style>
@@ -525,7 +526,7 @@
             <!-- Secciones de educación -->
             <section>
                 <div class="education-section">
-                    <img src="https://via.placeholder.com/250x150/3498db/ffffff?text=UNL" alt="Universidad Nacional del Litoral">
+                    <img src="/static/images/universidad_nacional_del_litoral.png" alt="Universidad Nacional del Litoral">
                     <div class="education-content">
                         <h3 class="institution-name">
                             <i class="fas fa-university"></i>
@@ -542,7 +543,7 @@
                 </div>
                 
                 <div class="education-section">
-                    <img src="https://via.placeholder.com/250x150/e74c3c/ffffff?text=UACJ" alt="Universidad Autónoma de Ciudad Juárez">
+                    <img src="/static/images/UACJ.png" alt="Universidad Autónoma de Ciudad Juárez">
                     <div class="education-content">
                         <h3 class="institution-name">
                             <i class="fas fa-globe-americas"></i>
@@ -551,7 +552,7 @@
                         <p class="education-description">
                             ¡Una experiencia internacional increíble! 🌎 En 2023 participé en el <span class="highlight">Programa eMOVIES</span> de la OUI. Cursé Economía Ecológica con el Dr. Humberto Rubí Juárez en México, ampliando mi visión sobre sustentabilidad y desarrollo.
                         </p>
-                        <a href="#" onclick="openModalImage('https://via.placeholder.com/800x600/27ae60/ffffff?text=Constancia'); return false;">
+                        <a href="#" onclick="openModalImage('/static/images/constanciademovilidadUACJ.png'); return false;">
                             <i class="fas fa-certificate"></i>
                             Ver Constancia de Movilidad
                         </a>
@@ -563,7 +564,7 @@
                 </div>
 
                 <div class="education-section">
-                    <img src="https://via.placeholder.com/250x150/f39c12/ffffff?text=EET+458" alt="Escuela Hernandarias Laguna Paiva">
+                    <img src="/static/images/hernandarias_laguna_paiva.jpg" alt="Escuela Hernandarias Laguna Paiva">
                     <div class="education-content">
                         <h3 class="institution-name">
                             <i class="fas fa-school"></i>
@@ -580,7 +581,7 @@
                 </div>
 
                 <div class="education-section">
-                    <img src="https://via.placeholder.com/250x150/9b59b6/ffffff?text=Edutin" alt="Edutin Academy">
+                    <img src="/static/images/edutin_academy.png" alt="Edutin Academy">
                     <div class="education-content">
                         <h3 class="institution-name">
                             <i class="fas fa-palette"></i>
@@ -597,7 +598,7 @@
                 </div>
 
                 <div class="education-section">
-                    <img src="https://via.placeholder.com/250x150/34495e/ffffff?text=Senado" alt="Senado Nacional">
+                    <img src="/static/images/senado_nacional.jpeg" alt="Senado Nacional">
                     <div class="education-content">
                         <h3 class="institution-name">
                             <i class="fas fa-landmark"></i>
@@ -616,14 +617,52 @@
                 <!-- Galería de certificaciones -->
                 <h2><i class="fas fa-award"></i> Certificaciones</h2>
                 <div class="gallery">
-                    <img src="https://via.placeholder.com/200x150/e74c3c/ffffff?text=Cert+1" alt="Certificación 1" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/3498db/ffffff?text=Cert+2" alt="Certificación 2" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/2ecc71/ffffff?text=Cert+3" alt="Certificación 3" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/f39c12/ffffff?text=Cert+4" alt="Certificación 4" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/9b59b6/ffffff?text=Cert+5" alt="Certificación 5" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/1abc9c/ffffff?text=Cert+6" alt="Certificación 6" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/34495e/ffffff?text=Cert+7" alt="Certificación 7" class="thumbnail">
-                    <img src="https://via.placeholder.com/200x150/e67e22/ffffff?text=Cert+8" alt="Certificación 8" class="thumbnail">
+                    <img src="/static/images/certificacion_42.jpg" alt="Certificación 42" class="thumbnail">
+                    <img src="/static/images/certificacion_1.png" alt="Certificación 1" class="thumbnail">
+                    <img src="/static/images/certificacion_2.png" alt="Certificación 2" class="thumbnail">
+                    <img src="/static/images/certificacion_3.png" alt="Certificación 3" class="thumbnail">
+                    <img src="/static/images/certificacion_4.jpg" alt="Certificación 4" class="thumbnail">
+                    <img src="/static/images/certificacion_5.png" alt="Certificación 5" class="thumbnail">
+                    <img src="/static/images/certificacion_6.png" alt="Certificación 6" class="thumbnail">
+                    <img src="/static/images/certificacion_7.jpg" alt="Certificación 7" class="thumbnail">
+                    <img src="/static/images/certificacion_8.jpg" alt="Certificación 8" class="thumbnail">
+                    <img src="/static/images/certificacion_9.png" alt="Certificación 9" class="thumbnail">
+                    <img src="/static/images/certificacion_10.png" alt="Certificación 10" class="thumbnail">
+                    <img src="/static/images/certificacion_11.jpg" alt="Certificación 11" class="thumbnail">
+                    <img src="/static/images/certificacion_12.png" alt="Certificación 12" class="thumbnail">
+                    <img src="/static/images/certificacion_13.png" alt="Certificación 13" class="thumbnail">
+                    <img src="/static/images/certificacion_14.png" alt="Certificación 14" class="thumbnail">
+                    <img src="/static/images/certificacion_15.png" alt="Certificación 15" class="thumbnail">
+                    <img src="/static/images/certificacion_16.png" alt="Certificación 16" class="thumbnail">
+                    <img src="/static/images/certificacion_17.png" alt="Certificación 17" class="thumbnail">
+                    <img src="/static/images/certificacion_18.jpg" alt="Certificación 18" class="thumbnail">
+                    <img src="/static/images/certificacion_19.png" alt="Certificación 19" class="thumbnail">
+                    <img src="/static/images/certificacion_20.png" alt="Certificación 20" class="thumbnail">
+                    <img src="/static/images/certificacion_21.png" alt="Certificación 21" class="thumbnail">
+                    <img src="/static/images/certificacion_22.png" alt="Certificación 22" class="thumbnail">
+                    <img src="/static/images/certificacion_23.png" alt="Certificación 23" class="thumbnail">
+                    <img src="/static/images/certificacion_24.png" alt="Certificación 24" class="thumbnail">
+                    <img src="/static/images/certificacion_25.png" alt="Certificación 25" class="thumbnail">
+                    <img src="/static/images/certificacion_26.png" alt="Certificación 26" class="thumbnail">
+                    <img src="/static/images/certificacion_27.png" alt="Certificación 27" class="thumbnail">
+                    <img src="/static/images/certificacion_28.png" alt="Certificación 28" class="thumbnail">
+                    <img src="/static/images/certificacion_29.png" alt="Certificación 29" class="thumbnail">
+                    <img src="/static/images/certificacion_30.png" alt="Certificación 30" class="thumbnail">
+                    <img src="/static/images/certificacion_31.png" alt="Certificación 31" class="thumbnail">
+                    <img src="/static/images/certificacion_32.png" alt="Certificación 32" class="thumbnail">
+                    <img src="/static/images/certificacion_33.png" alt="Certificación 33" class="thumbnail">
+                    <img src="/static/images/certificacion_34.png" alt="Certificación 34" class="thumbnail">
+                    <img src="/static/images/certificacion_35.png" alt="Certificación 35" class="thumbnail">
+                    <img src="/static/images/certificacion_36.png" alt="Certificación 36" class="thumbnail">
+                    <img src="/static/images/certificacion_37.png" alt="Certificación 37" class="thumbnail">
+                    <img src="/static/images/certificacion_38.jpg" alt="Certificación 38" class="thumbnail">
+                    <img src="/static/images/certificacion_39.jpg" alt="Certificación 39" class="thumbnail">
+                    <img src="/static/images/certificacion_40.jpg" alt="Certificación 40" class="thumbnail">
+                    <img src="/static/images/certificacion_41.jpg" alt="Certificación 41" class="thumbnail">
+                    <img src="/static/images/certificacion_43.png" alt="Certificación 43" class="thumbnail">
+                    <img src="/static/images/certificacion_44.png" alt="Certificación 44" class="thumbnail">
+                    <img src="/static/images/certificacion_45.png" alt="Certificación 45" class="thumbnail">
+                    <img src="/static/images/certificacion_46.png" alt="Certificación 46" class="thumbnail">
                 </div>
             </section>
         </div>
@@ -637,7 +676,7 @@
 
     <!-- Scripts -->
     <script>
-        // Obtener el modal y sus elementos
+        // Obtener elementos del modal
         const modal = document.getElementById("myModal");
         const modalImg = document.getElementById("modal-img");
         const closeBtn = document.getElementsByClassName("close")[0];
@@ -646,7 +685,6 @@
         function openModalImage(imageSrc) {
             modal.style.display = "block";
             modalImg.src = imageSrc;
-            // Prevenir scroll del body cuando el modal está abierto
             document.body.style.overflow = "hidden";
         }
 
@@ -659,24 +697,24 @@
         // Cerrar al hacer clic en la X
         closeBtn.onclick = closeModal;
 
-        // Cerrar al hacer clic fuera de la imagen (en el fondo oscuro)
+        // Cerrar al hacer clic fuera de la imagen
         modal.onclick = function(event) {
             if (event.target === modal) {
                 closeModal();
             }
         }
 
-        // Cerrar con la tecla ESC
+        // Cerrar con tecla ESC
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && modal.style.display === 'block') {
                 closeModal();
             }
         });
 
-        // Agregar event listeners a todas las imágenes de la galería
+        // Menú hamburguesa y event listeners
         document.addEventListener('DOMContentLoaded', function() {
+            // Agregar event listeners a todas las imágenes de la galería
             const galleryImages = document.querySelectorAll('.gallery img');
-            
             galleryImages.forEach(img => {
                 img.addEventListener('click', function() {
                     openModalImage(this.src);
