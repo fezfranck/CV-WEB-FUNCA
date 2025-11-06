@@ -435,6 +435,57 @@
     }
 
     @media (max-width: 768px) {
+        nav {
+            width: 100%;
+            height: auto;
+            padding-top: 60px;
+            transform: translateY(-100%);
+        }
+        
+        nav.active {
+            transform: translateY(0);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        
+        nav ul li {
+            margin: 8px 0;
+        }
+        
+        nav ul li a {
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .main-content {
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 70px;
+            padding: 20px;
+            width: calc(100% - 40px);
+        }
+
+        .articulo-card {
+            padding: 20px;
+        }
+
+        .compartir-redes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .btn-compartir {
+            padding: 10px 8px;
+            font-size: 0.8em;
+            text-align: center;
+        }
+
         .modal-content {
             width: 95%;
             margin: 10px;
@@ -442,56 +493,170 @@
         }
 
         .modal-header {
-            padding: 15px 20px;
-        }
-
-        .modal-header h2 {
-            font-size: 1.2em;
-        }
-
-        .modal-body {
-            padding: 20px;
-            max-height: calc(95vh - 180px);
-        }
-
-        .modal-footer {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .modal-compartir {
-            width: 100%;
-        }
-
-        .btn-compartir {
-            flex: 1;
-            text-align: center;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .modal-content {
-            width: 98%;
+            padding: 12px 15px;
         }
 
         .modal-header h2 {
             font-size: 1.1em;
+            line-height: 1.3;
+        }
+
+        .modal-close {
+            width: 30px;
+            height: 30px;
+            font-size: 1.5em;
         }
 
         .modal-body {
             padding: 15px;
+            max-height: calc(95vh - 200px);
         }
 
         .articulo-contenido {
-            font-size: 1em;
+            font-size: 0.95em;
+        }
+
+        .modal-footer {
+            padding: 12px 15px;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .modal-fecha {
+            font-size: 0.85em;
+        }
+
+        .modal-compartir {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .modal-compartir .btn-compartir {
+            padding: 8px 6px;
+            font-size: 0.75em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-content {
+            padding: 15px;
+            width: calc(100% - 30px);
+            margin-top: 60px;
+        }
+
+        .page-title {
+            font-size: 2em;
+        }
+
+        .page-subtitle {
+            font-size: 1.1em;
+        }
+
+        .articulo-card {
+            padding: 15px;
+        }
+
+        .articulo-titulo {
+            font-size: 1.3em;
         }
 
         .compartir-redes {
-            flex-direction: column;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
         }
 
         .btn-compartir {
-            width: 100%;
+            padding: 8px 6px;
+            font-size: 0.75em;
+        }
+
+        .modal-content {
+            width: 96%;
+            margin: 8px;
+        }
+
+        .modal-header {
+            padding: 10px 12px;
+        }
+
+        .modal-header h2 {
+            font-size: 1em;
+            line-height: 1.2;
+        }
+
+        .modal-close {
+            width: 28px;
+            height: 28px;
+            font-size: 1.3em;
+        }
+
+        .modal-body {
+            padding: 12px;
+            max-height: calc(95vh - 190px);
+        }
+
+        .articulo-contenido {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .articulo-contenido h1 {
+            font-size: 1.3em;
+        }
+
+        .articulo-contenido h2 {
+            font-size: 1.2em;
+        }
+
+        .articulo-contenido h3 {
+            font-size: 1.1em;
+        }
+
+        .modal-footer {
+            padding: 10px 12px;
+            gap: 10px;
+        }
+
+        .modal-fecha {
+            font-size: 0.8em;
+            text-align: center;
+        }
+
+        .modal-compartir {
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .modal-compartir .btn-compartir {
+            padding: 7px 5px;
+            font-size: 0.7em;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .modal-content {
+            width: 98%;
+            margin: 5px;
+        }
+
+        .modal-header h2 {
+            font-size: 0.95em;
+        }
+
+        .modal-body {
+            padding: 10px;
+        }
+
+        .articulo-contenido {
+            font-size: 0.85em;
+        }
+
+        .modal-compartir .btn-compartir {
+            padding: 6px 4px;
+            font-size: 0.65em;
         }
     }
 </style>
