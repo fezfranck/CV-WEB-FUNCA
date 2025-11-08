@@ -40,5 +40,12 @@
     "fecha": "11/06/2022",
     "archivo": "/static/articulos/ethos.html",
     "resumen": "El Ethos Retórico: Construcción de la Identidad Discursiva"
+  },
+  {
+    "id": "representacion",
+    "titulo": "Transformaciones de la representación política: Del parlamentarismo liberal a la democracia de partidos",
+    "fecha": "21/04/2021",
+    "archivo": "/static/articulos/representacion.html",
+    "resumen": "Transformaciones de la representación política: Del parlamentarismo liberal a la democracia de partidos"
   }
 ]
