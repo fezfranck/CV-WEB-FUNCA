@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos - Francisco Esparza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+   <style>
+    /* Estilos generales del cuerpo */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #2c2c2c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    /* Menú de navegación - Versión Mejorada */
+    nav {
+        width: 220px;
+        background: linear-gradient(180deg, #4a4a4a, #333);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding-top: 40px;
+        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        padding: 12px 15px 12px 30px;
+        display: block;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+    }
+
+    nav ul li a:hover {
+        background-color: #555;
+        transform: translateX(10px);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Menú hamburguesa para móviles */
+    .menu-toggle {
+        display: none;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1001;
+        background: #4a4a4a;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Contenido principal mejorado */
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        padding: clamp(20px, 4vw, 40px);
+        max-width: min(900px, 90vw);
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 16px;
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+        margin-left: 270px;
+        margin-right: clamp(20px, 4vw, 40px);
+        margin-top: clamp(20px, 4vw, 40px);
+        min-height: 80vh;
+        transition: all 0.3s ease;
+    }
+
+    .page-title {
+        font-size: clamp(2.5rem, 6vw, 3.5em);
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-subtitle {
+        font-size: clamp(1.2rem, 3vw, 1.5em);
+        color: #3498db;
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
+
+    .articulos-container {
+        width: 100%;
+        text-align: left;
+    }
+
+    .articulo {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        padding: clamp(15px, 3vw, 25px);
+        margin-bottom: clamp(20px, 4vw, 30px);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .articulo:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .articulo-titulo {
+        font-size: clamp(1.4rem, 4vw, 1.8em);
+        color: #2c3e50;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .articulo-fecha {
+        font-size: 0.9em;
+        color: #7f8c8d;
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+
+    .articulo-contenido {
+        font-size: clamp(1rem, 2vw, 1.1em);
+        line-height: 1.7;
+        color: #444;
+        text-align: justify;
+    }
+
+    .articulo-contenido h1, 
+    .articulo-contenido h2, 
+    .articulo-contenido h3 {
+        color: #2c3e50;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+    
+    .articulo-contenido p {
+        margin-bottom: 15px;
+    }
+    
+    .articulo-contenido ul, 
+    .articulo-contenido ol {
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    .compartir-redes {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .btn-compartir {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .btn-compartir:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-facebook {
+        background-color: #3b5998;
+    }
+
+    .btn-facebook:hover {
+        background-color: #344e86;
+    }
+
+    .btn-twitter {
+        background-color: #1da1f2;
+    }
+
+    .btn-twitter:hover {
+        background-color: #0d95e8;
+    }
+
+    .btn-linkedin {
+        background-color: #0077b5;
+    }
+
+    .btn-linkedin:hover {
+        background-color: #00669c;
+    }
+
+    .btn-whatsapp {
+        background-color: #25d366;
+    }
+
+    .btn-whatsapp:hover {
+        background-color: #20bd5c;
+    }
+
+    /* Estilos adicionales para carga */
+    .cargando {
+        text-align: center;
+        padding: 40px;
+        font-size: 1.2em;
+        color: #7f8c8d;
+    }
+    
+    .error-carga {
+        text-align: center;
+        padding: 40px;
+        color: #e74c3c;
+        background: rgba(231, 76, 60, 0.05);
+        border-radius: 12px;
+        border-left: 4px solid #e74c3c;
+    }
+    
+    .articulo-vacio {
+        text-align: center;
+        padding: 40px;
+        color: #7f8c8d;
+        font-style: italic;
+        background: rgba(127, 140, 141, 0.05);
+        border-radius: 12px;
+    }
+
+    .error-detalle {
+        background: #ffeaea;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 10px 0;
+        border-left: 4px solid #e74c3c;
+    }
+
+    /* Media queries mejoradas para el menú */
+    @media (max-width: 992px) {
+        nav {
+            width: 200px;
+            transform: translateX(-100%);
+        }
+        
+        nav.active {
+            transform: translateX(0);
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+        
+        .main-content {
+            margin-left: 0 !important;
+            padding-top: 20px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .page-title {
+            font-size: 2.8em;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .main-content {
+            margin-left: 200px;
+            margin-right: 20px;
+            padding: 30px;
+        }
+        
+        .page-title {
+            font-size: 2.5em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            width: 100%;
+            height: auto;
+            padding-top: 60px;
+            transform: translateY(-100%);
+        }
+        
+        nav.active {
+            transform: translateY(0);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px;
+        }
+        
+        nav ul li {
+            margin: 8px 0;
+        }
+        
+        nav ul li a {
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .menu-toggle {
+            top: 10px;
+            left: 10px;
+        }
+
+        .main-content {
+            margin-left: 0;
+            margin-top: 70px;
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .page-title {
+            font-size: 2.5em;
+        }
+
+        .page-subtitle {
+            font-size: 1.3em;
+        }
+
+        .articulo-titulo {
+            font-size: 1.6em;
+        }
+
+        .compartir-redes {
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            padding-top: 50px;
+        }
+        
+        nav ul li a {
+            padding: 8px 10px;
+            font-size: 0.9rem;
+        }
+
+        .page-title {
+            font-size: 2.2em;
+        }
+
+        .main-content {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .articulo {
+            padding: 15px;
+        }
+
+        .articulo-titulo {
+            font-size: 1.4em;
+        }
+
+        .articulo-contenido {
+            font-size: 1em;
+        }
+
+        .compartir-redes {
+            flex-direction: column;
+        }
+
+        .btn-compartir {
+            text-align: center;
+            width: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Botón del menú hamburguesa para móviles -->
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <!-- Menú de navegación -->
+    <nav class="vertical-menu">
+        <ul>
+              <li><a href="/">Inicio</a></li>
+            <li><a href="/templates/educacion.html">Educación</a></li>
+            <li><a href="/templates/experiencias.html">Experiencias</a></li>
+            <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+            <li><a href="/templates/contacto.html">Contacto</a></li>
+            <li><a href="/templates/articulos.html">Artículos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <header>
+            <h1 class="page-title">Artículos</h1>
+            <p class="page-subtitle">Opinión - Actualidad</p>
+        </header>
+        
+        <div class="articulos-container" id="lista-articulos">
+            <div class="cargando">
+                <p>Cargando artículos...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para cargar artículos automáticamente
+        async function cargarArticulos() {
+            try {
+                const container = document.getElementById('lista-articulos');
+                
+                console.log('🔍 Iniciando carga de artículos...');
+                
+                // 1. Cargar la lista de artículos
+                const jsonUrl = '/static/data/articulos.json';
+                console.log('📂 Cargando JSON desde:', jsonUrl);
+                
+                const response = await fetch(jsonUrl);
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
+                }
+                
+                const articulos = await response.json();
+                console.log('✅ JSON cargado correctamente:', articulos);
+                
+                // 2. Si no hay artículos, mostrar mensaje
+                if (articulos.length === 0) {
+                    container.innerHTML = `
+                        <div class="articulo-vacio">
+                            <h2>No hay artículos publicados</h2>
+                            <p>Próximamente se publicarán nuevos artículos.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // 3. Ordenar artículos por fecha (más reciente primero)
+                articulos.sort((a, b) => {
+                    const fechaA = new Date(a.fecha.split('/').reverse().join('-'));
+                    const fechaB = new Date(b.fecha.split('/').reverse().join('-'));
+                    return fechaB - fechaA;
+                });
+                
+                // 4. Limpiar contenedor
+                container.innerHTML = '';
+                
+                // 5. Cargar cada artículo
+                for (const articulo of articulos) {
+                    try {
+                        console.log(`📖 Intentando cargar artículo: ${articulo.titulo}`);
+                        console.log(`📁 Archivo: ${articulo.archivo}`);
+                        
+                        // Cargar contenido del artículo
+                        const contenidoResponse = await fetch(articulo.archivo);
+                        if (!contenidoResponse.ok) {
+                            throw new Error(`Error ${contenidoResponse.status}: No se pudo cargar el archivo`);
+                        }
+                        
+                        const contenido = await contenidoResponse.text();
+                        console.log(`✅ Contenido cargado para: ${articulo.titulo}`);
+                        
+                        // Crear elemento del artículo
+                        const articuloElement = document.createElement('div');
+                        articuloElement.className = 'articulo';
+                        articuloElement.innerHTML = `
+                            <h2 class="articulo-titulo">${articulo.titulo}</h2>
+                            <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
+                            <div class="articulo-contenido">
+                                ${contenido}
+                            </div>
+                            <div class="compartir-redes">
+                                <a href="#" class="btn-compartir btn-facebook" data-titulo="${articulo.titulo}">Compartir en Facebook</a>
+                                <a href="#" class="btn-compartir btn-twitter" data-titulo="${articulo.titulo}">Compartir en Twitter</a>
+                                <a href="#" class="btn-compartir btn-linkedin" data-titulo="${articulo.titulo}">Compartir en LinkedIn</a>
+                                <a href="#" class="btn-compartir btn-whatsapp" data-titulo="${articulo.titulo}">Compartir en WhatsApp</a>
+                            </div>
+                        `;
+                        
+                        container.appendChild(articuloElement);
+                        
+                    } catch (error) {
+                        console.error(`❌ Error cargando artículo ${articulo.titulo}:`, error);
+                        
+                        // Mostrar artículo con mensaje de error detallado
+                        const articuloError = document.createElement('div');
+                        articuloError.className = 'articulo';
+                        articuloError.innerHTML = `
+                            <h2 class="articulo-titulo">${articulo.titulo}</h2>
+                            <p class="articulo-fecha">Publicado el: ${articulo.fecha}</p>
+                            <div class="articulo-contenido">
+                                <div class="error-detalle">
+                                    <p style="color: #e74c3c; font-weight: bold; margin: 0 0 10px 0;">Error cargando el artículo</p>
+                                    <p style="margin: 5px 0;"><strong>Archivo:</strong> ${articulo.archivo}</p>
+                                    <p style="margin: 5px 0;"><strong>Error:</strong> ${error.message}</p>
+                                    <p style="margin: 10px 0 0 0; font-size: 0.9em;">Verifica que el archivo exista en la ruta correcta.</p>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(articuloError);
+                    }
+                }
+                
+                console.log('🎉 Todos los artículos procesados');
+                
+                // 6. Configurar botones de compartir
+                configurarBotonesCompartir();
+                
+            } catch (error) {
+                console.error('💥 Error general cargando artículos:', error);
+                document.getElementById('lista-articulos').innerHTML = `
+                    <div class="error-carga">
+                        <h2>Error al cargar los artículos</h2>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p>Verifica la consola del navegador (F12) para más detalles.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Configurar botones para compartir en redes sociales
+        function configurarBotonesCompartir() {
+            const botones = document.querySelectorAll('.btn-compartir');
+            const urlActual = window.location.href;
+            
+            botones.forEach(boton => {
+                const titulo = boton.getAttribute('data-titulo');
+                let urlCompartir = '';
+                
+                if (boton.classList.contains('btn-facebook')) {
+                    urlCompartir = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlActual)}`;
+                } else if (boton.classList.contains('btn-twitter')) {
+                    urlCompartir = `https://twitter.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${encodeURIComponent(urlActual)}`;
+                } else if (boton.classList.contains('btn-linkedin')) {
+                    urlCompartir = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(urlActual)}`;
+                } else if (boton.classList.contains('btn-whatsapp')) {
+                    urlCompartir = `https://api.whatsapp.com/send?text=${encodeURIComponent(titulo + ' - ' + urlActual)}`;
+                }
+                
+                boton.href = urlCompartir;
+                boton.target = '_blank';
+            });
+        }
+
+        // Cargar artículos cuando la página esté lista
+        document.addEventListener('DOMContentLoaded', cargarArticulos);
+</script>
+          <script>
+    // Menú hamburguesa - Añadir este script en TODOS los archivos HTML
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                // Cambiar ícono
+                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Cerrar menú al hacer clic en un enlace (en móviles)
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                        menuToggle.textContent = '☰';
+                    }
+                });
+            });
+            
+            // Cerrar menú al redimensionar la ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    nav.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
+}
