@@ -33,5 +33,12 @@
     "fecha": "11/11/2020",
     "archivo": "/static/articulos/Ensayo contractualistas.html",
     "resumen": "Ensayo académico - Rousseau y Kant: Un análisis comparativo"
+  },
+  {
+    "id": "ethos",
+    "titulo": "El Ethos Retórico: Construcción de la Identidad Discursiva",
+    "fecha": "11/06/2022",
+    "archivo": "/static/articulos/ethos.html",
+    "resumen": "El Ethos Retórico: Construcción de la Identidad Discursiva"
   }
 ]
