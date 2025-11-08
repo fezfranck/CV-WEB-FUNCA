@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francisco Esparza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Francisco Esparza - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
     /* Estilos generales del cuerpo */
     body {
@@ -91,57 +92,240 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 40px;
-        max-width: 800px;
+        padding: 50px 40px;
+        max-width: 900px;
         width: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 16px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Efecto de partículas decorativas */
+    .main-content::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
+        z-index: 0;
     }
 
     .profile-header {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 25px;
         width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Imagen de perfil con diseño moderno */
+    .profile-img-container {
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-img-container:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
     }
 
     .profile-header img {
-        width: min(350px, 70vw);
-        height: min(350px, 70vw);
+        width: min(300px, 60vw);
+        height: min(300px, 60vw);
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
+        display: block;
+        transition: transform 0.5s ease;
     }
 
-    .profile-header img:hover {
+    .profile-img-container:hover img {
         transform: scale(1.05);
     }
 
+    /* Título con diseño moderno */
     .profile-header h1 {
-        font-size: clamp(2rem, 6vw, 3.5em);
+        font-size: clamp(2.2rem, 6vw, 3.8em);
         color: #2c3e50;
-        margin: 0;
-        font-weight: 600;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        margin: 10px 0 5px 0;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+    }
+
+    .profile-header h1::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #3498db, #2980b9);
+        border-radius: 2px;
     }
 
     .profile-header h1 span {
         display: block;
-        font-size: 0.6em;
-        color: #2c3e50;
+        font-size: 0.55em;
+        color: #555;
+        margin-top: 8px;
+        font-weight: 500;
     }
 
+    /* Mensaje de bienvenida */
+    .welcome-message {
+        font-size: clamp(1.2rem, 2.5vw, 1.6em);
+        color: #2980b9;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .welcome-message i {
+        font-size: 1.2em;
+        color: #3498db;
+    }
+
+    /* Descripción del perfil */
     .profile-description {
-        font-size: clamp(1rem, 2vw, 1.3em);
-        line-height: 1.6;
-        color: #555;
-        max-width: 800px;
-        margin-top: 20px;
+        font-size: clamp(1rem, 2vw, 1.15em);
+        line-height: 1.8;
+        color: #444;
+        max-width: 750px;
+        margin: 20px 0 30px 0;
         text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .highlight {
+        color: #2980b9;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .highlight::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: rgba(52, 152, 219, 0.3);
+        border-radius: 1px;
+    }
+
+    /* Botones de redes sociales */
+    .social-links {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+    }
+
+    .social-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.4em;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.4s ease, height 0.4s ease;
+    }
+
+    .social-btn:hover::before {
+        width: 100%;
+        height: 100%;
+    }
+
+    .social-btn:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-btn i {
+        position: relative;
+        z-index: 1;
+    }
+
+    .social-btn.instagram {
+        background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    }
+
+    .social-btn.linkedin {
+        background: linear-gradient(135deg, #0077B5, #005582);
+    }
+
+    .social-btn.twitter {
+        background: linear-gradient(135deg, #1DA1F2, #0C85D0);
+    }
+
+    .social-btn.facebook {
+        background: linear-gradient(135deg, #1877F2, #0D5DBE);
+    }
+
+    /* Etiqueta sobre los botones */
+    .social-title {
+        font-size: clamp(0.95rem, 2vw, 1.1em);
+        color: #555;
+        font-weight: 500;
+        margin-top: 25px;
+        margin-bottom: 5px;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .social-title i {
+        color: #3498db;
+        font-size: 1.1em;
+    }
+
+    /* Divisor decorativo */
+    .divider {
+        width: 80%;
+        max-width: 400px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent);
+        margin: 25px auto;
     }
 
     /* Media queries mejoradas para responsividad */
@@ -164,7 +348,7 @@
         }
 
         .main-content {
-            padding: 30px 20px;
+            padding: 40px 30px;
         }
     }
 
@@ -186,20 +370,22 @@
         }
 
         .main-content {
-            padding: 25px 15px;
+            padding: 35px 25px;
         }
 
         .profile-header img {
-            width: min(250px, 60vw);
-            height: min(250px, 60vw);
+            width: min(240px, 55vw);
+            height: min(240px, 55vw);
         }
 
-        .profile-header h1 {
-            font-size: 2.2em;
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 1.3em;
         }
 
-        .profile-description {
-            font-size: 1.05em;
+        .social-links {
+            gap: 15px;
         }
     }
 
@@ -209,20 +395,34 @@
         }
 
         .main-content {
-            padding: 20px 15px;
+            padding: 30px 20px;
         }
 
         .profile-header img {
-            width: min(200px, 55vw);
-            height: min(200px, 55vw);
+            width: min(200px, 50vw);
+            height: min(200px, 50vw);
         }
 
         .profile-header h1 {
-            font-size: 1.8em;
+            font-size: 2em;
+        }
+
+        .welcome-message {
+            font-size: 1.1em;
         }
 
         .profile-description {
             font-size: 0.95em;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            font-size: 1.2em;
+        }
+
+        .social-links {
+            gap: 12px;
         }
     }
     </style>
@@ -250,13 +450,48 @@
             <header>
                 <!-- Contenedor del título y la imagen -->
                 <div class="profile-header">
-                    <img src="static/mi_foto.jpeg" alt="Mi Foto" class="profile-img">
+                    <div class="profile-img-container">
+                        <img src="static/mi_foto.jpeg" alt="Francisco Abel Esparza" class="profile-img">
+                    </div>
                     <h1>Francisco <span>Abel Esparza</span></h1>
+                    
+                    <div class="welcome-message">
+                        <i class="fas fa-hand-sparkles"></i>
+                        ¡Bienvenido a mi sitio!
+                    </div>
                 </div>
+                
+                <div class="divider"></div>
+                
                 <p class="profile-description">
-                    ¡Hola! Soy Fran tengo 26 años, resido en la ciudad de Santa Fe, soy técnico en informática personal y profesional,
-                    y estudiante avanzado de la Licenciatura en Ciencia Política, Diplomado en Gestión Legislativa y en Diseño Gráfico.
+                    ¡Hola! 👋 Soy <span class="highlight">Fran</span>, tengo 27 años y resido en la ciudad de <span class="highlight">Santa Fe</span>. 
+                    Soy <span class="highlight">técnico en informática personal y profesional</span>, estudiante avanzado de la 
+                    <span class="highlight">Licenciatura en Ciencia Política</span>, Diplomado en <span class="highlight">Gestión Legislativa</span> 
+                    y en <span class="highlight">Diseño Gráfico</span>.
+                    <br><br>
+                    Me gusta trabajar para <span class="highlight">transformar realidades</span> a través del conocimiento, la tecnología y el compromiso social. 
+                    Te invito a explorar mi trayectoria y a conocerme. <i class="fas fa-rocket" style="color: #3498db;"></i>
                 </p>
+
+                <p class="social-title">
+                    <i class="fas fa-share-nodes"></i>
+                    Conectemos en redes sociales
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/franck_fez/#" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/Franckfez" target="_blank" rel="noopener noreferrer" class="social-btn twitter" aria-label="Twitter/X">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082889918531" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
             </header>
         </div>
     </div>
@@ -292,6 +527,44 @@
                 }
             });
         }
+
+        // Animación de entrada para los elementos
+        const profileHeader = document.querySelector('.profile-header');
+        const description = document.querySelector('.profile-description');
+        const socialLinks = document.querySelector('.social-links');
+        
+        setTimeout(() => {
+            profileHeader.style.opacity = '0';
+            profileHeader.style.transform = 'translateY(20px)';
+            profileHeader.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                profileHeader.style.opacity = '1';
+                profileHeader.style.transform = 'translateY(0)';
+            }, 100);
+        }, 0);
+
+        setTimeout(() => {
+            description.style.opacity = '0';
+            description.style.transform = 'translateY(20px)';
+            description.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                description.style.opacity = '1';
+                description.style.transform = 'translateY(0)';
+            }, 100);
+        }, 200);
+
+        setTimeout(() => {
+            socialLinks.style.opacity = '0';
+            socialLinks.style.transform = 'translateY(20px)';
+            socialLinks.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                socialLinks.style.opacity = '1';
+                socialLinks.style.transform = 'translateY(0)';
+            }, 100);
+        }, 400);
     });
     </script>
 </body>
