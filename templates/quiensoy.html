@@ -4,554 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quién Soy - Francisco Esparza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- CSS Centralizado -->
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-    /* Estilos generales del cuerpo */
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #2c2c2c;
-        min-height: 100vh;
-        font-size: 1em;
-        line-height: 1.6;
-    }
-
-    /* Menú de navegación - Versión Mejorada */
-    nav {
-        width: 220px;
-        background: linear-gradient(180deg, #4a4a4a, #333);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        padding-top: 40px;
-        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 600;
-        padding: 12px 15px 12px 30px;
-        display: block;
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        font-size: clamp(0.9rem, 1.5vw, 1rem);
-    }
-
-    nav ul li a:hover {
-        background-color: #555;
-        transform: translateX(10px);
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Menú hamburguesa para móviles */
-    .menu-toggle {
-        display: none;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1001;
-        background: #4a4a4a;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* Contenedor principal para centrado */
-    .page-wrapper {
-        margin-left: 220px;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-    }
-
-    /* Contenido principal mejorado */
-    .main-content {
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
-        border-radius: 20px;
-        max-width: 1000px;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-
-    /* Efecto de partículas decorativas */
-    .main-content::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
-        z-index: 0;
-    }
-
-    /* Encabezado con diseño moderno */
-    header {
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-        z-index: 1;
-        width: 100%;
-    }
-
-    header h1 {
-        font-size: clamp(2rem, 6vw, 3.5em);
-        color: #2c3e50;
-        margin: 0 0 15px 0;
-        font-weight: 700;
-        position: relative;
-        display: inline-block;
-    }
-
-    header h1::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #3498db, #2980b9);
-        border-radius: 2px;
-    }
-
-    .subtitle {
-        font-size: clamp(0.9rem, 2vw, 1.2em);
-        color: #7f8c8d;
-        font-weight: 400;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-
-    /* Contenedor principal de contenido */
-    .content-container {
-        display: flex;
-        align-items: flex-start;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-        gap: 40px;
-    }
-
-    /* Tarjeta de imagen con diseño moderno */
-    .image-card {
-        flex: 0 0 300px;
-        position: relative;
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .image-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    }
-
-    .image-card img {
-        width: 100%;
-        height: auto;
-        display: block;
-        transition: transform 0.5s ease;
-    }
-
-    .image-card:hover img {
-        transform: scale(1.05);
-    }
-
-    .image-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 40%;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
-        z-index: 1;
-    }
-
-    /* Contenido de texto con diseño moderno */
-    .text-content {
-        flex-grow: 1;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .text-content::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        background: linear-gradient(to bottom, #3498db, #2980b9);
-    }
-
-    .name {
-        font-size: clamp(1.5rem, 4vw, 2.2em);
-        color: #2c3e50;
-        margin: 0 0 20px 0;
-        font-weight: 700;
-        position: relative;
-        display: inline-block;
-    }
-
-    .name::after {
-        content: '';
-        position: absolute;
-        bottom: -8px;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background: #3498db;
-        border-radius: 2px;
-    }
-
-    .bio-text {
-        font-size: clamp(0.95rem, 2vw, 1.15em);
-        line-height: 1.7;
-        color: #444;
-        margin-bottom: 25px;
-        text-align: justify;
-    }
-
-    /* Elementos de destaque */
-    .highlight {
-        color: #2980b9;
-        font-weight: 600;
-        position: relative;
-    }
-
-    .highlight::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: rgba(52, 152, 219, 0.3);
-        border-radius: 1px;
-    }
-
-    /* Tarjetas de intereses */
-    .interests {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin-top: 30px;
-    }
-
-    .interest-item {
-        background: rgba(52, 152, 219, 0.1);
-        border: 1px solid rgba(52, 152, 219, 0.2);
-        border-radius: 50px;
-        padding: 10px 20px;
-        font-size: 0.9em;
-        color: #2980b9;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .interest-item:hover {
-        background: rgba(52, 152, 219, 0.2);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
-    }
-
-    .interest-item i {
-        font-size: 1.1em;
-    }
-
-    /* Cita inspiradora */
-    .quote {
-        margin-top: 30px;
-        padding: 20px;
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        border-radius: 12px;
-        color: white;
-        font-style: italic;
-        text-align: center;
-        position: relative;
-        box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
-    }
-
-    .quote::before, .quote::after {
-        content: '"';
-        font-size: 2.5em;
-        color: rgba(255, 255, 255, 0.3);
-        position: absolute;
-    }
-
-    .quote::before {
-        top: 10px;
-        left: 15px;
-    }
-
-    .quote::after {
-        bottom: 10px;
-        right: 15px;
-    }
-
-    /* Media queries mejoradas para responsividad */
-    @media (max-width: 992px) {
-        nav {
-            transform: translateX(-100%);
-        }
-        
-        nav.active {
-            transform: translateX(0);
-        }
-        
-        .menu-toggle {
-            display: block;
-        }
-        
-        .page-wrapper {
-            margin-left: 0;
-            padding: 20px 15px;
-        }
-
-        .main-content {
-            padding: 30px 20px;
-        }
-
-        .content-container {
-            gap: 30px;
-        }
-        
-        .image-card {
-            flex: 0 0 260px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        nav {
-            width: 80%;
-            max-width: 300px;
-            height: 100%;
-            padding-top: 60px;
-            transform: translateX(-100%);
-        }
-        
-        nav.active {
-            transform: translateX(0);
-        }
-        
-        .page-wrapper {
-            padding: 80px 15px 20px;
-            align-items: flex-start;
-        }
-
-        .main-content {
-            padding: 25px 15px;
-        }
-
-        .content-container {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .image-card {
-            flex: 0 0 auto;
-            width: 280px;
-        }
-
-        .text-content {
-            width: 100%;
-        }
-
-        header h1 {
-            font-size: 2.2em;
-        }
-
-        .name {
-            font-size: 1.6em;
-        }
-
-        .bio-text {
-            font-size: 1em;
-        }
-
-        .interests {
-            justify-content: center;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .page-wrapper {
-            padding: 70px 10px 15px;
-        }
-
-        .main-content {
-            padding: 20px 15px;
-        }
-
-        header h1 {
-            font-size: 1.9em;
-        }
-
-        .name {
-            font-size: 1.4em;
-        }
-
-        .bio-text {
-            font-size: 0.95em;
-        }
-
-        .image-card {
-            width: 240px;
-        }
-
-        .interest-item {
-            padding: 8px 16px;
-            font-size: 0.85em;
-        }
-
-        .quote {
-            padding: 15px;
-            font-size: 0.9em;
-        }
-    }
-    </style>
 </head>
 <body>
-    <!-- Botón del menú hamburguesa para móviles -->
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-    <!-- Menú de navegación -->
-    <nav class="vertical-menu">
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/templates/educacion.html">Educación</a></li>
-            <li><a href="/templates/experiencias.html">Experiencias</a></li>
-            <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
-            <li><a href="/templates/contacto.html">Contacto</a></li>
-            <li><a href="/templates/articulos.html">Artículos</a></li>
-        </ul>
-    </nav>
+    <!-- Barra de navegación superior sticky -->
+    <header class="navbar-header">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <span>Fran</span> Esparza
+            </a>
+            
+            <!-- Botón de menú para móvil -->
+            <button class="navbar-toggle" aria-label="Abrir menú" id="navbar-toggle-btn">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            
+            <!-- Enlaces de navegación -->
+            <nav class="navbar-menu" id="navbar-menu">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html" class="active">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Contenedor wrapper para centrado -->
     <div class="page-wrapper">
         <!-- Contenido principal -->
-        <div class="main-content">
+        <main class="main-content">
             <!-- Encabezado -->
-            <header>
+            <header class="section-header reveal">
                 <h1>Quién Soy</h1>
-                <p class="subtitle">Conoce mi historia y pasiones</p>
+                <p class="subtitle">Conoce mi historia y mis pasiones</p>
             </header>
 
             <!-- Contenedor de imagen y texto -->
-            <div class="content-container">
-                <div class="image-card">
-                    <img src="/static/quiensoy.jpeg" alt="Francisco Esparza">
+            <div class="quiensoy-grid">
+                <div class="quiensoy-image-container reveal">
+                    <img src="/static/quiensoy.jpeg" alt="Francisco Esparza" class="quiensoy-image">
                 </div>
                 
-                <div class="text-content">
-                    <h2 class="name">FRANCISCO A. ESPARZA</h2>
+                <div class="quiensoy-text">
+                    <h2 class="reveal reveal-delay-1">FRANCISCO A. ESPARZA</h2>
                     
-                    <p class="bio-text">
-    ¡Hola! Soy <span class="highlight">Francisco</span>, un <span class="highlight">técnico informático y politólogo en formación</span> nacido en <span class="highlight">Laguna Paiva</span> y con residencia en <span class="highlight">Santa Fe Ciudad</span>, amante de los animales, los libros y la música. 
-</p>
-
-<p class="bio-text">
-    Mi mix de habilidades va desde la <span class="highlight">informática</span> hasta la <span class="highlight">gestión cultural</span> y la <span class="highlight">asesoría política</span>. Me apasiona la música y mi cable a tierra es el piano; también disfruto viajar, leer y trabajar por objetivos nobles.
-</p>
-
-<p class="bio-text">
-    ¡Siempre con ganas de <span class="highlight">sumar y transformar realidades</span>! Gracias por tu interés en conocerme. ¡Saludos!
-</p>
+                    <p class="bio-p reveal reveal-delay-1">
+                        ¡Hola! Soy <span class="highlight">Francisco</span>, un <span class="highlight">técnico informático y politólogo en formación</span> nacido en <span class="highlight">Laguna Paiva</span> y con residencia en <span class="highlight">Santa Fe Ciudad</span>, amante de los animales, los libros y la música. 
+                    </p>
                     
-                    <div class="interests">
-                        <div class="interest-item">
-                            <i class="fas fa-music"></i> Música & Piano
+                    <p class="bio-p reveal reveal-delay-2">
+                        Mi mix de habilidades va desde la <span class="highlight">informática</span> hasta la <span class="highlight">gestión cultural</span> y la <span class="highlight">asesoría política</span>. Me apasiona la música y mi cable a tierra es el piano; también disfruto viajar, leer y trabajar por objetivos nobles.
+                    </p>
+                    
+                    <p class="bio-p reveal reveal-delay-2">
+                        ¡Siempre con ganas de <span class="highlight">sumar y transformar realidades</span>! Gracias por tu interés en conocerme. ¡Saludos!
+                    </p>
+                    
+                    <h3 class="interests-section-title reveal">Intereses & Pasiones</h3>
+                    <div class="interests-grid">
+                        <div class="interest-card reveal reveal-delay-1">
+                            <div class="interest-card-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h4>Música & Piano</h4>
                         </div>
-                        <div class="interest-item">
-                            <i class="fas fa-book"></i> Lectura
+                        <div class="interest-card reveal reveal-delay-2">
+                            <div class="interest-card-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h4>Lectura</h4>
                         </div>
-                        <div class="interest-item">
-                            <i class="fas fa-plane"></i> Viajes
+                        <div class="interest-card reveal reveal-delay-3">
+                            <div class="interest-card-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h4>Viajes</h4>
                         </div>
-                        <div class="interest-item">
-                            <i class="fas fa-laptop-code"></i> Tecnología
+                        <div class="interest-card reveal reveal-delay-1">
+                            <div class="interest-card-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4>Tecnología</h4>
                         </div>
-                        <div class="interest-item">
-                            <i class="fas fa-handshake"></i> Transformación Social
+                        <div class="interest-card reveal reveal-delay-2">
+                            <div class="interest-card-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4>Transformación Social</h4>
                         </div>
                     </div>
                     
-                    <div class="quote">
+                    <div class="quote-box reveal reveal-delay-3">
+                        <i class="fas fa-quote-left"></i>
                         "Siempre con ganas de sumar y transformar realidades"
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
-    <script>
-    // Menú hamburguesa
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-            });
-            
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 992) {
-                        nav.classList.remove('active');
-                        menuToggle.textContent = '☰';
-                    }
-                });
-            });
-            
-            document.addEventListener('click', function(e) {
-                if (nav.classList.contains('active') && 
-                    !nav.contains(e.target) && 
-                    !menuToggle.contains(e.target)) {
-                    nav.classList.remove('active');
-                    menuToggle.textContent = '☰';
-                }
-            });
-        }
-    });
-    </script>
+    <!-- Pie de página unificado -->
+    <footer class="footer-site">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2><span>Fran</span> Esparza</h2>
+                <p>Tecnología, ciencia política y compromiso social integrados para proponer soluciones, difundir ideas y transformar realidades.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Redes Sociales</h3>
+                <div class="footer-social-icons">
+                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/franck_fez/#" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Franckfez" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082889918531" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Francisco Esparza. Todos los derechos reservados.</p>
+            <p>Hecho con <i class="fas fa-heart" style="color: var(--primary-color);"></i> desde Santa Fe, Argentina</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Global -->
+    <script src="../static/main.js"></script>
 </body>
 </html>

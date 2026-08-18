@@ -4,479 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Francisco Esparza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-    /* Estilos generales del cuerpo */
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #2c2c2c;
-        min-height: 100vh;
-    }
-
-    /* Menú de navegación - Versión Mejorada */
-    nav {
-        width: 220px;
-        background: linear-gradient(180deg, #4a4a4a, #333);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        padding-top: 40px;
-        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 600;
-        padding: 12px 15px 12px 30px;
-        display: block;
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        font-size: clamp(0.9rem, 1.5vw, 1rem);
-    }
-
-    nav ul li a:hover {
-        background-color: #555;
-        transform: translateX(10px);
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Menú hamburguesa para móviles */
-    .menu-toggle {
-        display: none;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1001;
-        background: #4a4a4a;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* Contenedor principal para centrado */
-    .page-wrapper {
-        margin-left: 220px;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-    }
-
-    /* Contenido principal mejorado */
-    .main-content {
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-radius: 16px;
-        max-width: 1000px;
-        width: 100%;
-        transition: all 0.3s ease;
-    }
-
-    /* Encabezado */
-    header {
-        text-align: center;
-        margin-bottom: 40px;
-        width: 100%;
-    }
-
-    header h1 {
-        font-size: clamp(2rem, 5vw, 3.2em);
-        color: #2c3e50;
-        margin: 0;
-        font-weight: 600;
-    }
-
-    header p {
-        font-size: clamp(1rem, 2vw, 1.2em);
-        color: #555;
-        margin-top: 10px;
-    }
-
-    /* Sección de contacto mejorada */
-    .contact-section {
-        display: grid;
-        grid-template-columns: minmax(200px, 350px) 1fr;
-        gap: 20px;
-        align-items: center;
-        margin-bottom: 20px;
-        padding: 20px;
-        border-radius: 12px;
-        background-color: #fff;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    .contact-section:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .contact-section img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        justify-self: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .contact-section img:hover {
-        transform: scale(1.03);
-    }
-
-    .contact-section p {
-        font-size: clamp(1.2rem, 2vw, 1.5em);
-        line-height: 1.6;
-        text-align: center;
-        color: #333;
-        margin: 0;
-        font-weight: bold;
-    }
-
-    .social-link {
-        font-size: clamp(1rem, 2vw, 1.2em);
-        color: #007BFF;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        padding: 8px 15px;
-        border-radius: 6px;
-        background: rgba(0, 123, 255, 0.1);
-        display: inline-block;
-    }
-
-    .social-link:hover {
-        text-decoration: none;
-        background: rgba(0, 123, 255, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-    }
-
-    .separator {
-        border: none;
-        height: 1px;
-        background: linear-gradient(to right, transparent, #ccc, transparent);
-        margin: 30px 0;
-    }
-
-    /* Estilos del formulario mejorado */
-    form {
-        background-color: #fff;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    form:hover {
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    form label {
-        font-weight: bold;
-        font-style: italic;
-        margin-bottom: 8px;
-        display: block;
-        color: #2c3e50;
-        font-size: clamp(0.9rem, 2vw, 1em);
-    }
-
-    input, textarea {
-        width: 100%;
-        padding: 12px 15px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        border: 2px solid #e0e0e0;
-        font-size: 1em;
-        font-style: italic;
-        transition: all 0.3s ease;
-        background: #f8f9fa;
-        box-sizing: border-box;
-    }
-
-    input:focus, textarea:focus {
-        outline: none;
-        border-color: #007BFF;
-        background: #fff;
-        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-    }
-
-    button[type="submit"] {
-        width: 100%;
-        padding: 15px;
-        background: linear-gradient(135deg, #007BFF, #0056b3);
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 1.1em;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    button[type="submit"]:hover {
-        background: linear-gradient(135deg, #0056b3, #004085);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
-    }
-
-    /* Pie de página */
-    footer {
-        background-color: #5a5a5a;
-        color: #fff;
-        text-align: center;
-        padding: 15px;
-        margin-top: 40px;
-        border-radius: 8px;
-    }
-
-    footer p {
-        margin: 0;
-        font-size: 1em;
-    }
-
-    /* Media queries mejoradas para responsividad */
-    @media (max-width: 992px) {
-        nav {
-            transform: translateX(-100%);
-        }
-        
-        nav.active {
-            transform: translateX(0);
-        }
-        
-        .menu-toggle {
-            display: block;
-        }
-        
-        .page-wrapper {
-            margin-left: 0;
-            padding: 20px 15px;
-        }
-
-        .main-content {
-            padding: 30px 20px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        nav {
-            width: 80%;
-            max-width: 300px;
-            height: 100%;
-            padding-top: 60px;
-            transform: translateX(-100%);
-        }
-        
-        nav.active {
-            transform: translateX(0);
-        }
-        
-        .page-wrapper {
-            padding: 80px 15px 20px;
-            align-items: flex-start;
-        }
-
-        .main-content {
-            padding: 25px 15px;
-        }
-
-        .contact-section {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 15px;
-            padding: 15px;
-        }
-
-        .contact-section img {
-            max-width: 280px;
-            margin: 0 auto;
-        }
-
-        form {
-            padding: 20px 15px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .page-wrapper {
-            padding: 70px 10px 15px;
-        }
-
-        .main-content {
-            padding: 20px 15px;
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-        }
-
-        header p {
-            font-size: 0.95rem;
-        }
-
-        .contact-section {
-            padding: 12px;
-        }
-
-        .contact-section img {
-            max-width: 220px;
-        }
-
-        .contact-section p {
-            font-size: 1.1rem;
-        }
-
-        form {
-            padding: 15px;
-        }
-
-        input, textarea {
-            padding: 10px 12px;
-            font-size: 0.95em;
-        }
-
-        button[type="submit"] {
-            padding: 12px;
-            font-size: 1em;
-        }
-
-        footer p {
-            font-size: 0.85em;
-        }
-    }
-    </style>
+    <!-- CSS Centralizado -->
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Botón del menú hamburguesa para móviles -->
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-    <!-- Menú de navegación -->
-    <nav class="vertical-menu">
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/templates/educacion.html">Educación</a></li>
-            <li><a href="/templates/experiencias.html">Experiencias</a></li>
-            <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
-            <li><a href="/templates/contacto.html">Contacto</a></li>
-            <li><a href="/templates/articulos.html">Artículos</a></li>
-        </ul>
-    </nav>
+    <!-- Barra de navegación superior sticky -->
+    <header class="navbar-header">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <span>Fran</span> Esparza
+            </a>
+            
+            <!-- Botón de menú para móvil -->
+            <button class="navbar-toggle" aria-label="Abrir menú" id="navbar-toggle-btn">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            
+            <!-- Enlaces de navegación -->
+            <nav class="navbar-menu" id="navbar-menu">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html" class="active">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Contenedor wrapper para centrado -->
     <div class="page-wrapper">
         <!-- Contenido principal -->
-        <div class="main-content">
+        <main class="main-content">
             <!-- Encabezado -->
-            <header>
+            <header class="section-header reveal">
                 <h1>Contacto</h1>
-                <p>Contáctame por cualquiera de mis redes sociales.</p>
+                <p class="subtitle">¿Tienes alguna propuesta o consulta? ¡Conectemos! ✉️</p>
             </header>
 
-            <!-- Secciones de contacto -->
-            <section>
-                <div class="contact-section">
-                    <img src="/static/images/Insta.png" alt="INSTAGRAM">
-                    <a href="https://www.instagram.com/franck_fez/#" class="social-link" target="_blank">Ir a Instagram</a>
-                </div>
-                <hr class="separator">
+            <div class="contacto-grid">
+                <!-- Tarjetas de Redes Sociales -->
+                <section class="contacto-info-cards">
+                    
+                    <!-- LinkedIn Card -->
+                    <div class="contacto-card linkedin reveal reveal-delay-1">
+                        <div class="contacto-card-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="contacto-card-content">
+                            <h3>LinkedIn</h3>
+                            <p>Francisco Abel Esparza</p>
+                            <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" target="_blank" rel="noopener noreferrer" class="btn-contacto">Conectar en LinkedIn <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Instagram Card -->
+                    <div class="contacto-card instagram reveal reveal-delay-2">
+                        <div class="contacto-card-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contacto-card-content">
+                            <h3>Instagram</h3>
+                            <p>@franck_fez</p>
+                            <a href="https://www.instagram.com/franck_fez/#" target="_blank" rel="noopener noreferrer" class="btn-contacto">Seguir en Instagram <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Twitter/X Card -->
+                    <div class="contacto-card twitter reveal reveal-delay-3">
+                        <div class="contacto-card-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="contacto-card-content">
+                            <h3>Twitter / X</h3>
+                            <p>@Franckfez</p>
+                            <a href="https://x.com/Franckfez" target="_blank" rel="noopener noreferrer" class="btn-contacto">Seguir en Twitter <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Facebook Card -->
+                    <div class="contacto-card facebook reveal reveal-delay-1">
+                        <div class="contacto-card-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="contacto-card-content">
+                            <h3>Facebook</h3>
+                            <p>Francisco Esparza</p>
+                            <a href="https://www.facebook.com/profile.php?id=100082889918531" target="_blank" rel="noopener noreferrer" class="btn-contacto">Ver Perfil en Facebook <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                </section>
 
-                <div class="contact-section">
-                    <img src="/static/images/Linkedin.png" alt="LINKEDIN">
-                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" class="social-link" target="_blank">Ir a LinkedIn</a>
-                </div>
-                <hr class="separator">
+                <!-- Formulario de Contacto -->
+                <section class="contacto-form-container reveal reveal-delay-2">
+                    <h2>Escribime un mensaje</h2>
+                    <form action="https://formspree.io/f/mkgnapqz" method="POST">
+                        <input type="hidden" name="_next" value="../gracias.html">
 
-                <div class="contact-section">
-                    <p>FORMULARIO DE CONTACTO</p>
-                </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre y Apellido:</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre...">
+                        </div>
 
-                <!-- Formulario de contacto -->
-                <form action="https://formspree.io/f/mkgnapqz" method="POST">
-                    <input type="hidden" name="_next" value="../gracias.html">
+                        <div class="form-group">
+                            <label for="correo">Correo Electrónico:</label>
+                            <input type="email" id="correo" name="correo" required placeholder="correo@ejemplo.com">
+                        </div>
 
-                    <label for="nombre">Nombre y Apellido:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+54 342 ...">
+                        </div>
 
-                    <label for="correo">Correo Electrónico:</label>
-                    <input type="email" id="correo" name="correo" required>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje (hasta 140 caracteres):</label>
+                            <textarea id="mensaje" name="mensaje" maxlength="140" required placeholder="Escribe tu consulta aquí..." oninput="updateCharCount(this)"></textarea>
+                            <div class="form-char-counter" id="char-counter">0 / 140 caracteres</div>
+                        </div>
 
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" required>
-
-                    <label for="mensaje">Mensaje (hasta 140 caracteres):</label>
-                    <textarea id="mensaje" name="mensaje" maxlength="140" required></textarea>
-
-                    <button type="submit">Enviar Mensaje</button>
-                </form>
-            </section>
-
-            <!-- Pie de página -->
-            <footer>
-                <p>&copy; 2025 Francisco Esparza. Todos los derechos reservados.</p>
-            </footer>
-        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                    </form>
+                </section>
+            </div>
+        </main>
     </div>
 
+    <!-- Pie de página unificado -->
+    <footer class="footer-site">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2><span>Fran</span> Esparza</h2>
+                <p>Tecnología, ciencia política y compromiso social integrados para proponer soluciones, difundir ideas y transformar realidades.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Redes Sociales</h3>
+                <div class="footer-social-icons">
+                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/franck_fez/#" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Franckfez" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082889918531" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Francisco Esparza. Todos los derechos reservados.</p>
+            <p>Hecho con <i class="fas fa-heart" style="color: var(--primary-color);"></i> desde Santa Fe, Argentina</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Global -->
+    <script src="../static/main.js"></script>
+    
+    <!-- Contador de caracteres -->
     <script>
-    // Menú hamburguesa
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-            });
-            
-            // Cerrar menú al hacer clic en un enlace (en móviles)
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 992) {
-                        nav.classList.remove('active');
-                        menuToggle.textContent = '☰';
-                    }
-                });
-            });
-            
-            // Cerrar menú al hacer clic fuera de él
-            document.addEventListener('click', function(e) {
-                if (nav.classList.contains('active') && 
-                    !nav.contains(e.target) && 
-                    !menuToggle.contains(e.target)) {
-                    nav.classList.remove('active');
-                    menuToggle.textContent = '☰';
-                }
-            });
-        }
-    });
+    function updateCharCount(textarea) {
+        const currentLength = textarea.value.length;
+        document.getElementById('char-counter').textContent = `${currentLength} / 140 caracteres`;
+    }
     </script>
 </body>
 </html>

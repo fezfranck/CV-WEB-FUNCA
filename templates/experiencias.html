@@ -4,557 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiencias - Francisco Esparza</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- CSS Centralizado -->
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-    /* Estilos generales del cuerpo */
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url('../static/images/fondo.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #2c2c2c;
-        min-height: 100vh;
-    }
-
-    /* Menú de navegación - Versión Mejorada */
-    nav {
-        width: 220px;
-        background: linear-gradient(180deg, #4a4a4a, #333);
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        padding-top: 40px;
-        box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: 600;
-        padding: 12px 15px 12px 30px;
-        display: block;
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        font-size: clamp(0.9rem, 1.5vw, 1rem);
-    }
-
-    nav ul li a:hover {
-        background-color: #555;
-        transform: translateX(10px);
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Menú hamburguesa para móviles */
-    .menu-toggle {
-        display: none;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-        z-index: 1001;
-        background: #4a4a4a;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* Contenedor principal para centrado */
-    .page-wrapper {
-        margin-left: 220px;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-    }
-
-    /* Contenido principal mejorado */
-    .main-content {
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
-        border-radius: 20px;
-        max-width: 1200px;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-
-    /* Efecto de partículas decorativas */
-    .main-content::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
-        z-index: 0;
-    }
-
-    /* Título centrado */
-    header {
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-        z-index: 1;
-        width: 100%;
-    }
-
-    header h1 {
-        font-size: clamp(2rem, 6vw, 3.5em);
-        color: #2c3e50;
-        margin: 0 0 15px 0;
-        font-weight: 700;
-        position: relative;
-        display: inline-block;
-    }
-
-    header h1::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #3498db, #2980b9);
-        border-radius: 2px;
-    }
-
-    .subtitle {
-        font-size: clamp(0.9rem, 2vw, 1.2em);
-        color: #7f8c8d;
-        font-weight: 400;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-
-    /* Secciones de experiencia - Mejorado */
-    .experience-section {
-        display: grid;
-        grid-template-columns: minmax(200px, 1fr) 2fr;
-        gap: 30px;
-        align-items: start;
-        margin-bottom: 40px;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 16px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .experience-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        background: linear-gradient(to bottom, #3498db, #2980b9);
-    }
-
-    .experience-section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-    }
-
-    .experience-section img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 12px;
-        justify-self: center;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease;
-    }
-
-    .experience-section img:hover {
-        transform: scale(1.03);
-    }
-
-    .experience-content {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .experience-title {
-        font-size: clamp(1.2rem, 3vw, 1.6em);
-        color: #2c3e50;
-        font-weight: 700;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .experience-title i {
-        color: #3498db;
-        font-size: 0.9em;
-    }
-
-    .experience-description {
-        font-size: clamp(0.95rem, 2vw, 1.1em);
-        line-height: 1.7;
-        color: #444;
-    }
-
-    .highlight {
-        color: #2980b9;
-        font-weight: 600;
-        position: relative;
-    }
-
-    .duration-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(52, 152, 219, 0.1);
-        border: 1px solid rgba(52, 152, 219, 0.2);
-        border-radius: 50px;
-        padding: 8px 16px;
-        font-size: 0.9em;
-        color: #2980b9;
-        font-weight: 500;
-        margin-top: 10px;
-        transition: all 0.3s ease;
-        align-self: flex-start;
-    }
-
-    .duration-badge:hover {
-        background: rgba(52, 152, 219, 0.2);
-        transform: translateX(5px);
-    }
-
-    .duration-badge i {
-        font-size: 1.1em;
-    }
-
-    /* Sección de descargas */
-    .downloads-section {
-        margin-top: 50px;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 16px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .downloads-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-        background: linear-gradient(to bottom, #3498db, #2980b9);
-    }
-
-    .downloads-section h2 {
-        color: #2c3e50;
-        margin: 0 0 25px 0;
-        font-size: clamp(1.4rem, 3vw, 1.8em);
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .downloads-section h2 i {
-        color: #3498db;
-    }
-
-    .downloads-section ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .downloads-section li {
-        margin-bottom: 15px;
-        padding: 15px 20px;
-        background: rgba(52, 152, 219, 0.05);
-        border-radius: 12px;
-        border-left: 4px solid #3498db;
-        transition: all 0.3s ease;
-    }
-
-    .downloads-section li:hover {
-        background: rgba(52, 152, 219, 0.1);
-        transform: translateX(5px);
-        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
-    }
-
-    .downloads-section a {
-        color: #2c3e50;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .downloads-section a i {
-        color: #3498db;
-        font-size: 1.2em;
-    }
-
-    .downloads-section a:hover {
-        color: #3498db;
-    }
-
-    /* Media queries mejoradas para responsividad */
-    @media (max-width: 992px) {
-        nav {
-            transform: translateX(-100%);
-        }
-        
-        nav.active {
-            transform: translateX(0);
-        }
-        
-        .menu-toggle {
-            display: block;
-        }
-        
-        .page-wrapper {
-            margin-left: 0;
-            padding: 20px 15px;
-        }
-
-        .main-content {
-            padding: 30px 20px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        nav {
-            width: 80%;
-            max-width: 300px;
-            height: 100%;
-            padding-top: 60px;
-            transform: translateX(-100%);
-        }
-        
-        nav.active {
-            transform: translateX(0);
-        }
-        
-        .page-wrapper {
-            padding: 80px 15px 20px;
-            align-items: flex-start;
-        }
-
-        .main-content {
-            padding: 25px 15px;
-        }
-
-        .experience-section {
-            grid-template-columns: 1fr;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .experience-section img {
-            max-width: 100%;
-            margin: 0 auto 15px;
-        }
-
-        .experience-title {
-            justify-content: center;
-        }
-
-        .duration-badge {
-            align-self: center;
-        }
-
-        .downloads-section {
-            padding: 20px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .page-wrapper {
-            padding: 70px 10px 15px;
-        }
-
-        .main-content {
-            padding: 20px 15px;
-        }
-
-        .experience-section {
-            padding: 15px;
-        }
-
-        .downloads-section {
-            padding: 15px;
-        }
-
-        .downloads-section h2 {
-            font-size: 1.4em;
-        }
-    }
-    </style>
 </head>
 <body>
-    <!-- Botón del menú hamburguesa para móviles -->
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-    <!-- Menú de navegación -->
-    <nav class="vertical-menu">
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/templates/educacion.html">Educación</a></li>
-            <li><a href="/templates/experiencias.html">Experiencias</a></li>
-            <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
-            <li><a href="/templates/contacto.html">Contacto</a></li>
-            <li><a href="/templates/articulos.html">Artículos</a></li>
-        </ul>
-    </nav>
+    <!-- Barra de navegación superior sticky -->
+    <header class="navbar-header">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <span>Fran</span> Esparza
+            </a>
+            
+            <!-- Botón de menú para móvil -->
+            <button class="navbar-toggle" aria-label="Abrir menú" id="navbar-toggle-btn">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            
+            <!-- Enlaces de navegación -->
+            <nav class="navbar-menu" id="navbar-menu">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html" class="active">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Contenedor wrapper para centrado -->
     <div class="page-wrapper">
         <!-- Contenido principal -->
-        <div class="main-content">
+        <main class="main-content">
             <!-- Encabezado -->
-            <header>
+            <header class="section-header reveal">
                 <h1>Experiencias</h1>
-                <p class="subtitle">Mi trayectoria profesional 💼</p>
+                <p class="subtitle">Mi trayectoria profesional y académica 💼</p>
             </header>
 
             <!-- Secciones de experiencia -->
-            <section>
-                <div class="experience-section">
-                    <img src="/static/images/senado_nacional01.jpg" alt="Senado Nacional">
-                    <div class="experience-content">
-                        <h3 class="experience-title">
-                            <i class="fas fa-landmark"></i>
-                            Honorable Senado de la Nación
-                        </h3>
-                        <p class="experience-description">
-                            ¡Una experiencia transformadora en el corazón del poder legislativo! ⚖️ Aquí aprendí sobre las <span class="highlight">funciones parlamentarias</span> de primera mano. Participé en la redacción y análisis de proyectos de ley, asistí a comisiones y trabajé codo a codo con funcionarios y legisladores. ¡Una inmersión total en la política legislativa argentina!
-                        </p>
-                        <div class="duration-badge">
-                            <i class="fas fa-calendar-alt"></i>
-                            2021 - 2023
+            <section class="experiences-grid">
+                
+                <!-- Senado Nacional -->
+                <div class="experience-card-item reveal reveal-delay-1">
+                    <div class="experience-img-wrapper">
+                        <img src="/static/images/senado_nacional01.jpg" alt="Senado Nacional">
+                    </div>
+                    <div class="experience-info">
+                        <div class="experience-title-row">
+                            <h3><i class="fas fa-landmark"></i> Honorable Senado de la Nación</h3>
+                            <span class="experience-badge"><i class="fas fa-calendar-alt"></i> 2021 - 2023</span>
                         </div>
+                        <p class="experience-desc">
+                            ¡Una experiencia transformadora en el corazón del poder legislativo! Aquí aprendí sobre las <span class="highlight">funciones parlamentarias</span> de primera mano. Participé en la redacción y análisis de proyectos de ley, asistí a comisiones de debate y trabajé junto a funcionarios técnicos y legisladores nacionales.
+                        </p>
                     </div>
                 </div>
 
-                <div class="experience-section">
-                    <img src="/static/images/congresoabogacia.jpeg" alt="Conferencia Nacional de Abogacía">
-                    <div class="experience-content">
-                        <h3 class="experience-title">
-                            <i class="fas fa-users"></i>
-                            XX Conferencia Nacional de la Abogacía
-                        </h3>
-                        <p class="experience-description">
-                            ¡Presentando investigación a nivel nacional! 📊 Junto al <span class="highlight">Dr. Juan Manuel Fernández</span>, expusimos nuestro trabajo ante la Federación Argentina de Colegios de Abogados. Propusimos un nuevo régimen para deudores particulares, ¡aportando soluciones innovadoras a problemáticas actuales!
-                        </p>
-                        <div class="duration-badge">
-                            <i class="fas fa-calendar-check"></i>
-                            2023
+                <!-- Congreso Abogacía -->
+                <div class="experience-card-item reveal reveal-delay-2">
+                    <div class="experience-img-wrapper">
+                        <img src="/static/images/congresoabogacia.jpeg" alt="Conferencia Nacional de Abogacía">
+                    </div>
+                    <div class="experience-info">
+                        <div class="experience-title-row">
+                            <h3><i class="fas fa-users"></i> XX Conferencia Nacional de la Abogacía</h3>
+                            <span class="experience-badge"><i class="fas fa-calendar-check"></i> 2023</span>
                         </div>
+                        <p class="experience-desc">
+                            ¡Presentando investigaciones a nivel nacional! Junto al <span class="highlight">Dr. Juan Manuel Fernández</span>, expusimos nuestro trabajo académico ante la Federación Argentina de Colegios de Abogados (FACA), proponiendo un nuevo régimen para deudores particulares y aportando soluciones normativas a las problemáticas vigentes.
+                        </p>
                     </div>
                 </div>
 
-                <div class="experience-section">
-                    <img src="/static/images/MolinoFC.jpg" alt="Molino Fábrica Cultural">
-                    <div class="experience-content">
-                        <h3 class="experience-title">
-                            <i class="fas fa-theater-masks"></i>
-                            Molino Fábrica Cultural
-                        </h3>
-                        <p class="experience-description">
-                            ¡Gestionando cultura en un espacio emblemático! 🎭 A través del programa <span class="highlight">Residencias Culturales</span> del Ministerio de Innovación y Cultura de Santa Fe, coordiné actividades públicas, atendí visitantes y organicé eventos culturales. Bajo la conducción de la Ministra María de los Ángeles González, ¡aprendí sobre gestión cultural y trabajo en equipo!
-                        </p>
-                        <div class="duration-badge">
-                            <i class="fas fa-calendar-alt"></i>
-                            2019 - 2021
+                <!-- Molino Fábrica Cultural -->
+                <div class="experience-card-item reveal reveal-delay-3">
+                    <div class="experience-img-wrapper">
+                        <img src="/static/images/MolinoFC.jpg" alt="Molino Fábrica Cultural">
+                    </div>
+                    <div class="experience-info">
+                        <div class="experience-title-row">
+                            <h3><i class="fas fa-theater-masks"></i> Molino Fábrica Cultural</h3>
+                            <span class="experience-badge"><i class="fas fa-calendar-alt"></i> 2019 - 2021</span>
                         </div>
+                        <p class="experience-desc">
+                            ¡Gestionando cultura en un espacio emblemático de la ciudad! A través del prestigioso programa <span class="highlight">Residencias Culturales</span> del Ministerio de Innovación y Cultura de la Provincia de Santa Fe, coordiné dinámicas pedagógicas y actividades públicas, promoviendo el acceso ciudadano a la cultura.
+                        </p>
                     </div>
                 </div>
 
-                <div class="experience-section">
-                    <img src="/static/images/UNLcongresos.jpg" alt="Congresos UNL">
-                    <div class="experience-content">
-                        <h3 class="experience-title">
-                            <i class="fas fa-university"></i>
-                            Participación en Congresos Académicos
-                        </h3>
-                        <p class="experience-description">
-                            ¡Activo en el ámbito académico desde 2018! 📚 He participado en las <span class="highlight">Jornadas de Ciencia Política del Litoral</span>, el Congreso Internacional de Comunicación Política, el Congreso de Derecho Internacional y las Jornadas de Debate de Políticas Públicas de Género. ¡Como expositor presenté dos trabajos de investigación, compartiendo conocimiento con la comunidad académica!
-                        </p>
-                        <div class="duration-badge">
-                            <i class="fas fa-calendar-alt"></i>
-                            2018 - 2023
+                <!-- Congresos UNL -->
+                <div class="experience-card-item reveal reveal-delay-1">
+                    <div class="experience-img-wrapper">
+                        <img src="/static/images/UNLcongresos.jpg" alt="Congresos UNL">
+                    </div>
+                    <div class="experience-info">
+                        <div class="experience-title-row">
+                            <h3><i class="fas fa-university"></i> Participación en Congresos Académicos</h3>
+                            <span class="experience-badge"><i class="fas fa-calendar-alt"></i> 2018 - 2023</span>
                         </div>
+                        <p class="experience-desc">
+                            Expositor en jornadas científicas de renombre, como las <span class="highlight">Jornadas de Ciencia Política del Litoral</span> y congresos sobre comunicación política, derecho internacional y políticas públicas de género. Presenté dos ponencias con investigaciones originales sobre discurso político y representación parlamentaria.
+                        </p>
                     </div>
                 </div>
 
-                <div class="experience-section">
-                    <img src="/static/images/Pasantia01.webp" alt="Secretaría de Cultura">
-                    <div class="experience-content">
-                        <h3 class="experience-title">
-                            <i class="fas fa-palette"></i>
-                            Secretaría de Cultura - Laguna Paiva
-                        </h3>
-                        <p class="experience-description">
-                            ¡Mi primera experiencia profesional fue cerca de casa! 🏡 En mi último año de secundaria, contribuí a crear una <span class="highlight">base de datos de artistas locales</span>, ayudando a organizar y promover el talento de mi comunidad. ¡Un proyecto que conectó cultura y tecnología!
-                        </p>
-                        <div class="duration-badge">
-                            <i class="fas fa-calendar-check"></i>
-                            2016
+                <!-- Pasantía Laguna Paiva -->
+                <div class="experience-card-item reveal reveal-delay-2">
+                    <div class="experience-img-wrapper">
+                        <img src="/static/images/Pasantia01.webp" alt="Secretaría de Cultura">
+                    </div>
+                    <div class="experience-info">
+                        <div class="experience-title-row">
+                            <h3><i class="fas fa-palette"></i> Secretaría de Cultura - Laguna Paiva</h3>
+                            <span class="experience-badge"><i class="fas fa-calendar-check"></i> 2016</span>
                         </div>
+                        <p class="experience-desc">
+                            Pasantía escolar de fin de secundaria orientada al diseño y carga de una <span class="highlight">base de datos de hacedores culturales locales</span>. Un proyecto digital que vinculó informática con políticas de fomento y mapeo artístico de la localidad.
+                        </p>
                     </div>
                 </div>
 
-                <div class="experience-section">
-                    <img src="/static/images/Pasantia02.jpg" alt="Instructor Informático">
-                    <div class="experience-content">
-                        <h3 class="experience-title">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            Instructor Informático - Jardín N° 96
-                        </h3>
-                        <p class="experience-description">
-                            ¡Enseñando tecnología a los más pequeños! 👶💻 También en mi último año de secundario, fui instructor informático en el jardín Ing. León Lasalle. Brindé apoyo en herramientas tecnológicas a niños de 5 años, ¡facilitando su desarrollo digital desde temprana edad!
-                        </p>
-                        <div class="duration-badge">
-                            <i class="fas fa-calendar-check"></i>
-                            2016
+                <!-- Instructor Informático -->
+                <div class="experience-card-item reveal reveal-delay-3">
+                    <div class="experience-img-wrapper">
+                        <img src="/static/images/Pasantia02.jpg" alt="Instructor Informático">
+                    </div>
+                    <div class="experience-info">
+                        <div class="experience-title-row">
+                            <h3><i class="fas fa-chalkboard-teacher"></i> Instructor Informático - Jardín N° 96</h3>
+                            <span class="experience-badge"><i class="fas fa-calendar-check"></i> 2016</span>
                         </div>
+                        <p class="experience-desc">
+                            Instrucción en herramientas computacionales básicas adaptadas para niños de 5 años. Apoyo al personal docente en el uso de recursos pedagógicos digitales interactivos del establecimiento.
+                        </p>
                     </div>
                 </div>
              
                 <!-- Artículos Académicos y Proyectos de Congresos -->
-                <div class="downloads-section">
+                <div class="downloads-section reveal">
                     <h2>
                         <i class="fas fa-file-pdf"></i>
-                        Artículos Académicos y Proyectos
+                        Artículos Académicos y Ponencias (PDF)
                     </h2>
-                    <ul>
+                    <ul class="downloads-list">
                         <li>
                             <a href="/static/files/XX Conferencia Nacional de la Abogacia de la FACA.pdf" download>
                                 <i class="fas fa-download"></i>
@@ -564,65 +164,76 @@
                         <li>
                             <a href="/static/files/Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei, 6ta Jornada de Ciencia Politica Santiago Cignetti y Francisco Esparza.pdf" download>
                                 <i class="fas fa-download"></i>
-                                <span>Trabajo de investigación: "Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei" por Santiago Cignetti y Francisco Esparza</span>
+                                <span>Trabajo de investigación: "Moralidad como concepto delimitador y exclusor en los discursos de Javier Milei" por S. Cignetti y F. Esparza</span>
                             </a>
                         </li>
                         <li>
                             <a href="/static/files/Violencias en plural la respuesta de la oposición frente al intento de magnicidio de.pdf" download>
                                 <i class="fas fa-download"></i>
-                                <span>Trabajo de investigación: "Violencias en plural: la respuesta de la oposición frente al intento de magnicidio de Cristina Fernández" por Martina Trossero y Francisco Esparza</span>
+                                <span>Trabajo de investigación: "Violencias en plural: la respuesta de la oposición frente al intento de magnicidio" por M. Trossero y F. Esparza</span>
                             </a>
                         </li>
                         <li>
                             <a href="/static/files/Analisis del Discurso Parlamentario de la Dip. Gabriela Cerruti en el debate de la IVE 2020.pdf" download>
                                 <i class="fas fa-download"></i>
-                                <span>Trabajo de investigación: Analisis del Discurso Parlamentario de la Dip. Gabriela Cerruti en el debate de la IVE 2020</span>
+                                <span>Trabajo de investigación: "Análisis del Discurso Parlamentario de la Dip. Gabriela Cerruti en el debate de la IVE 2020"</span>
                             </a>
                         </li>
                         <li>
                             <a href="/static/files/CIENCIA Y HEGEMONÍA UN VINCULO IRREFLEXIVO - Comentario metalinguistico FRANCISCO A ESPARZA.pdf" download>
                                 <i class="fas fa-download"></i>
-                                <span>Ensayo y comentario metalingüístico sobre “No es nada descubrir algo nuevo, hay que descubrir para qué se descubre” a Enrique Dussel</span>
+                                <span>Ensayo y comentario metalingüístico sobre "No es nada descubrir algo nuevo, hay que descubrir para qué se descubre"</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </section>
-        </div>
+        </main>
     </div>
 
-    <script>
-    // Menú hamburguesa
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
-                this.textContent = nav.classList.contains('active') ? '✕' : '☰';
-            });
-            
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 992) {
-                        nav.classList.remove('active');
-                        menuToggle.textContent = '☰';
-                    }
-                });
-            });
-            
-            document.addEventListener('click', function(e) {
-                if (nav.classList.contains('active') && 
-                    !nav.contains(e.target) && 
-                    !menuToggle.contains(e.target)) {
-                    nav.classList.remove('active');
-                    menuToggle.textContent = '☰';
-                }
-            });
-        }
-    });
-    </script>
+    <!-- Pie de página unificado -->
+    <footer class="footer-site">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2><span>Fran</span> Esparza</h2>
+                <p>Tecnología, ciencia política y compromiso social integrados para proponer soluciones, difundir ideas y transformar realidades.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Redes Sociales</h3>
+                <div class="footer-social-icons">
+                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/franck_fez/#" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Franckfez" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082889918531" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Francisco Esparza. Todos los derechos reservados.</p>
+            <p>Hecho con <i class="fas fa-heart" style="color: var(--primary-color);"></i> desde Santa Fe, Argentina</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Global -->
+    <script src="../static/main.js"></script>
 </body>
 </html>
