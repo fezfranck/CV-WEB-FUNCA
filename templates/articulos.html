@@ -62,14 +62,19 @@
     <div id="modal-articulo" class="modal">
         <div class="modal-content">
             <div class="modal-header">
+                <span class="modal-kicker"><i class="fas fa-bookmark"></i> Artículo</span>
                 <h2 id="modal-titulo"></h2>
                 <button class="modal-close" aria-label="Cerrar modal">&times;</button>
             </div>
+            <div class="modal-progress"><div class="modal-progress-bar" id="modal-progress-bar"></div></div>
             <div class="modal-body">
                 <div id="modal-contenido" class="articulo-contenido"></div>
             </div>
             <div class="modal-footer">
-                <span class="modal-fecha" id="modal-fecha"></span>
+                <div class="modal-footer-info">
+                    <span class="modal-fecha" id="modal-fecha"></span>
+                    <span class="modal-tiempo-lectura" id="modal-tiempo-lectura"></span>
+                </div>
                 <div class="modal-compartir" id="modal-compartir"></div>
             </div>
         </div>
@@ -265,6 +270,23 @@
                 
                 const contenido = await response.text();
                 document.getElementById('modal-contenido').innerHTML = contenido;
+                
+                // Calcular tiempo estimado de lectura
+                const textoPlano = contenido.replace(/<[^>]+>/g, ' ');
+                const palabras = textoPlano.trim().split(/\s+/).filter(Boolean).length;
+                const minutos = Math.max(1, Math.round(palabras / 200));
+                document.getElementById('modal-tiempo-lectura').innerHTML = `<i class="far fa-clock"></i> ${minutos} min de lectura`;
+                
+                // Reiniciar y configurar la barra de progreso de lectura
+                const modalBody = document.querySelector('.modal-body');
+                const progressBar = document.getElementById('modal-progress-bar');
+                progressBar.style.width = '0%';
+                modalBody.scrollTop = 0;
+                modalBody.onscroll = function() {
+                    const scrollable = modalBody.scrollHeight - modalBody.clientHeight;
+                    const scrolled = scrollable > 0 ? (modalBody.scrollTop / scrollable) * 100 : 0;
+                    progressBar.style.width = scrolled + '%';
+                };
                 
                 // Configurar botones de compartir en el footer del modal
                 const compartirContainer = document.getElementById('modal-compartir');
