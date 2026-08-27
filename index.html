@@ -9,55 +9,7 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Estilos puntuales para la cita de Aristóteles (autocontenidos, no dependen de styles.css) -->
-    <style>
-        .hero-tagline {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.35rem;
-            font-style: normal;
-        }
-
-        .hero-tagline .quote-greek {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-            font-size: 1.35em;
-            letter-spacing: 0.02em;
-            line-height: 1.4;
-        }
-
-        .hero-tagline .quote-translation {
-            font-family: inherit;
-            font-style: normal;
-            font-size: 0.62em;
-            opacity: 0.7;
-            letter-spacing: 0.01em;
-        }
-
-        .hero-tagline .quote-author {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: inherit;
-            font-style: normal;
-            font-size: 0.5em;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            opacity: 0.65;
-            margin-top: 0.15rem;
-        }
-
-        .hero-tagline .quote-author::before,
-        .hero-tagline .quote-author::after {
-            content: "";
-            display: inline-block;
-            width: 28px;
-            height: 1px;
-            background: currentColor;
-            opacity: 0.5;
-        }
-    </style>
+    <!-- La cita de Aristóteles ahora vive en un chip pequeño dentro del hero (ver .hero-quote-chip en styles.css) -->
 </head>
 <body>
 
@@ -93,77 +45,113 @@
     <div class="page-wrapper">
         <!-- Contenido principal -->
         <main class="main-content">
-            <!-- Encabezado del perfil -->
-            <section class="profile-header">
-                <div class="profile-img-container reveal">
-                    <img src="static/mi_foto.jpg" alt="Francisco Abel Esparza" class="profile-img">
+            <!-- HERO: dos columnas en escritorio, con blobs decorativos y chip de cita -->
+            <section class="hero-section">
+                <div class="hero-decor hero-decor-1" aria-hidden="true"></div>
+                <div class="hero-decor hero-decor-2" aria-hidden="true"></div>
+
+                <div class="hero-grid">
+                    <!-- Columna de texto -->
+                    <div class="hero-text">
+                        <div class="welcome-badge reveal">
+                            <i class="fas fa-hand-sparkles"></i> ¡Hola! Soy Fran 👋
+                        </div>
+
+                        <h1 class="reveal reveal-delay-1">
+                            Tecnología, política<br>
+                            y ganas de <span class="highlight-underline">hacer cosas</span>
+                        </h1>
+
+                        <p class="profile-description reveal reveal-delay-2">
+                            Tengo <span class="highlight" id="edad-dinamica">28</span> años, vivo en <span class="highlight">Santa Fe</span> y soy
+                            <span class="highlight">técnico en informática</span>, estudiante avanzado de
+                            <span class="highlight">Ciencia Política</span> y diplomado en <span class="highlight">Gestión Legislativa</span> y
+                            <span class="highlight">Diseño Gráfico</span>.
+                            <br><br>
+                            Me gusta mezclar todo eso para transformar realidades: proyectos que unan conocimiento, tecnología y compromiso social. 🚀
+                        </p>
+
+                        <div class="cta-container reveal reveal-delay-2">
+                            <a href="/templates/experiencias.html" class="btn btn-primary">Ver mi trayectoria</a>
+                            <a href="/templates/contacto.html" class="btn btn-secondary">Hablemos <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="hero-stats reveal reveal-delay-3">
+                            <div class="hero-stat">
+                                <strong id="edad-dinamica-stat">28</strong>
+                                <span>años</span>
+                            </div>
+                            <div class="hero-stat-divider"></div>
+                            <div class="hero-stat">
+                                <strong>3+</strong>
+                                <span>formaciones</span>
+                            </div>
+                            <div class="hero-stat-divider"></div>
+                            <div class="hero-stat">
+                                <strong>Santa Fe</strong>
+                                <span>Argentina</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna de imagen -->
+                    <div class="hero-visual reveal reveal-delay-1">
+                        <div class="profile-img-container">
+                            <img src="static/mi_foto.jpg" alt="Francisco Abel Esparza" class="profile-img">
+                        </div>
+
+                        <div class="hero-quote-chip">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"El que no puede vivir en sociedad, o no necesita nada por autosuficiente, es una bestia o un dios."</p>
+                            <span>— Aristóteles</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="welcome-badge reveal reveal-delay-1">
-                    <i class="fas fa-code-branch"></i> Tecnología & Ciencia Política
-                </div>
-                
-                <h1 class="reveal reveal-delay-1">Francisco <span>Abel Esparza</span></h1>
-                
-                <h2 class="hero-tagline reveal reveal-delay-2">
-                    <span class="quote-greek">El que es incapaz de vivir en sociedad, o no necesita nada por su propia suficiencia, no es miembro de la ciudad, sino una bestia o un dios</span>
-                    <span class="quote-author">Aristóteles, Política, Libro I</span>
-                </h2>
             </section>
-            
-            <div class="divider"></div>
-            
-            <!-- Bio y CTAs -->
-            <section style="text-align: center;">
-                <p class="profile-description reveal reveal-delay-1">
-                    ¡Hola! 👋 Soy <span class="highlight">Fran</span>, tengo <span class="highlight" id="edad-dinamica">28</span> años y resido en la ciudad de <span class="highlight">Santa Fe</span>. 
-                    Soy <span class="highlight">técnico en informática personal y profesional</span>, estudiante avanzado de la 
-                    <span class="highlight">Licenciatura en Ciencia Política</span>, Diplomado en <span class="highlight">Gestión Legislativa</span> 
-                    y en <span class="highlight">Diseño Gráfico</span>.
-                    <br><br>
-                    Me gusta trabajar para <span class="highlight">transformar realidades</span> a través del conocimiento, la tecnología y el compromiso social. 
-                    Te invito a explorar mi trayectoria y a conocerme. <i class="fas fa-rocket" style="color: var(--primary-color);"></i>
-                </p>
-                
-                <div class="cta-container reveal reveal-delay-2">
-                    <a href="/templates/experiencias.html" class="btn btn-primary">Ver mi trayectoria</a>
-                    <a href="/templates/contacto.html" class="btn btn-secondary">Contactame</a>
-                </div>
+
+            <!-- Franja de intereses (chips) -->
+            <section class="interest-tags reveal reveal-delay-2">
+                <span class="interest-tag"><i class="fas fa-laptop-code"></i> Tecnología</span>
+                <span class="interest-tag"><i class="fas fa-landmark"></i> Política</span>
+                <span class="interest-tag"><i class="fas fa-music"></i> Piano</span>
+                <span class="interest-tag"><i class="fas fa-book-open"></i> Lectura</span>
+                <span class="interest-tag"><i class="fas fa-people-group"></i> Compromiso social</span>
             </section>
 
             <div class="divider"></div>
             
             <!-- Trayectoria Previews (Sección Resumen) -->
             <section class="home-previews">
-                <h2 class="home-previews-title reveal">Explora mi Portfolio</h2>
+                <span class="section-eyebrow reveal">Un poco de todo</span>
+                <h2 class="home-previews-title reveal">Cosas que hago y que me gustan</h2>
                 <div class="home-previews-grid">
                     <!-- Tarjeta Educación -->
-                    <div class="preview-card reveal reveal-delay-1">
+                    <div class="preview-card preview-card-blue reveal reveal-delay-1">
                         <div class="preview-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3>Formación Académica</h3>
-                        <p>Estudios avanzados de la Licenciatura en Ciencia Política en la UNL, experiencia de intercambio internacional eMOVIES en México, y formación en informática, diseño y procesos parlamentarios.</p>
+                        <h3>Dónde estudié</h3>
+                        <p>Ciencia Política en la UNL, un intercambio internacional (eMOVIES) en México, y de yapa informática, diseño y procesos parlamentarios.</p>
                         <a href="/templates/educacion.html" class="btn-link">Ver Educación <i class="fas fa-arrow-right"></i></a>
                     </div>
                     
                     <!-- Tarjeta Experiencia -->
-                    <div class="preview-card reveal reveal-delay-2">
+                    <div class="preview-card preview-card-teal reveal reveal-delay-2">
                         <div class="preview-icon">
                             <i class="fas fa-briefcase"></i>
                         </div>
-                        <h3>Experiencia Profesional</h3>
-                        <p>Funciones parlamentarias en el Honorable Senado de la Nación, coordinación y atención de actividades públicas en el Molino Fábrica Cultural, y participación activa en congresos científicos.</p>
+                        <h3>En qué trabajé</h3>
+                        <p>Funciones parlamentarias en el Senado de la Nación, coordinación de actividades en el Molino Fábrica Cultural, y participación en congresos científicos.</p>
                         <a href="/templates/experiencias.html" class="btn-link">Ver Experiencias <i class="fas fa-arrow-right"></i></a>
                     </div>
                     
                     <!-- Tarjeta Quién Soy -->
-                    <div class="preview-card reveal reveal-delay-3">
+                    <div class="preview-card preview-card-purple reveal reveal-delay-3">
                         <div class="preview-icon">
-                            <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-user-astronaut"></i>
                         </div>
-                        <h3>Sobre Mí</h3>
-                        <p>Nacido en Laguna Paiva y residente de Santa Fe. Fusiono la pasión por la informática, la música en piano, la lectura y el compromiso cívico en pos de idear proyectos y sumar valor social.</p>
+                        <h3>Quién soy</h3>
+                        <p>Nací en Laguna Paiva y vivo en Santa Fe. Mezclo la informática con el piano, la lectura y las ganas de sumar valor social.</p>
                         <a href="/templates/quiensoy.html" class="btn-link">Conoceme Más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -173,7 +161,8 @@
             
             <!-- Artículos Recientes Dinámicos -->
             <section class="artículos-recientes-section">
-                <h2 class="articulos-recientes-title reveal">Últimas Publicaciones</h2>
+                <span class="section-eyebrow reveal">Escribo también</span>
+                <h2 class="articulos-recientes-title reveal">Lo último que publiqué</h2>
                 <div id="articulos-recientes-container" class="articulos-recientes-grid">
                     <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">
                         <p>Cargando publicaciones...</p>
@@ -244,9 +233,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            const edadCalculada = calcularEdad(FECHA_NACIMIENTO);
             const elementoEdad = document.getElementById('edad-dinamica');
+            const elementoEdadStat = document.getElementById('edad-dinamica-stat');
             if (elementoEdad) {
-                elementoEdad.textContent = calcularEdad(FECHA_NACIMIENTO);
+                elementoEdad.textContent = edadCalculada;
+            }
+            if (elementoEdadStat) {
+                elementoEdadStat.textContent = edadCalculada;
             }
         });
     })();
