@@ -284,17 +284,30 @@
 
                         const gradient = coverGradients[index % coverGradients.length];
                         const icon = iconsClass[index % iconsClass.length];
+                        const tag = art.categoria || 'Opinión & Investigación';
+
+                        let coverInner = '';
+                        if (art.imagen && art.imagen.trim() !== '') {
+                            coverInner = `
+                                <img src="${art.imagen}" alt="${art.titulo}" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+                                <span class="articulo-preview-tag">${tag}</span>
+                            `;
+                        } else {
+                            coverInner = `
+                                <i class="fas ${icon}"></i>
+                                <span class="articulo-preview-tag">${tag}</span>
+                            `;
+                        }
 
                         col.innerHTML = `
-                            <div class="articulo-preview-cover ${gradient}">
-                                <i class="fas ${icon}"></i>
-                                <span class="articulo-preview-tag">Opinión & Investigación</span>
+                            <div class="articulo-preview-cover ${gradient}" style="position:relative;overflow:hidden;">
+                                ${coverInner}
                             </div>
                             <div class="articulo-preview-body">
                                 <span class="articulo-preview-date"><i class="far fa-calendar-alt"></i> ${art.fecha}</span>
                                 <h3>${art.titulo}</h3>
                                 <p class="articulo-preview-resumen">${art.resumen || 'Sin descripción disponible.'}</p>
-                                <a href="/templates/articulos.html#articulo-${art.id}" class="articulo-preview-btn">Leer Artículo <i class="fas fa-arrow-right"></i></a>
+                                <a href="/templates/articulos.html#articulo-${encodeURIComponent(art.id)}" class="articulo-preview-btn">Leer Artículo <i class="fas fa-arrow-right"></i></a>
                             </div>
                         `;
 
