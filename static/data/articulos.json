@@ -1,65 +1,92 @@
 [
   {
-    "id": "analisis-infobae",
-    "titulo": "Análisis de Infobae",
-    "fecha": "03/11/2023",
-    "archivo": "/static/articulos/analisis-infobae.html",
-    "resumen": "Análisis de los paradigmas de la comunicación digital en medios modernos"
-  },
-  {
     "id": "Al gran caudillo argentino, salud",
     "titulo": "Al gran caudillo argentino, salud",
     "fecha": "17/09/2026",
-    "archivo": "/static/articulos/Al gran caudillo argentino, salud.html",
-    "resumen": "El Brigadier General Estanislao López, el significado histórico de la figura del caudillo y la vigencia de la tensión entre el federalismo del interior y el centralismo porteño en la Argentina."
+    "categoria": "Historia & Federalismo",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "El Brigadier General Estanislao López, el significado histórico de la figura del caudillo y la vigencia de la tensión entre el federalismo del interior y el centralismo porteño en la Argentina.",
+    "archivo": "/static/articulos/Al gran caudillo argentino, salud.html"
   },
   {
     "id": "Antes del 15 de septiembre",
     "titulo": "Antes del 15 de septiembre",
     "fecha": "24/08/2026",
-    "archivo": "/static/articulos/Antes del 15 de septiembre.html",
-    "resumen": "El Presupuesto 2027 puede ser mucho más que una discusión sobre déficit y superávit: puede convertirse en una prueba de las prioridades políticas y económicas del gobierno de Javier Milei."
+    "categoria": "Opinión & Presupuesto",
+    "imagen": "/static/images/articulos/presupuesto-congreso.jpg",
+    "epigrafe": "El Congreso de la Nación ante el debate del Presupuesto: cuentas públicas, prioridades y costo social.",
+    "resumen": "El Presupuesto 2027 puede ser mucho más que una discusión sobre déficit y superávit: puede convertirse en una prueba de las prioridades políticas y económicas del gobierno de Javier Milei.",
+    "archivo": "/static/articulos/Antes del 15 de septiembre.html"
   },
   {
-    "id": "resena-academica",
-    "titulo": "El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916 - Suriano Juan",
-    "fecha": "05/05/2021",
-    "archivo": "/static/articulos/politica-actual.html",
-    "resumen": "El texto 'El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916' forma parte de un compilado de trabajos de Juan Suriano el cual se titula 'La cuestión social en argentina 1870 – 1943' y fue editado en el año 2000 por la editorial la Colmena. Como bien lo expresa su autor en uno de sus primeros párrafos, el objetivo principal del texto se focaliza en explicitar la forma en que afrontó el surgimiento de conflictos sociales entre trabajadores y patrones el Estado Argentino, los cuáles fueron las acciones que se tomaron y como con el transcurso del tiempo fueron cambiando en búsqueda de la solución a la problemática."
-  },
-  {
-    "id": "ensayo-gobiernos-radicales",
-    "titulo": "Los gobiernos radicales políticos y fracturas internas (1916-1928)",
-    "fecha": "03/08/2021",
-    "archivo": "/static/articulos/Los gobiernos radicales políticas y fracturas internas (1916-1928).html",
-    "resumen": "Ensayo académico Los gobiernos radicales políticos y fracturas internas (1916-1928)"
-  },
-  {
-    "id": "ensayo-transformaciones-economicas",
-    "titulo": "Transformaciones económicas en Argentina (1913-1922)",
-    "fecha": "02/08/2021",
-    "archivo": "/static/articulos/TransformacioneseconmicasenArgentina_19131922.html",
-    "resumen": "Ensayo académico Transformaciones económicas en Argentina (1913-1922)"
-  },
-  {
-    "id": "ensayo-contractualistas",
-    "titulo": "Rousseau y Kant: Un análisis comparativo",
-    "fecha": "11/11/2020",
-    "archivo": "/static/articulos/Ensayo contractualistas.html",
-    "resumen": "Ensayo académico - Rousseau y Kant: Un análisis comparativo"
+    "id": "analisis-infobae",
+    "titulo": "Análisis de Infobae",
+    "fecha": "03/11/2023",
+    "categoria": "Comunicación Digital",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "Análisis de los paradigmas de la comunicación digital en medios modernos a partir del caso de estudio de Infobae.",
+    "archivo": "/static/articulos/analisis-infobae.html"
   },
   {
     "id": "ethos",
     "titulo": "El Ethos Retórico: Construcción de la Identidad Discursiva",
     "fecha": "11/06/2022",
-    "archivo": "/static/articulos/ethos.html",
-    "resumen": "El Ethos Retórico: Construcción de la Identidad Discursiva"
+    "categoria": "Análisis del Discurso",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "El Ethos Retórico y la construcción de la identidad discursiva en la comunicación política contemporánea.",
+    "archivo": "/static/articulos/ethos.html"
+  },
+  {
+    "id": "ensayo-gobiernos-radicales",
+    "titulo": "Los gobiernos radicales políticos y fracturas internas (1916-1928)",
+    "fecha": "03/08/2021",
+    "categoria": "Historia Política",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "Ensayo académico sobre los gobiernos radicales en Argentina, tensiones partidarias y fracturas internas (1916-1928).",
+    "archivo": "/static/articulos/Los gobiernos radicales políticas y fracturas internas (1916-1928).html"
+  },
+  {
+    "id": "ensayo-transformaciones-economicas",
+    "titulo": "Transformaciones económicas en Argentina (1913-1922)",
+    "fecha": "02/08/2021",
+    "categoria": "Economía & Historia",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "Ensayo académico sobre el impacto de la Primera Guerra Mundial y el viraje productivo en la economía argentina (1913-1922).",
+    "archivo": "/static/articulos/TransformacioneseconmicasenArgentina_19131922.html"
   },
   {
     "id": "representacion",
     "titulo": "Transformaciones de la representación política: Del parlamentarismo liberal a la democracia de partidos",
     "fecha": "21/04/2021",
-    "archivo": "/static/articulos/representacion.html",
-    "resumen": "Transformaciones de la representación política: Del parlamentarismo liberal a la democracia de partidos"
+    "categoria": "Ciencia Política",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "Transformaciones de la representación política moderna: del parlamentarismo de notables a la consolidación de la democracia de partidos.",
+    "archivo": "/static/articulos/representacion.html"
+  },
+  {
+    "id": "resena-academica",
+    "titulo": "El estado argentino frente a los trabajadores urbanos: política social y represión, 1880 - 1916 - Suriano Juan",
+    "fecha": "05/05/2021",
+    "categoria": "Reseña Académica",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "Reseña crítica sobre el texto de Juan Suriano en 'La cuestión social en argentina 1870 – 1943', analizando la respuesta estatal frente al surgimiento del conflicto obrero.",
+    "archivo": "/static/articulos/politica-actual.html"
+  },
+  {
+    "id": "ensayo-contractualistas",
+    "titulo": "Rousseau y Kant: Un análisis comparativo",
+    "fecha": "11/11/2020",
+    "categoria": "Filosofía Política",
+    "imagen": "",
+    "epigrafe": "",
+    "resumen": "Ensayo académico comparativo entre el pensamiento contractualista de Jean-Jacques Rousseau e Immanuel Kant.",
+    "archivo": "/static/articulos/Ensayo contractualistas.html"
   }
 ]

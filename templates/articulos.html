@@ -62,12 +62,21 @@
     <div id="modal-articulo" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="modal-kicker"><i class="fas fa-bookmark"></i> Artículo</span>
+                <div class="modal-kicker-row">
+                    <span class="modal-kicker" id="modal-categoria"><i class="fas fa-bookmark"></i> Artículo</span>
+                    <span class="modal-fecha-header" id="modal-fecha-header"><i class="far fa-calendar-alt"></i> Publicado</span>
+                </div>
                 <h2 id="modal-titulo"></h2>
                 <button class="modal-close" aria-label="Cerrar modal">&times;</button>
             </div>
             <div class="modal-progress"><div class="modal-progress-bar" id="modal-progress-bar"></div></div>
             <div class="modal-body">
+                <!-- Portada / Hero Image del artículo -->
+                <div class="modal-hero-container hidden" id="modal-hero-container">
+                    <img src="" alt="" class="modal-hero-img" id="modal-hero-img">
+                    <span class="modal-hero-caption" id="modal-hero-caption"></span>
+                </div>
+                <!-- Contenido inyectado -->
                 <div id="modal-contenido" class="articulo-contenido"></div>
             </div>
             <div class="modal-footer">
@@ -165,21 +174,50 @@
                 articulosData.forEach((articulo, index) => {
                     const articuloCard = document.createElement('div');
                     articuloCard.className = `articulo-card reveal reveal-delay-${(index % 3) + 1}`;
+                    
+                    const categoria = articulo.categoria || 'Opinión & Análisis';
+                    
+                    // Portada de imagen o fallback decorativo con icono temático
+                    let coverHtml = '';
+                    if (articulo.imagen && articulo.imagen.trim() !== '') {
+                        coverHtml = `
+                            <div class="articulo-card-cover">
+                                <span class="articulo-card-tag">${categoria}</span>
+                                <img src="${articulo.imagen}" alt="${articulo.titulo}" loading="lazy">
+                            </div>
+                        `;
+                    } else {
+                        const altClass = `articulo-card-cover-alt${(index % 3) + 1}`;
+                        const icons = ['fa-newspaper', 'fa-book-open', 'fa-landmark', 'fa-scroll', 'fa-pen-fancy'];
+                        const icon = icons[index % icons.length];
+                        coverHtml = `
+                            <div class="articulo-card-cover ${altClass}">
+                                <span class="articulo-card-tag">${categoria}</span>
+                                <div class="articulo-card-cover-fallback">
+                                    <i class="fas ${icon}"></i>
+                                </div>
+                            </div>
+                        `;
+                    }
+
                     articuloCard.innerHTML = `
-                        <div class="articulo-meta">
-                            <i class="far fa-calendar-alt"></i> Publicado el: ${articulo.fecha}
-                        </div>
-                        <h2>${articulo.titulo}</h2>
-                        <p class="articulo-excerpt">${articulo.resumen || 'Sin resumen disponible.'}</p>
-                        <div class="articulo-card-actions">
-                            <button class="btn btn-secondary btn-read" data-index="${index}">
-                                Leer más <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <div class="articulo-share-buttons">
-                                <a href="#" class="btn-share-icon fb" data-index="${index}" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="btn-share-icon tw" data-index="${index}" title="Compartir en Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="btn-share-icon ln" data-index="${index}" title="Compartir en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="btn-share-icon wa" data-index="${index}" title="Compartir en WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        ${coverHtml}
+                        <div class="articulo-card-body">
+                            <div class="articulo-meta">
+                                <i class="far fa-calendar-alt"></i> ${articulo.fecha}
+                            </div>
+                            <h2>${articulo.titulo}</h2>
+                            <p class="articulo-excerpt">${articulo.resumen || 'Sin resumen disponible.'}</p>
+                            <div class="articulo-card-actions">
+                                <button class="btn btn-secondary btn-read" data-index="${index}">
+                                    Leer artículo <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <div class="articulo-share-buttons">
+                                    <a href="#" class="btn-share-icon fb" data-index="${index}" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="btn-share-icon tw" data-index="${index}" title="Compartir en Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="btn-share-icon ln" data-index="${index}" title="Compartir en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="btn-share-icon wa" data-index="${index}" title="Compartir en WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                </div>
                             </div>
                         </div>
                     `;
@@ -221,7 +259,7 @@
         }
 
         function configurarEventos() {
-            // Botones "Leer más"
+            // Botones "Leer artículo"
             document.querySelectorAll('.btn-read').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -261,23 +299,64 @@
             const articulo = articulosData[index];
             const modal = document.getElementById('modal-articulo');
             
+            // Título, categoría y fecha destacada en cabecera
             document.getElementById('modal-titulo').textContent = articulo.titulo;
-            document.getElementById('modal-fecha').innerHTML = `<i class="far fa-calendar-alt"></i> Publicado el: ${articulo.fecha}`;
+            document.getElementById('modal-categoria').innerHTML = `<i class="fas fa-bookmark"></i> ${articulo.categoria || 'Artículo'}`;
+            
+            const fechaHtml = `<i class="far fa-calendar-alt"></i> Publicado el ${articulo.fecha}`;
+            document.getElementById('modal-fecha-header').innerHTML = fechaHtml;
+            document.getElementById('modal-fecha').innerHTML = fechaHtml;
+            
+            // Imagen de portada (Hero Image)
+            const heroContainer = document.getElementById('modal-hero-container');
+            const heroImg = document.getElementById('modal-hero-img');
+            const heroCaption = document.getElementById('modal-hero-caption');
+            
+            if (articulo.imagen && articulo.imagen.trim() !== '') {
+                heroImg.src = articulo.imagen;
+                heroImg.alt = articulo.titulo;
+                if (articulo.epigrafe && articulo.epigrafe.trim() !== '') {
+                    heroCaption.textContent = articulo.epigrafe;
+                    heroCaption.style.display = 'block';
+                } else {
+                    heroCaption.textContent = '';
+                    heroCaption.style.display = 'none';
+                }
+                heroContainer.classList.remove('hidden');
+            } else {
+                heroContainer.classList.add('hidden');
+                heroImg.src = '';
+            }
             
             try {
                 const response = await fetch(articulo.archivo);
                 if (!response.ok) throw new Error('No se pudo cargar el contenido');
                 
-                const contenido = await response.text();
-                document.getElementById('modal-contenido').innerHTML = contenido;
+                const rawContenido = await response.text();
+                
+                // Parsear y limpiar contenido
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawContenido;
+                
+                // Ocultar primer párrafo si es la fecha (para no duplicar la fecha de cabecera)
+                const parrafos = tempDiv.querySelectorAll('p');
+                for (let p of parrafos) {
+                    const text = p.textContent.trim().toLowerCase();
+                    if (text.startsWith('fecha:') || text.startsWith('fecha :')) {
+                        p.classList.add('fecha-detectada');
+                        break;
+                    }
+                }
+                
+                document.getElementById('modal-contenido').innerHTML = tempDiv.innerHTML;
                 
                 // Calcular tiempo estimado de lectura
-                const textoPlano = contenido.replace(/<[^>]+>/g, ' ');
+                const textoPlano = tempDiv.textContent || tempDiv.innerText || '';
                 const palabras = textoPlano.trim().split(/\s+/).filter(Boolean).length;
                 const minutos = Math.max(1, Math.round(palabras / 200));
                 document.getElementById('modal-tiempo-lectura').innerHTML = `<i class="far fa-clock"></i> ${minutos} min de lectura`;
                 
-                // Reiniciar y configurar la barra de progreso de lectura
+                // Reiniciar y configurar barra de progreso
                 const modalBody = document.querySelector('.modal-body');
                 const progressBar = document.getElementById('modal-progress-bar');
                 progressBar.style.width = '0%';
@@ -288,13 +367,13 @@
                     progressBar.style.width = scrolled + '%';
                 };
                 
-                // Configurar botones de compartir en el footer del modal
+                // Botones de compartir en el modal
                 const compartirContainer = document.getElementById('modal-compartir');
                 compartirContainer.innerHTML = `
-                    <a href="#" class="btn-share-icon fb" data-modal-index="${index}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn-share-icon tw" data-modal-index="${index}" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn-share-icon ln" data-modal-index="${index}" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="btn-share-icon wa" data-modal-index="${index}" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="btn-share-icon fb" data-modal-index="${index}" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn-share-icon tw" data-modal-index="${index}" title="Compartir en Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn-share-icon ln" data-modal-index="${index}" title="Compartir en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="btn-share-icon wa" data-modal-index="${index}" title="Compartir en WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 `;
                 
                 compartirContainer.querySelectorAll('.btn-share-icon').forEach(btn => {
@@ -305,15 +384,15 @@
                     });
                 });
                 
-                // Cambiar el hash en la URL para reflejar el artículo abierto
-                history.pushState(null, null, `#articulo-${articulo.id}`);
+                // Actualizar hash en URL
+                history.pushState(null, null, `#articulo-${encodeURIComponent(articulo.id)}`);
                 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 
             } catch (error) {
                 console.error(error);
-                document.getElementById('modal-contenido').innerHTML = `<p style="color: var(--accent-color); font-weight: bold;">Error al abrir el archivo del artículo: ${articulo.archivo}</p>`;
+                document.getElementById('modal-contenido').innerHTML = `<p style="color: var(--accent-color); font-weight: bold; padding: 20px 0;">Error al abrir el archivo del artículo: ${articulo.archivo}</p>`;
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
@@ -330,7 +409,7 @@
         function compartirArticulo(boton, index) {
             const articulo = articulosData[index];
             const baseUrl = window.location.origin + window.location.pathname;
-            const urlArticulo = `${baseUrl}#articulo-${articulo.id}`;
+            const urlArticulo = `${baseUrl}#articulo-${encodeURIComponent(articulo.id)}`;
             const titulo = articulo.titulo;
             
             let urlCompartir = '';
@@ -349,10 +428,11 @@
         }
 
         function verificarDeepLinking() {
-            const hash = window.location.hash;
-            if (hash && hash.startsWith('#articulo-')) {
-                const id = hash.replace('#articulo-', '');
-                const index = articulosData.findIndex(art => art.id === id);
+            const rawHash = window.location.hash;
+            if (rawHash && rawHash.startsWith('#articulo-')) {
+                const rawId = rawHash.replace('#articulo-', '');
+                const decodedId = decodeURIComponent(rawId);
+                const index = articulosData.findIndex(art => art.id === rawId || art.id === decodedId);
                 if (index !== -1) {
                     setTimeout(() => {
                         abrirModal(index);
