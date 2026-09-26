@@ -19,14 +19,14 @@
             <a href="/" class="navbar-logo">
                 <span>Fran</span> Esparza
             </a>
-            
+
             <!-- Botón de menú para móvil -->
             <button class="navbar-toggle" aria-label="Abrir menú" id="navbar-toggle-btn">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
             </button>
-            
+
             <!-- Enlaces de navegación -->
             <nav class="navbar-menu" id="navbar-menu">
                 <ul>
@@ -40,6 +40,7 @@
             </nav>
         </div>
     </header>
+
     <!-- Contenedor wrapper para centrado -->
     <div class="page-wrapper">
         <!-- Contenido principal -->
@@ -57,8 +58,8 @@
                         </div>
 
                         <h1 class="reveal reveal-delay-1">
-                            Política, musica y tecnologia<br>
-                            pero sobre todo ganas de <span class="highlight-underline">hacer cosas</span>
+                            Tecnología, política<br>
+                            y ganas de <span class="highlight-underline">hacer cosas</span>
                         </h1>
 
                         <p class="profile-description reveal reveal-delay-2">
@@ -154,7 +155,9 @@
                         <a href="/templates/quiensoy.html" class="btn-link">Conoceme Más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-	@@ -161,8 +173,7 @@ <h3>Quién soy</h3>
+            </section>
+
+            <div class="divider"></div>
 
             <!-- Artículos Recientes Dinámicos -->
             <section class="artículos-recientes-section">
@@ -163,7 +166,70 @@
                 <div id="articulos-recientes-container" class="articulos-recientes-grid">
                     <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">
                         <p>Cargando publicaciones...</p>
-	@@ -233,14 +244,9 @@ <h3>Redes Sociales</h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Pie de página unificado -->
+    <footer class="footer-site">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2><span>Fran</span> Esparza</h2>
+                <p>Tecnología, ciencia política y compromiso social integrados para proponer soluciones, difundir ideas y transformar realidades.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/templates/educacion.html">Educación</a></li>
+                    <li><a href="/templates/experiencias.html">Experiencias</a></li>
+                    <li><a href="/templates/quiensoy.html">Quién Soy</a></li>
+                    <li><a href="/templates/contacto.html">Contacto</a></li>
+                    <li><a href="/templates/articulos.html">Artículos</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Redes Sociales</h3>
+                <div class="footer-social-icons">
+                    <a href="https://www.linkedin.com/in/francisco-abel-esparza-119787108/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/franck_fez/#" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/Franckfez" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter/X">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082889918531" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Francisco Esparza. Todos los derechos reservados.</p>
+            <p>Hecho con <i class="fas fa-heart" style="color: var(--primary-color);"></i> desde Santa Fe, Argentina</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Global -->
+    <script src="static/main.js"></script>
+
+    <!-- Cálculo automático de la edad a partir de la fecha de nacimiento -->
+    <script>
+    (function actualizarEdad() {
+        const FECHA_NACIMIENTO = new Date(1998, 4, 7); // Mes 4 = mayo (0-indexado)
+
+        function calcularEdad(nacimiento) {
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            const aunNoCumplioEsteAnio =
+                hoy.getMonth() < nacimiento.getMonth() ||
+                (hoy.getMonth() === nacimiento.getMonth() && hoy.getDate() < nacimiento.getDate());
+            if (aunNoCumplioEsteAnio) edad--;
+            return edad;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -179,7 +245,7 @@
         });
     })();
     </script>
-    
+
     <!-- Lógica de artículos en home -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -197,21 +263,21 @@
                         const dateB = new Date(b.fecha.split('/').reverse().join('-'));
                         return dateB - dateA;
                     });
-                    
+
                     // Mostrar los 3 artículos más recientes
                     const recientes = data.slice(0, 3);
-                    
+
                     if (recientes.length === 0) {
                         container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No hay artículos publicados actualmente.</p>';
                         return;
                     }
-                    
+
                     container.innerHTML = '';
-                    
+
                     // Estilos de gradiente e iconos correspondientes a los previews
                     const coverGradients = ['', 'articulo-preview-cover-alt1', 'articulo-preview-cover-alt2'];
                     const iconsClass = ['fa-newspaper', 'fa-book-open', 'fa-landmark'];
-                    
+
                     recientes.forEach((art, index) => {
                         const col = document.createElement('div');
                         col.className = `articulo-preview-card reveal reveal-delay-${index + 1}`;
@@ -234,7 +300,7 @@
 
                         container.appendChild(col);
                     });
-                    
+
                     // Volver a inicializar Observer para las nuevas tarjetas
                     if ('IntersectionObserver' in window) {
                         const revealElements = container.querySelectorAll('.reveal');
@@ -246,7 +312,7 @@
                                 }
                             });
                         }, { threshold: 0.1 });
-                        
+
                         revealElements.forEach(el => observer.observe(el));
                     } else {
                         container.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
