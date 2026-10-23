@@ -1,5 +1,14 @@
 [
   {
+    "id": "Un joven y enardecido fantasma recorre Europa",
+    "titulo": "Un joven y enardecido fantasma recorre Europa",
+    "fecha": "23/10/2026",
+    "categoria": "Opinión & Política",
+    "imagen": "/static/images/franceprotesta.png",
+    "epigrafe": "",
+    "resumen": "Las protestas en Francia revelan un malestar económico, no identitario: jóvenes del siglo XXI enfrentan vivienda inaccesible, salarios bajos y salud precaria, y exigen futuro.",
+    "archivo": "/static/articulos/joven y enardecido fantasma recorre Europa.html"
+  },{
     "id": "IA2027",
     "titulo": "IA2027",
     "fecha": "26/09/2026",
