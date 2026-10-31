@@ -1,5 +1,14 @@
 [
-  {
+ {
+    "id": "Un país sin obra pública se descarrila",
+    "titulo": "Un país sin obra pública se descarrila",
+    "fecha": "31/10/2026",
+    "categoria": "Opinión & Política",
+    "imagen": "/static/images/Descarrila.png",
+    "epigrafe": "",
+    "resumen": "El abandono de la obra pública, del Circunvalar a la Ruta 11, pone en riesgo vidas y frena Santa Fe.",
+    "archivo": "/static/articulos/Un país sin obra pública se descarrila.html"
+  }, {
     "id": "Un joven y enardecido fantasma recorre Europa",
     "titulo": "Un joven y enardecido fantasma recorre Europa",
     "fecha": "23/10/2026",
